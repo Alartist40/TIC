@@ -1,0 +1,237 @@
+/* ----------  TOKYO INTERNATIONAL CHURCH – MOBILE ONLY  ---------- */
+/*  target : ≤ 480 px  */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --primary: #005eb8;
+  --accent:  #d4af37;
+  --bg:      #f8f9fa;
+  --text:    #2d3436;
+  --divider: #e0e0e0;
+  --white:   #ffffff;
+  --radius:  8px;
+  --space:   1rem;
+  --font:    'Inter', system-ui, sans-serif;
+  --max-width: 100%;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ===== 7-COLUMN GRID (6 content + 1 Sabbath) ===== */
+body {
+  font-family: var(--font);
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  display: grid;
+  grid-template-columns: 6fr 1fr; /* Creation Grid – phone keeps 7 columns */
+}
+
+.content-sixth { max-width: var(--max-width); overflow-x: hidden; }
+.sabbath-stripe {
+  background: var(--primary);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: grid;
+  place-items: start center;
+  padding-top: 1rem;
+}
+.sabbath-logo {
+  width: clamp(60px, 10vw, 100px);
+  filter: drop-shadow(0 0 6px rgba(0,0,0,.4));
+}
+
+/* ===== HAMBURGER NAV ===== */
+.main-nav {
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--divider);
+  padding: 0.75rem 1rem;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.titles h1 {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  line-height: 1.2;
+  color: var(--primary);
+}
+.nav-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 24px;
+  position: relative;
+}
+.hamburger, .hamburger::before, .hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary);
+  transition: 0.3s;
+}
+.hamburger { top: 50%; transform: translateY(-50%); }
+.hamburger::before { top: -8px; }
+.hamburger::after { top: 8px; }
+.nav-toggle[aria-expanded="true"] .hamburger {
+  background: transparent;
+}
+.nav-toggle[aria-expanded="true"] .hamburger::before {
+  top: 0; transform: rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .hamburger::after {
+  top: 0; transform: rotate(-45deg);
+}
+
+.nav-links {
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.nav-links.open {
+  display: flex;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 500;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-links a:active {
+  background: var(--accent);
+  color: var(--white);
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--divider);
+}
+section:last-of-type { border: none; }
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+}
+p { margin-bottom: 0.75rem; }
+
+/* ===== CARDS – NO HOVER, AUTO SHINE ON SCROLL ===== */
+.card {
+  background: var(--white);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  /* shine animation */
+  background: linear-gradient(110deg, var(--white) 48%, #fef9e7 50%, var(--white) 52%);
+  background-size: 200% 100%;
+  animation: card-shine 6s linear infinite;
+}
+@keyframes card-shine {
+  to { background-position: 200% 0; }
+}
+
+/* ===== PASTOR – SQUARE IMAGE ABOVE VERSE ===== */
+.pastor-verse-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.pastor-square {
+  width: clamp(120px, 25vw, 180px);
+  height: clamp(120px, 25vw, 180px);
+  border: 3px solid var(--accent);
+  border-radius: var(--radius); /* SQUARE */
+  overflow: hidden;
+  margin: 0 auto;
+}
+.pastor-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.verse-box {
+  background: var(--bg);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius);
+  padding: 1rem;
+  font-style: italic;
+  text-align: center;
+}
+.ref {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ===== BUTTON – NO HOVER ===== */
+.gold-btn {
+  display: inline-block;
+  margin: 0.75rem 0;
+  padding: 0.6rem 1.2rem;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  /* shine animation */
+  background: linear-gradient(110deg, transparent 48%, rgba(212, 175, 55, 0.15) 50%, transparent 52%);
+  background-size: 200% 100%;
+  animation: btn-shine 4s linear infinite;
+}
+@keyframes btn-shine {
+  to { background-position: 200% 0; }
+}
+
+/* ===== TABLE ===== */
+.table-wrapper {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+th, td {
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+th {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* ===== IFRAMES ===== */
+iframe {
+  width: 100%;
+  height: clamp(200px, 40vw, 300px);
+  border: 0;
+  border-radius: var(--radius);
+  margin-top: 0.5rem;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  padding: 1rem;
+}

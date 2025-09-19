@@ -1,8 +1,5 @@
 this is what I have for my css how can I fix 
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
-
 /* Simple reset to remove default margins/padding */
 * {
     margin: 0;
@@ -24,22 +21,7 @@ body {
     font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: #ffffff; /* White background */
     /* Remove the grid from the body */
-    overflow-x: hidden;
-}
-
-/* Mobile-first responsive design */
-@media (max-width: 768px) {
-    html {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    html {
-        font-size: 13px;
-    }
 }
 
 /* --- THE CREATION GRID --- */
@@ -89,56 +71,6 @@ body {
     max-height: 160px;
   }
 
-/* Mobile responsive creation grid - Keep original design */
-@media (max-width: 768px) {
-    .creation-grid {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        pointer-events: none;
-        z-index: 100;
-        background-color: transparent; /* Ensure transparent */
-    }
-    
-    .grid-column-1-6 {
-        grid-column: 1 / 7;
-    }
-    
-    .sabbath-column {
-        grid-column: 7;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        background-color: var(--adventist-dark-blue);
-        border-left: 3px solid var(--adventist-gold);
-        padding-top: 2rem;
-    }
-    
-    .content-container {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        min-height: 100vh;
-        position: relative;
-        z-index: 1;
-        background-color: transparent; /* Ensure transparent */
-    }
-    
-    header, nav, main, footer {
-        grid-column: 1 / 7;
-        padding: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    header, nav, main, footer {
-        padding: 0.5rem;
-    }
-}
-
 @media (min-width: 481px) and (max-width: 768px) {
         .sabbath-column {
             background: var(--adventist-dark-blue);
@@ -181,18 +113,12 @@ header h1 {
     font-weight: 600;
 }
 
-.church-logo {
-    max-width: 300px;
-    height: auto;
-    margin: 0.5rem 0;
-}
-
 header p {
     font-style: italic;
     color: var(--adventist-gold);
 }
 
-/* Navigation styling for desktop */
+/* Navigation styling */
 nav {
     background-color: var(--adventist-dark-blue);
     display: flex;
@@ -220,141 +146,9 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
-/* Desktop navigation should always show on larger screens */
-@media (min-width: 769px) {
-    nav {
-        display: flex !important;
-        background-color: var(--adventist-dark-blue);
-        justify-content: center;
-        gap: 2rem;
-        padding: 1rem 2rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    
-    .dropdown-menu-btn,
-    .dropdown-nav {
-        display: none !important;
-    }
-}
-
-/* Mobile responsive header and navigation */
-@media (max-width: 768px) {
-    header {
-        padding: 1rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-    }
-    
-    header h1 {
-        font-size: 1.8rem;
-        line-height: 1.3;
-    }
-    
-    .church-logo {
-        max-width: 200px;
-    }
-    
-    nav {
-        display: none; /* Hide desktop nav on mobile - only for mobile view */
-    }
-    
-    /* Integrated dropdown menu button - positioned to avoid header overlap */
-    .dropdown-menu-btn {
-        display: block;
-        padding: 0.75rem 1.5rem;
-        background: transparent;
-        color: var(--white);
-        border: 2px solid var(--adventist-gold);
-        border-radius: 25px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        position: relative;
-        margin-left: auto;
-        margin-right: 0;
-        z-index: 1001;
-        transition: all 0.3s ease;
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
-        user-select: none;
-        min-width: 60px;
-        text-align: center;
-    }
-    
-    .dropdown-menu-btn:hover {
-        background: var(--adventist-gold);
-        color: var(--adventist-dark-blue);
-    }
-    
-    .dropdown-menu-btn:active {
-        background: var(--adventist-gold);
-        color: var(--adventist-dark-blue);
-    }
-    
-    .dropdown-nav {
-        display: none;
-        position: absolute;
-        top: calc(100% + 10px);
-        right: 1rem;
-        background-color: var(--adventist-dark-blue);
-        border: 1px solid var(--adventist-gold);
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-        min-width: 180px;
-    }
-    
-    .dropdown-nav.active {
-        display: block;
-    }
-    
-    .dropdown-nav a {
-        display: block;
-        color: var(--white);
-        text-decoration: none;
-        padding: 0.75rem 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        transition: background-color 0.3s ease;
-    }
-    
-    .dropdown-nav a:last-child {
-        border-bottom: none;
-    }
-    
-    .dropdown-nav a:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-    
-    /* Hide old hamburger menu */
-    .hamburger-menu {
-        display: none;
-    }
-    
-    .mobile-nav {
-        display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
-    
-    .church-logo {
-        max-width: 150px;
-    }
-    
-    nav a {
-        font-size: 0.8rem;
-        padding: 0.5rem;
-    }
-}
-
 /* Main content area */
 main {
-    background-color: var(--white);
+    background-color: var(--light-gray);
     padding: 3rem 2rem;
 }
 
@@ -373,97 +167,14 @@ section:hover {
     box-shadow: 0 5px 15px rgba(20, 27, 65, 0.15);
 }
 
-/* Visit page grid layout */
-.visit-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-    align-items: start;
-}
-
-.address-section,
-.social-media-section {
-    margin-bottom: 1rem;
-}
-
-.social-box {
-    background-color: var(--white);
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-top: 1rem;
-}
-
-.social-box p {
-    margin-bottom: 0.5rem;
-}
-
-/* Mobile responsive sections and grids */
-@media (max-width: 768px) {
-    main {
-        padding: 1.5rem 1rem 1.5rem 0.25rem;
-    }
-    
-    section {
-        margin-bottom: 1.5rem;
-        padding: 1.5rem 1rem 1.5rem 0.5rem;
-    }
-    
-    .visit-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .social-box {
-        padding: 1rem 1rem 1rem 0.5rem;
-    }
-    
-    /* Responsive tables */
-    table {
-        font-size: 0.9rem;
-    }
-    
-    th, td {
-        padding: 0.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    section {
-        margin-bottom: 1rem;
-        padding: 1rem 0.5rem 1rem 0.25rem;
-    }
-    
-    .social-box {
-        padding: 0.8rem 0.8rem 0.8rem 0.25rem;
-    }
-    
-    table {
-        font-size: 0.8rem;
-    }
-    
-    th, td {
-        padding: 0.3rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .visit-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* Section headings */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Merriweather', Georgia, serif;
-    font-weight: 600;
-}
-
 h2 {
     color: var(--adventist-dark-blue);
     margin-bottom: 1rem;
     font-size: 1.8rem;
     border-bottom: 2px solid var(--adventist-gold);
     padding-bottom: 0.5rem;
+    font-weight: 600;
 }
 
 /* List styling */
@@ -565,8 +276,7 @@ blockquote footer {
 }
 
 .ministry-card.expanded {
-    width: 600px;
-    max-height: 220px;
+    width: 400px;
     grid-column: span 2;
 }
 
@@ -585,11 +295,11 @@ blockquote footer {
 }
 
 .ministry-card:hover .ministry-card__background {
-    opacity: 0.8;
+    opacity: 0.4;
 }
 
 .ministry-card.expanded .ministry-card__background {
-    opacity: 0.9;
+    opacity: 0.7;
     z-index: 1;
 }
 
@@ -630,9 +340,9 @@ blockquote footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
-    backdrop-filter: blur(5px);
-    padding: 0.8rem 1.5rem 0.3rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
     opacity: 0;
     transform: scale(0.9);
     transition: all 0.4s ease;
@@ -641,9 +351,8 @@ blockquote footer {
     align-items: center;
     justify-content: flex-start;
     text-align: center;
-    overflow-y: hidden;
+    overflow-y: auto;
     z-index: 3;
-    box-sizing: border-box;
 }
 
 .ministry-card.expanded .ministry-card__expanded {
@@ -691,7 +400,7 @@ blockquote footer {
 }
 
 /* Responsive design for smaller screens */
-@media (max-width: 768px) {
+    @media (max-width: 768px) {
         /* Enhanced mobile Sabbath column styling */
         .creation-grid {
             display: grid;
@@ -725,16 +434,6 @@ blockquote footer {
         text-align: center;
     }
     
-    /* Ensure desktop navigation is visible on all pages */
-    nav {
-        display: flex !important;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        padding: 1rem;
-    }
-    
     .pastor-profile {
         grid-template-columns: 1fr;
         text-align: center;
@@ -747,34 +446,14 @@ blockquote footer {
     .ministries-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
-        padding: 1rem 0.5rem 1rem 0.25rem;
     }
     
     .ministry-card {
         min-height: auto;
-        width: 100%;
-        height: auto;
-        min-height: 80px;
-        margin-bottom: 1rem;
-    }
-    
-    .ministry-card__title-vertical {
-        writing-mode: horizontal-tb;
-        transform: none;
-        font-size: 1.2rem;
-        padding: 1rem;
-    }
-    
-    .ministry-card__compressed {
-        opacity: 1;
-        position: relative;
-        pointer-events: auto;
     }
     
     .ministry-card.expanded {
         grid-column: 1;
-        width: 100%;
-        max-width: none;
     }
 }
 
@@ -833,71 +512,6 @@ blockquote footer {
     max-width: calc(100% - 2rem);
     position: relative;
     overflow: hidden;
-}
-
-/* Mobile responsive ministry cards - Always expanded */
-@media (max-width: 768px) {
-    .ministries-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-        padding: 1rem 0.5rem 1rem 0.25rem;
-    }
-    
-    .ministry-card {
-        width: 100%;
-        height: auto;
-        min-height: auto;
-        max-height: none;
-        border-radius: 12px;
-        border: 2px solid var(--adventist-blue);
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-    .ministry-card__title-vertical {
-        writing-mode: horizontal-tb;
-        transform: none;
-        font-size: 1.3rem;
-        padding: 1rem;
-        color: var(--adventist-dark-blue);
-        text-align: left;
-    }
-    
-    .ministry-card__compressed {
-        display: none;
-    }
-    
-    .ministry-card__expanded {
-        position: relative;
-        opacity: 1;
-        transform: none;
-        padding: 1.5rem 1rem 1.5rem 0.5rem;
-        background: var(--white);
-        border-top: 1px solid #eee;
-        border-radius: 0 0 12px 12px;
-    }
-    
-    .ministry-card.expanded {
-        width: 100%;
-        max-width: none;
-        min-height: auto;
-        max-height: none;
-        border-radius: 12px;
-    }
-    
-    .ministry-card__title {
-        font-size: 1.4rem;
-        margin-bottom: 1rem;
-    }
-    
-    .ministry-card__content p {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-    
-    /* More white space for 7th grid item */
-    .ministry-card:nth-child(7) {
-        margin-top: 2rem;
-    }
 }
 
 /* Vertical Title Container */
@@ -1004,599 +618,55 @@ blockquote footer {
 .ministry-card[data-ministry="health"] .card-title-vertical { background: linear-gradient(135deg, #17a2b8 0%, #138496 100%); }
 .ministry-card[data-ministry="children"] .card-title-vertical { background: linear-gradient(135deg, #8e44ad 0%, #6c3483 100%); }
 
-/* Mobile-First Responsive Design */
+/* Responsive Design */
 @media (max-width: 768px) {
-    /* Reset problematic styles */
-    .ministry-card {
-        position: relative;
-        height: auto;
-        width: 100%;
-        max-width: 100%;
-        margin-bottom: 1rem;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-    
     .ministries-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        gap: 2rem;
+        padding: 2rem;
     }
     
-    /* Clean mobile card layout */
     .ministry-card {
-        height: auto;
-        min-height: 120px;
-        width: 100%;
-        border-radius: 12px;
-        overflow: hidden;
+        height: 280px;
+        width: 40px;
     }
     
-    .ministry-card__compressed {
-        position: relative;
-        transform: none;
-        opacity: 1;
-        width: 100%;
-        height: auto;
-        min-height: 120px;
-        display: flex;
-        align-items: center;
-        padding: 1rem;
-    }
-    
-    .ministry-card__expanded {
-        position: relative;
-        transform: none;
-        opacity: 1;
-        width: 100%;
-        height: auto;
-        max-height: none;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        margin-bottom: 1rem;
-    }
-    
-    /* Mobile-friendly title */
-    .card-title-vertical {
-        display: none; /* Remove blue title section on mobile */
-    }
-    
-    /* Always expanded content */
-    .card-content {
-        padding: 1rem;
-        opacity: 1;
-        transform: none;
-        font-size: 0.9rem;
-    }
-    
-    .card-summary {
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-        padding-bottom: 0.5rem;
-    }
-    
-    .card-details {
-        max-height: none;
-        opacity: 1;
-        padding-top: 0;
-    }
-    
-    .card-details p {
-        font-size: 0.85rem;
-        line-height: 1.3;
-        margin-bottom: 0.5rem;
-    }
-    
-    .card-details ul {
-        margin: 0.3rem 0;
-        padding-left: 1rem;
-    }
-    
-    .card-details li {
-        font-size: 0.8rem;
-        margin-bottom: 0.2rem;
-    }
-    
-    .card-icon {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    /* Remove transforms and positioning */
     .ministry-card.expanded {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none !important;
-        z-index: auto;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        width: 320px;
+        grid-column: span 1;
     }
     
-    /* Smaller spacing */
-    main {
-        padding: 0.5rem;
+    .card-title-vertical {
+        font-size: 0.8rem;
     }
     
-    section {
-        padding: 1rem;
-        margin-bottom: 1rem;
+    .ministry-card.expanded .card-title-vertical {
+        font-size: 1.3rem;
+        padding: 1rem 1.5rem;
     }
     
-    /* Clean typography */
-    h1 { font-size: 1.4rem; }
-    h2 { font-size: 1.2rem; }
-    h3 { font-size: 1.1rem; }
+    .card-content {
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 480px) {
     .ministries-grid {
-        padding: 0.8rem;
-        gap: 0.8rem;
+        gap: 1.5rem;
+        padding: 1.5rem;
     }
     
     .ministry-card {
-        min-height: 100px;
-        border-radius: 10px;
-    }
-    
-    .ministry-card__compressed {
-        padding: 0.8rem;
-    }
-    
-    .card-title-vertical {
-        padding: 0.8rem;
-        font-size: 1rem;
-    }
-    
-    .card-content {
-        padding: 1rem;
-        font-size: 0.9rem;
-    }
-    
-    .card-summary {
-        font-size: 0.9rem;
-    }
-    
-    .card-details p {
-        font-size: 0.85rem;
-    }
-    
-    .card-details li {
-        font-size: 0.8rem;
-    }
-    
-    .card-icon {
-        font-size: 1.8rem;
-    }
-    
-    main {
-        padding: 0.8rem;
-    }
-    
-    section {
-        padding: 1rem 0.8rem;
-        margin-bottom: 1rem;
-    }
-    
-    h1 { font-size: 1.4rem; }
-    h2 { font-size: 1.2rem; }
-    h3 { font-size: 1.1rem; }
-}
-
-/* Ultra-small screens */
-@media (max-width: 375px) {
-    .ministries-grid {
-        padding: 0.5rem;
-        gap: 0.6rem;
-    }
-    
-    .ministry-card {
-        min-height: 90px;
-        border-radius: 8px;
-    }
-    
-    .card-title-vertical {
-        padding: 0.6rem;
-        font-size: 0.9rem;
-    }
-    
-    .card-content {
-        padding: 0.8rem;
-    }
-    
-    main {
-        padding: 0.5rem;
-    }
-    
-    section {
-        padding: 0.8rem 0.5rem;
-    }
-}
-
-/* Ultra-small screens */
-@media (max-width: 375px) {
-    .ministries-grid {
-        padding: 0.5rem;
-        gap: 0.8rem;
-    }
-    
-    .ministry-card {
-        height: 200px;
+        height: 250px;
         width: 35px;
     }
     
     .ministry-card.expanded {
-        width: calc(100vw - 1rem);
-        max-width: 300px;
-    }
-}
-
-/* Overlay for expanded card on mobile */
-@media (max-width: 768px) {
-    body.ministry-card-expanded::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-        pointer-events: none;
-    }
-}
-
-/* Enhanced mobile layout - less clustered */
-@media (max-width: 768px) {
-    /* Global mobile improvements */
-    body {
-        font-size: 16px;
-        line-height: 1.6;
+        width: 280px;
     }
     
-    /* Spacious layout */
-    .container {
-        padding: 0 1rem;
-        max-width: 100%;
-    }
-    
-    main {
-        padding: 1.5rem 0.5rem;
-        margin: 0;
-    }
-    
-    section {
-        padding: 2rem 1rem;
-        margin-bottom: 2rem;
-        border-radius: 12px;
-    }
-    
-    /* Generous spacing */
-    h1 { 
-        font-size: 1.8rem; 
-        margin-bottom: 1.5rem;
-        line-height: 1.3;
-    }
-    h2 { 
-        font-size: 1.5rem; 
-        margin-bottom: 1.2rem;
-    }
-    h3 { 
-        font-size: 1.3rem; 
-        margin-bottom: 1rem;
-    }
-    
-    p {
-        margin-bottom: 1rem;
-    }
-    
-    /* Clean navigation */
-    header {
-        padding: 1rem 0;
-        margin-bottom: 1.5rem;
-    }
-    
-    .header-content {
-        padding: 0 1rem;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .logo {
-        margin-bottom: 0.5rem;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
-    }
-    
-    nav a {
-        padding: 0.8rem 1.2rem;
-        font-size: 1rem;
-    }
-    
-    /* Touch-friendly buttons */
-    .button, a.button {
-        display: block;
-        width: 100%;
-        max-width: 300px;
-        margin: 1rem auto;
-        padding: 1rem 1.5rem;
-        font-size: 1rem;
-        min-height: 48px;
-    }
-    
-    /* Clean tables */
-    table {
-        font-size: 0.95rem;
-        margin: 1.5rem 0;
-    }
-    
-    th, td {
-        padding: 0.8rem 0.5rem;
-        display: block;
-        text-align: left;
-    }
-    
-    th {
-        background: var(--adventist-light-gray);
-        font-weight: 600;
-    }
-    
-    /* Responsive images */
-    img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
-    
-    /* Form improvements */
-    input, textarea, select {
-        font-size: 16px;
-        padding: 0.8rem;
-        margin-bottom: 1rem;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    
-    /* Clean social boxes */
-    .social-boxes {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin: 2rem 0;
-    }
-    
-    .social-box {
-        padding: 1.5rem;
-        border-radius: 12px;
-    }
-    
-    /* Visit page improvements */
-    .visit-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .visit-box {
-        padding: 1.5rem;
-        border-radius: 12px;
-    }
-    
-    /* Creation grid - 7th grid full width */
-    .creation-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        margin: 20px 0;
-    }
-    
-    .creation-grid .ministry-card {
-        min-height: 200px;
-        margin-bottom: 0;
-    }
-    
-    .creation-grid .ministry-card:nth-child(7) {
-        grid-column: 1 / -1;
-        margin: 25px 0 0 0;
-        min-height: auto;
-    }
-    
-    .creation-grid .ministry-card:nth-child(7) .ministry-card__expanded {
-        padding: 25px;
-        min-height: auto;
-    }
-    
-    .creation-grid .ministry-card:not(:nth-child(7)) .ministry-card__expanded {
-        padding: 15px;
-        min-height: 200px;
-    }
-    
-    .creation-grid .ministry-card:not(:nth-child(7)) .ministry-card__expanded h3 {
-        font-size: 1.1rem;
-    }
-    
-    .creation-grid .ministry-card:not(:nth-child(7)) .ministry-card__expanded p {
-        font-size: 0.9rem;
-    }
-    
-    /* Enhanced hamburger menu with contrast */
-    .hamburger-menu {
-        display: none;
-        flex-direction: column;
-        gap: 3px;
-        padding: 0.5rem;
-        z-index: 1001;
-        cursor: pointer;
-        background-color: rgba(0, 0, 0, 0.9);
-        border-radius: 8px;
-        border: 2px solid var(--adventist-gold);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-        position: absolute;
-        right: 15px;
-        top: 15px;
-    }
-    
-    .hamburger-menu span {
-        display: block;
-        width: 22px;
-        height: 3px;
-        background-color: white;
-        transition: all 0.3s ease;
-        border-radius: 2px;
-    }
-    
-    /* Content container */
-    .content-container {
-        padding: 0 1rem;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    /* Extra spacious for small screens */
-    .container {
-        padding: 0 0.8rem 0 0.25rem;
-    }
-    
-    main {
-        padding: 1rem 0;
-    }
-    
-    section {
-        padding: 1.5rem 0.8rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    h1 { font-size: 1.6rem; }
-    h2 { font-size: 1.4rem; }
-    h3 { font-size: 1.2rem; }
-    
-    .button, a.button {
-        padding: 0.9rem 1.2rem;
-        font-size: 0.95rem;
-    }
-    
-    nav a {
-        padding: 0.7rem 1rem;
-        font-size: 0.95rem;
-    }
-    
-    /* Separate grids for 6 items and 7th item */
-    .creation-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        margin: 15px 0;
-        padding-left: 0.25rem;
-    }
-    
-    .creation-grid .ministry-card {
-        min-height: 160px;
-        margin-bottom: 0;
-    }
-    
-    .creation-grid .ministry-card:nth-child(7) {
-        display: none; /* Hide 7th item from first grid */
-    }
-    
-    .creation-grid .ministry-card:not(:nth-child(7)) .ministry-card__expanded {
-        padding: 12px;
-        min-height: 160px;
-    }
-    
-    .creation-grid .ministry-card:not(:nth-child(7)) .ministry-card__expanded h3 {
-        font-size: 1rem;
-        margin-bottom: 8px;
-    }
-    
-    .creation-grid .ministry-card:not(:nth-child(7)) .ministry-card__expanded p {
-        font-size: 0.8rem;
-        margin-bottom: 8px;
-    }
-    
-    .creation-grid .ministry-card:not(:nth-child(7)) .ministry-card__expanded .button {
-        padding: 8px 16px;
-        font-size: 0.8rem;
-    }
-    
-    /* 7th item separate grid */
-    .seventh-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 10px;
-        margin: 40px 0 15px 0; /* More space above */
-        padding-left: 0.25rem;
-    }
-    
-    .seventh-grid .ministry-card {
-        min-height: auto;
-        margin-bottom: 0;
-        grid-column: 1 / -1;
-    }
-    
-    .seventh-grid .ministry-card .ministry-card__expanded {
-        padding: 20px;
-        min-height: auto;
-    }
-
-/* Landscape mode adjustments */
-@media (max-height: 500px) and (orientation: landscape) {
-    .ministry-card.expanded {
-        max-height: 90vh;
-        min-height: 300px;
-    }
-    
-    .card-content {
+    .ministry-card.expanded .card-title-vertical {
         padding: 1rem;
-    }
-}
-
-/* High DPI screens */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .ministry-card {
-        border-width: 2px;
-    }
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Prevent scrolling when mobile menu is open */
-body.no-scroll,
-body.menu-open {
-    overflow: hidden;
-    height: 100vh;
-}
-
-/* Focus styles for accessibility */
-.ministry-card:focus {
-    outline: 2px solid var(--adventist-gold);
-    outline-offset: 2px;
-}
-
-/* Print styles */
-@media print {
-    .creation-grid {
-        display: none;
-    }
-    
-    .ministry-card {
-        width: 100%;
-        height: auto;
-        position: static;
-        transform: none;
-    }
-    
-    .ministry-card__compressed,
-    .ministry-card__expanded {
-        position: static;
-        opacity: 1;
-        transform: none;
     }
 }
 
@@ -1623,4 +693,218 @@ body.menu-open {
 .ministry-card:nth-child(4) { animation-delay: 0.4s; }
 .ministry-card:nth-child(5) { animation-delay: 0.5s; }
 .ministry-card:nth-child(6) { animation-delay: 0.6s; }
+/* --- Resources Page Styles --- */
+#resources-content {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.drive-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.resource-category {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(20, 27, 65, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-category:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(20, 27, 65, 0.15);
+}
+
+.resource-category h3 {
+    color: var(--adventist-dark-blue);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.drive-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.drive-link {
+    display: block;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, var(--adventist-blue), var(--adventist-dark-blue));
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.drive-link:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(48, 107, 172, 0.3);
+    text-decoration: none;
+}
+
+.drive-link::before {
+    content: "📁";
+    margin-right: 0.5rem;
+}
+
+.drive-help {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: rgba(145, 142, 244, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid var(--adventist-gold);
+}
+
+.drive-help p {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.drive-help a {
+    color: var(--adventist-blue);
+    font-weight: 600;
+}
+
+/* Responsive Resources */
+@media (max-width: 768px) {
+    .drive-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .resource-category {
+        padding: 1.5rem;
+    }
+    
+    .drive-link {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
 .ministry-card:nth-child(7) { animation-delay: 0.7s; }
+
+
+/* ==========================================================
+   MOBILE CREATION-GRID FIX
+   ========================================================== */
+@media (max-width: 768px) {
+  /* 1. Kill the 6+1 grid, keep only the Sabbath pillar */
+  .creation-grid {
+    position: fixed;          /* stick to viewport */
+    top: 0;
+    left: 0;
+    width: 60px;              /* pillar width */
+    height: 100vh;
+    display: flex;            /* simplest flex */
+    z-index: 100;
+    pointer-events: none;     /* clicks pass through */
+  }
+
+  .grid-column-1-6 {
+    display: none;            /* hide the 6 work columns */
+  }
+
+  .sabbath-column {
+    width: 100%;
+    height: 100%;
+    background: var(--adventist-dark-blue);
+    border-right: 3px solid var(--adventist-gold);
+    display: flex;
+    align-items: center;      /* centre the logo */
+    justify-content: center;
+    padding: 0;
+  }
+
+  .sabbath-column__overlay svg {
+    width: 40px;              /* logo size */
+    height: auto;
+    max-width: none;
+    max-height: none;
+  }
+
+  /* 2. Push all page content away from the pillar */
+  .content-container,
+  header, nav, main, footer {
+    margin-left: 60px;        /* same as pillar width */
+    width: calc(100% - 60px); /* prevent horizontal scroll */
+    box-sizing: border-box;
+  }
+
+  /* 3. Generous white-space between sections */
+  section {
+    margin-bottom: 2rem;      /* vertical breathing room */
+    padding: 1.5rem 1rem;     /* horizontal breathing room */
+    border-radius: 8px;       /* soft corners */
+  }
+
+  /* 4. Kill the ministry-card horizontal scroll mess */
+  .ministries-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0;
+  }
+
+  .ministry-card {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 120px;
+    border-radius: 12px;
+  }
+
+  /* 5. Hide compressed state, always show expanded content */
+  .ministry-card__compressed {
+    display: none;
+  }
+
+  .ministry-card__expanded {
+    position: static;
+    opacity: 1;
+    transform: none;
+    padding: 1rem;
+  }
+}
+
+/* even smaller phones */
+@media (max-width: 768px) {
+  /* 1. Flip the pillar to the right edge */
+  .creation-grid {
+    left: auto;          /* undo left:0 */
+    right: 0;            /* stick to right edge */
+    width: 60px;
+    height: 100vh;
+  }
+
+  /* 2. Swap border to the *inside* so it still shows on the left of the pillar */
+  .sabbath-column {
+    border-left: none;           /* remove old border */
+    border-right: 3px solid var(--adventist-gold); /* add new border */
+  }
+
+  /* 3. Push content away from the right edge instead of left */
+  .content-container,
+  header, nav, main, footer {
+    margin-left: 0;               /* reset old margin */
+    margin-right: 60px;           /* new breathing room */
+    width: calc(100% - 60px);
+  }
+}
+
+/* even smaller phones (optional tweak) */
+@media (max-width: 375px) {
+  .creation-grid { width: 50px; }
+  .content-container,
+  header, nav, main, footer { margin-right: 50px; width: calc(100% - 50px); }
+}
