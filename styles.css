@@ -36,9 +36,12 @@ body {
 /* 7-Column Grid System - Mobile First */
 .grid-container {
     display: grid;
-    grid-template-columns: 6fr 1fr;
-    /* 6 content + 1 Sabbath */
+    /* Force 6:1 ratio on ALL screens including mobile */
+    grid-template-columns: 85.7142857% 14.2857143%;
     min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll on container */
 }
 
 .content-sixth {
@@ -691,8 +694,10 @@ footer p {
     }
 
     .sabbath-column {
-        min-width: 40px;
-        /* Prevents column from becoming unusably narrow */
+        min-width: 0;
+        /* REMOVED 40px min-width to prevent blowing out grid */
+        overflow: hidden;
+        /* Ensure logo clips if too small rather than breaking grid */
     }
 
     .welcome {
