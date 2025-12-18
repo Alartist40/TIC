@@ -43,9 +43,18 @@ body {
 
 .content-sixth {
     max-width: 100%;
-    /* overflow-x: hidden removed to enable sticky navigation */
+    overflow-x: hidden;
     position: relative;
     /* For absolute positioning of back-to-top */
+}
+
+/* Force compression of all content within 6/7 grid */
+.content-sixth iframe,
+.content-sixth table,
+.content-sixth img,
+.content-sixth video {
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .sabbath-column {
@@ -66,23 +75,39 @@ body {
 
 /* ===== ENHANCED RESPONSIVE NAVIGATION ===== */
 .main-nav {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    /* Spans 6/7 of the grid container width on desktop, 100% on mobile relative to grid */
+    width: 85.714%;
+    /* 6/7 = ~85.714% */
     background: var(--white);
     border-bottom: 1px solid var(--divider);
     padding: 0.75rem var(--space);
-    z-index: 1000;
-    /* High z-index to stay above content */
+    z-index: 2000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     transition: all 0.3s ease;
-    /* Ensure nav stays within 6-column section */
-    width: 100%;
-    left: 0;
-    right: 0;
 }
+
+/* Adjust grid content to not be hidden under fixed nav */
+.content-sixth {
+    padding-top: 80px;
+    /* Offset for fixed nav */
+}
+
+@media (max-width: 767px) {
+    .main-nav {
+        /* On mobile, columns might stack or shrink, but navbar stays relative to content area */
+        width: calc(100% - 15%);
+        /* Approximate for 6:1 on small screens */
+    }
+}
+
+/* More precise grid-based width for fixed nav if possible, 
+   but percent is safest for fluid grids */
 
 .titles h1 {
     font-size: clamp(0.9rem, 2.5vw, 1.1rem);
