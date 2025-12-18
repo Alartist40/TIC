@@ -62,6 +62,13 @@ body {
     transition: background-color 0.3s ease;
 }
 
+@media (max-width: 480px) {
+    .sabbath-column {
+        min-width: 40px;
+        /* Prevents column from becoming unusably narrow (Archive protection) */
+    }
+}
+
 .sabbath-logo {
     width: clamp(30px, 8vw, 80px);
     /* Allow smaller logo on very small screens */
@@ -131,8 +138,8 @@ body {
     cursor: pointer;
 }
 
-/* Tablet/Desktop Navigation */
-@media (min-width: 1024px) {
+/* Tablet Navigation (Stacked) */
+@media (min-width: 768px) {
     .nav-toggle {
         display: none;
     }
@@ -145,6 +152,22 @@ body {
         padding: 0;
         background: transparent;
         box-shadow: none;
+        margin-top: 0;
+    }
+
+    .main-nav {
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* Desktop Navigation (Row) */
+@media (min-width: 1024px) {
+    .main-nav {
+        flex-direction: row;
+        /* Switch back to row for desktop */
+        justify-content: space-between;
     }
 }
 
