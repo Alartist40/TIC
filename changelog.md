@@ -2,6 +2,14 @@
 
 All notable changes to the Tokyo International Church website project will be documented in this file.
 
+## [Restored Version] - 2025-12-18
+
+### Fixed
+- **Layout Restoration**: Reverted `styles.css` to the original `tic-website` version to restore the consistent 6:1 grid layout across all devices.
+- **Sticky Navigation**: Re-implemented the sticky navigation bar with a high `z-index` to ensure accessibility while maintaining the grid structure.
+- **Content Scaling**: Ensured Google Maps and Calendars are correctly constrained to the 6/7 content grid to prevent layout shifting on mobile.
+- **Grid Consistency**: Fixed an issue where the 7th grid was being pushed or compressed on smaller screens.
+
 ## [Merged Version] - 2025-12-18
 
 ### Added

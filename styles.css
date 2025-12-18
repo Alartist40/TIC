@@ -43,7 +43,7 @@ body {
 
 .content-sixth {
     max-width: 100%;
-    /* overflow-x: hidden removed to prevent breaking sticky nav */
+    overflow-x: hidden;
     position: relative;
     /* For absolute positioning of back-to-top */
 }
@@ -72,7 +72,7 @@ body {
     border-bottom: 1px solid var(--divider);
     padding: 0.75rem var(--space);
     z-index: 1000;
-    /* Increased to ensure it stays above all content */
+    /* High z-index to stay above content */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -433,6 +433,12 @@ h4 {
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
+    width: 100%;
+    /* Ensure it fits 6/7 column */
+}
+
+.calendar-container iframe {
+    max-width: 100%;
 }
 
 .event-posters {
@@ -532,6 +538,12 @@ h4 {
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
+    width: 100%;
+    /* Ensure it fits 6/7 column */
+}
+
+.map-container iframe {
+    max-width: 100%;
 }
 
 /* ===== MODAL SYSTEM ===== */
@@ -816,43 +828,6 @@ button:focus,
     }
 }
 
-/* ===== GRID FOR DYNAMIC CONTENT ===== */
-.card-grid,
-.sub-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space);
-}
-
-.card-image {
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    background-color: #eee;
-    margin-bottom: 1rem;
-    border-radius: 4px;
-}
-
-/* ===== UTILS ===== */
-.hidden {
-    display: none !important;
-}
-
-.fade-in {
-    animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-}
-
 /* Print styles */
 @media print {
 
@@ -909,5 +884,40 @@ button:focus,
 
     .sabbath-logo {
         width: clamp(80px, 8vw, 140px);
+    }
+}
+
+
+/* Dynamic Content Utility Classes */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space);
+}
+
+.card-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    background-color: #eee;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
