@@ -43,7 +43,7 @@ body {
 
 .content-sixth {
     max-width: 100%;
-    overflow-x: hidden;
+    /* overflow-x: hidden removed to enable sticky navigation */
     position: relative;
     /* For absolute positioning of back-to-top */
 }
