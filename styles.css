@@ -40,7 +40,10 @@ body {
 }
 
 .content-sixth {
-    max-width: 100%;
+    width: 100%;
+    /* Ensure it doesn't overflow */
+    min-width: 0;
+    /* Allow grid track to shrink below content size */
     overflow-x: hidden;
     position: relative;
     border-right: 1px solid var(--divider);
@@ -60,7 +63,10 @@ body {
 }
 
 .sabbath-logo {
-    width: clamp(40px, 8vw, 80px);
+    width: clamp(30px, 8vw, 80px);
+    /* Allow smaller logo on very small screens */
+    min-width: 30px;
+    /* Prevent disappearance */
     filter: drop-shadow(0 0 6px rgba(0, 0, 0, .4));
 }
 
@@ -87,8 +93,21 @@ body {
 
 .nav-links {
     list-style: none;
-    display: flex;
+    display: none;
+    /* Hidden by default on mobile */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    padding: 1rem;
+    box-shadow: var(--shadow-lg);
     gap: 1.5rem;
+}
+
+.nav-links.open {
+    display: flex;
 }
 
 .nav-links a {
@@ -96,6 +115,8 @@ body {
     color: var(--primary);
     font-weight: 500;
     transition: color 0.2s;
+    display: block;
+    padding: 0.5rem 0;
 }
 
 .nav-links a:hover {
@@ -103,10 +124,28 @@ body {
 }
 
 .nav-toggle {
-    display: none;
+    display: block;
+    /* Show hamburger by default (mobile first) */
     background: none;
     border: none;
     cursor: pointer;
+}
+
+/* Tablet/Desktop Navigation */
+@media (min-width: 1024px) {
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+    }
 }
 
 /* Hero Section */
@@ -213,8 +252,19 @@ h2 {
 /* Pastor Styles */
 .pastor-card {
     display: flex;
-    gap: 2rem;
-    align-items: flex-start;
+    flex-direction: column;
+    /* Mobile first: Stack vertically */
+    gap: 1.5rem;
+    align-items: center;
+    /* Center on mobile */
+}
+
+@media (min-width: 768px) {
+    .pastor-card {
+        flex-direction: row;
+        /* Tablet+: Row layout */
+        align-items: flex-start;
+    }
 }
 
 .pastor-square {
@@ -232,10 +282,20 @@ h2 {
 }
 
 /* Service Schedule Table */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    /* Allow horizontal scroll for tables on small screens */
+    margin-top: 1rem;
+    border-radius: var(--radius);
+    box-shadow: 0 0 0 1px var(--divider);
+}
+
 .service-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1rem;
+    min-width: 500px;
+    /* Force scroll if screen is too small */
 }
 
 .service-table th,
@@ -277,52 +337,6 @@ h2 {
 
 /* Responsive */
 @media (max-width: 768px) {
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        flex-direction: column;
-        padding: 1rem;
-        box-shadow: var(--shadow-lg);
-    }
-
-    .nav-links.open {
-        display: flex;
-    }
-
-    .nav-toggle {
-        display: block;
-    }
-
-    .hamburger {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background: var(--primary);
-        position: relative;
-    }
-
-    .hamburger::before,
-    .hamburger::after {
-        content: '';
-        position: absolute;
-        width: 25px;
-        height: 3px;
-        background: var(--primary);
-        left: 0;
-    }
-
-    .hamburger::before {
-        top: -8px;
-    }
-
-    .hamburger::after {
-        top: 8px;
-    }
 
     .back-to-top {
         right: 60px;
