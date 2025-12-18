@@ -5,10 +5,9 @@ All notable changes to the Tokyo International Church website project will be do
 ## [Restored Version] - 2025-12-18
 
 ### Fixed
-- **Percentage-Locked 6:1 Grid**: Switched from `fr` units to hard percentage values (`85.7143%` / `14.2857%`) and added `min-width: 0` to the content column. This ensures the 6:1 ratio is mathematically enforced even if internal content attempts to overflow.
-- **Fixed-Ratio Navigation**: Locked the navigation bar width to exactly `85.7143%` to match the content grid across all devices, preventing overlap with the Sabbath column.
-- **Responsive Dynamic Layouts**: Rewrote the rendering logic for dynamic Google Sheet data (e.g., Schedule) to use flexible card-grids instead of rigid tables.
-- **Overflow Protection**: Added global `word-break: break-word` and `max-width: 100%` rules to all dynamic content containers.
+- **Original Grid & Sticky Nav**: Reverted to the exact `tic-website` CSS structure (`position: sticky` inside the grid) but removed the specific `overflow-x: hidden` from the content column that was breaking the stickiness.
+- **Content Compression**: Added global `max-width: 100%` rules for all media (images, iframes, tables, videos) and strict `min-width: 0` constraints to the grid column to prevent any content from pushing the 7th grid out of view.
+- **Layout Consistency**: Restored the 6:1 grid ratio by relying on the browser's native grid behavior with proper content constraints rather than fixed positioning hacks.
 - **Grid Consistency**: Fixed an issue where the 7th grid was being pushed or compressed on smaller screens.
 
 ## [Merged Version] - 2025-12-18

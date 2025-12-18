@@ -36,30 +36,18 @@ body {
 /* 7-Column Grid System - Mobile First */
 .grid-container {
     display: grid;
-    /* Use fixed percentages to enforce the 6:1 ratio regardless of content */
-    grid-template-columns: 85.7143% 14.2857%;
+    grid-template-columns: 6fr 1fr;
+    /* 6 content + 1 Sabbath */
     min-height: 100vh;
-    width: 100%;
 }
 
 .content-sixth {
     max-width: 100%;
-    overflow-x: hidden;
+    /* overflow-x: hidden; REMOVED: Breaks sticky nav. Handled by body/wrapper */
     position: relative;
     /* For absolute positioning of back-to-top */
     min-width: 0;
-    /* CRITICAL: Allows column to shrink despite content */
-    word-break: break-word;
-    /* Prevents long strings from pushing the grid */
-}
-
-/* Force compression of all content within 6/7 grid */
-.content-sixth iframe,
-.content-sixth table,
-.content-sixth img,
-.content-sixth video {
-    max-width: 100%;
-    box-sizing: border-box;
+    /* Allows grid compression */
 }
 
 .sabbath-column {
@@ -80,44 +68,22 @@ body {
 
 /* ===== ENHANCED RESPONSIVE NAVIGATION ===== */
 .main-nav {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    /* Match the 6/7 column width exactly */
-    width: 85.7143%;
     background: var(--white);
     border-bottom: 1px solid var(--divider);
     padding: 0.75rem var(--space);
-    z-index: 2000;
+    z-index: 9999;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     transition: all 0.3s ease;
-    box-shadow: var(--shadow);
+    /* Ensure nav stays within 6-column section */
+    width: 100%;
+    left: 0;
+    right: 0;
 }
-
-/* Adjust grid content to not be hidden under fixed nav */
-.content-sixth {
-    padding-top: 80px;
-    /* Offset for fixed nav */
-}
-
-@media (max-width: 767px) {
-    .main-nav {
-        /* Keep the 6/7 ratio consistent even on narrow screens */
-        width: 85.7143%;
-    }
-
-    .grid-container {
-        /* Ensure specific ratio on mobile if desired, or override if tic-website stacked them */
-        /* tic-website maintained the sidebar logo as 1/7th on mobile */
-        grid-template-columns: 85.7143% 14.2857%;
-    }
-}
-
-/* More precise grid-based width for fixed nav if possible, 
-   but percent is safest for fluid grids */
 
 .titles h1 {
     font-size: clamp(0.9rem, 2.5vw, 1.1rem);
@@ -468,12 +434,6 @@ h4 {
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
-    width: 100%;
-    /* Ensure it fits 6/7 column */
-}
-
-.calendar-container iframe {
-    max-width: 100%;
 }
 
 .event-posters {
@@ -573,12 +533,6 @@ h4 {
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
-    width: 100%;
-    /* Ensure it fits 6/7 column */
-}
-
-.map-container iframe {
-    max-width: 100%;
 }
 
 /* ===== MODAL SYSTEM ===== */
@@ -923,6 +877,20 @@ button:focus,
 }
 
 
+body {
+    overflow-x: hidden;
+    /* Ensure global overflow protection */
+}
+
+/* Force compression on dynamic content */
+img,
+iframe,
+video,
+table {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Dynamic Content Utility Classes */
 .card-grid {
     display: grid;
@@ -955,4 +923,12 @@ button:focus,
     to {
         opacity: 1;
     }
+}
+
+/* Fix Schedule Table Overflow */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
 }
