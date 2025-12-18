@@ -155,11 +155,13 @@ h2 {
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.25rem;
 }
 
 .card {
+    grid-column: span 2;
+    /* 3 cards per row on desktop */
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -170,6 +172,20 @@ h2 {
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+    .card {
+        grid-column: span 3;
+        /* 2 cards per row on small desktop/tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        grid-column: span 6;
+        /* 1 card per row on mobile (full 6/7 width) */
+    }
 }
 
 .card::before {
