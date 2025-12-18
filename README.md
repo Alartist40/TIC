@@ -1,41 +1,46 @@
-# Tokyo International Church Website
+# Tokyo International Seventh-day Adventist Church Website
 
-A responsive, easy-to-maintain website for the Tokyo International Seventh-day Adventist Church.
+A modern, responsive website for the Tokyo International Seventh-day Adventist Church (TIC), built with a unique 6:1 grid layout and integrated with Google Sheets for easy content management.
 
 ## Features
-- **Mobile-First Design**: Built on a robust 6:1 column grid system.
-- **Dynamic Content**: Updates directly from Google Sheets (No coding required for content updates).
-- **Multilingual Support**: Home page welcome message cycles through multiple languages.
-- **Optimization**: Fast loading, SEO-friendly structure.
 
-## How to Update Content (Google Sheets)
-This website pulls data from Google Sheets. To update the website, simply edit the linked Google Sheets.
+- **6:1 Grid Layout**: A consistent design that allocates 6 parts of the viewport to main content and 1 part to a dedicated "Sabbath" column.
+- **Dynamic Content**: Most website details (Mission, Pastor Bio, Service Times, Ministries) are fetched directly from a Google Sheet.
+- **Multilingual Hero**: A welcoming section that rotates through multiple languages.
+- **Sticky Navigation**: Easy access to sections as you scroll.
+- **Sabbath Grid Transition**: The rightmost column transitions from the primary church blue to white as you scroll to the bottom.
+- **Mobile Responsive**: Optimized for all devices with a 6:1 ratio and a functional mobile menu.
 
-**Important**: Do not change the header row (Row 1) of the sheets, as the code uses these keys to identify data.
+## How to Use the Google Sheet
 
-### 1. General Info & Settings
-- **Sheet Name**: `General`
-- **Columns**: `Key`, `Value`
-- **Usage**:
-  - `YoutubeLive`: Paste the link to the YouTube channel/livestream.
-  - `Bulletin`: Paste the link to the PDF bulletin.
+The website is powered by a Google Sheet. Non-technical staff can update the website content by simply editing the sheet.
 
-### 2. About Section
-- **Sheet Name**: `About`
-- **Columns**: `Key`, `Value`
-- **Keys**: `Mission`, `Vision`, `Values` (comma-separated), `PastorName`, `PastorBio`, `PastorImage` (URL).
+### Setup Instructions
 
-### 3. Ministries
-- **Sheet Name**: `Ministries`
-- **Columns**: `Title`, `Description`, `Image`, `Tag`, `ModalContent`
-- **Usage**: Add rows for each ministry. `ModalContent` supports HTML for detailed views.
+1.  **Sheet Structure**: Ensure your Google Sheet has tabs named `General`, `About`, `Ministries`, `Sermons`, and `Schedule`.
+2.  **Publish to the Web**:
+    - Open your Google Sheet.
+    - Go to `File` > `Share` > `Publish to web`.
+    - Select the entire document or specific tabs.
+    - Choose `CSV` as the output format.
+    - Click `Publish`.
+3.  **Update URLs**: Copy the generated CSV URLs for each tab and update them in `js/app.js` under the `SHEET_URLS` constant.
 
-### 4. Schedule
-- **Sheet Name**: `Schedule`
-- **Columns**: `Program`, `Time`, `Location`, `Day`
-- **Usage**: defining weekly service times.
+### Tab Details
 
-## Local Development
-1. Clone the repository.
-2. Open `index.html` in your browser.
-   - Note: Due to CORS policies, reading local files directly might be blocked by some browsers. It's recommended to use a local server (e.g., VS Code "Live Server" extension).
+- **General**: Key-Value pairs for site-wide settings (e.g., `YoutubeLive`).
+- **About**: Contains `Mission`, `Vision`, `Values`, `PastorName`, `PastorBio`, and `PastorImage`.
+- **Ministries**: Columns for `Title` and `Description`.
+- **Schedule**: Columns for `Program`, `Time`, and `Location`.
+- **Sermons**: Placeholder for future sermon data.
+
+## Technologies Used
+
+- **HTML5/CSS3**: Core structure and design.
+- **JavaScript (ES6+)**: Logic and dynamic rendering.
+- **PapaParse**: For parsing Google Sheets CSV data.
+- **Google Fonts**: Inter and Playfair Display.
+
+## Development
+
+To run the project locally, simply open `index.html` in a web browser. Note that Google Sheet data fetching requires an active internet connection.
