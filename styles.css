@@ -10,8 +10,8 @@
     --font-body: 'Inter', sans-serif;
     --space: 1rem;
     --radius: 8px;
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+    --shadow: 0 2px 8px rgba(0,0,0,0.1);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
 }
 
 * {
@@ -36,21 +36,14 @@ body {
 /* 7-Column Grid System - Mobile First */
 .grid-container {
     display: grid;
-    /* Force 6:1 ratio on ALL screens including mobile */
-    grid-template-columns: 85.7142857% 14.2857143%;
+    grid-template-columns: 6fr 1fr; /* 6 content + 1 Sabbath */
     min-height: 100vh;
-    width: 100%;
-    overflow-x: hidden;
-    /* Prevent horizontal scroll on container */
 }
 
 .content-sixth {
     max-width: 100%;
-    /* overflow-x: hidden; REMOVED: Breaks sticky nav. Handled by body/wrapper */
-    position: relative;
-    /* For absolute positioning of back-to-top */
-    min-width: 0;
-    /* Allows grid compression */
+    overflow-x: hidden;
+    position: relative; /* For absolute positioning of back-to-top */
 }
 
 .sabbath-column {
@@ -66,7 +59,7 @@ body {
 
 .sabbath-logo {
     width: clamp(40px, 8vw, 80px);
-    filter: drop-shadow(0 0 6px rgba(0, 0, 0, .4));
+    filter: drop-shadow(0 0 6px rgba(0,0,0,.4));
 }
 
 /* ===== ENHANCED RESPONSIVE NAVIGATION ===== */
@@ -76,7 +69,7 @@ body {
     background: var(--white);
     border-bottom: 1px solid var(--divider);
     padding: 0.75rem var(--space);
-    z-index: 9999;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -105,9 +98,7 @@ body {
     display: block;
 }
 
-.hamburger,
-.hamburger::before,
-.hamburger::after {
+.hamburger, .hamburger::before, .hamburger::after {
     content: '';
     position: absolute;
     left: 0;
@@ -178,7 +169,7 @@ body {
     .nav-toggle {
         display: none;
     }
-
+    
     .nav-links {
         display: flex;
         flex-direction: row;
@@ -186,7 +177,7 @@ body {
         margin-top: 0;
         gap: 1.5rem;
     }
-
+    
     .main-nav {
         justify-content: center;
         flex-direction: column;
@@ -200,7 +191,7 @@ body {
         justify-content: space-between;
         padding: 1rem 2rem;
     }
-
+    
     .titles {
         text-align: left;
     }
@@ -212,7 +203,7 @@ body {
     text-align: center;
     border-bottom: 1px solid var(--divider);
     position: relative;
-    background: linear-gradient(135deg, rgba(0, 94, 184, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(0,94,184,0.05) 0%, rgba(212,175,55,0.05) 100%);
 }
 
 .welcome {
@@ -243,9 +234,7 @@ body {
 }
 
 @keyframes shine {
-    to {
-        background-position: 200% 0;
-    }
+    to { background-position: 200% 0; }
 }
 
 /* ===== CONTENT SECTIONS ===== */
@@ -373,7 +362,7 @@ h4 {
         flex-direction: row;
         align-items: flex-start;
     }
-
+    
     .pastor-square {
         margin: 0;
     }
@@ -515,11 +504,11 @@ h4 {
 }
 
 .service-table tr:nth-child(even) {
-    background: rgba(0, 0, 0, 0.02);
+    background: rgba(0,0,0,0.02);
 }
 
 .service-table tr:hover {
-    background: rgba(0, 94, 184, 0.05);
+    background: rgba(0,94,184,0.05);
 }
 
 .visit ol {
@@ -629,8 +618,7 @@ h4 {
 .back-to-top {
     position: fixed;
     bottom: 2rem;
-    right: calc(16.666% + 2rem);
-    /* Position within 6-column grid */
+    right: calc(16.666% + 2rem); /* Position within 6-column grid */
     background: var(--primary);
     color: var(--white);
     border: none;
@@ -649,7 +637,7 @@ h4 {
 .back-to-top:hover {
     background: var(--accent);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
 }
 
 /* ===== FOOTER ===== */
@@ -671,20 +659,20 @@ footer p {
     .service-table {
         font-size: 0.8rem;
     }
-
+    
     .service-table th,
     .service-table td {
         padding: 0.5rem 0.25rem;
     }
-
+    
     .event-posters {
         grid-template-columns: 1fr;
     }
-
+    
     .modal-body {
         padding: 2.5rem 1rem 1rem;
     }
-
+    
     .modal-close {
         top: 0.5rem;
         right: 0.5rem;
@@ -692,27 +680,22 @@ footer p {
         width: 35px;
         height: 35px;
     }
-
+    
     .sabbath-column {
-        min-width: 0;
-        /* REMOVED 40px min-width to prevent blowing out grid */
-        overflow: hidden;
-        /* Ensure logo clips if too small rather than breaking grid */
+        min-width: 40px; /* Prevents column from becoming unusably narrow */
     }
-
+    
     .welcome {
         font-size: clamp(1.8rem, 12vw, 3.5rem);
     }
-
+    
     .language-subtitle {
         font-size: clamp(0.8rem, 3vw, 1rem);
     }
-
+    
     .back-to-top {
-        right: 1rem;
-        /* More accessible on mobile */
-        bottom: 80px;
-        /* Higher to avoid mobile browser UI */
+        right: 1rem; /* More accessible on mobile */
+        bottom: 80px; /* Higher to avoid mobile browser UI */
     }
 }
 
@@ -720,15 +703,15 @@ footer p {
     .sub-cards {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
-
+    
     .sabbath-logo {
         width: clamp(60px, 6vw, 100px);
     }
-
+    
     .modal-content {
         padding: 3rem 2.5rem 2.5rem;
     }
-
+    
     .welcome {
         font-size: clamp(2.5rem, 10vw, 5rem);
     }
@@ -738,20 +721,19 @@ footer p {
     .sabbath-column {
         padding-top: 2rem;
     }
-
+    
     .sabbath-logo {
         width: clamp(80px, 8vw, 140px);
     }
-
+    
     .modal-content {
         padding: 3rem 3rem 2.5rem;
     }
-
+    
     .back-to-top {
-        right: calc(16.666% + 3rem);
-        /* Adjusted for larger screens */
+        right: calc(16.666% + 3rem); /* Adjusted for larger screens */
     }
-
+    
     .welcome {
         font-size: clamp(3rem, 12vw, 6rem);
     }
@@ -764,11 +746,11 @@ footer p {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-
+    
     html {
         scroll-behavior: auto;
     }
-
+    
     .welcome {
         animation: none;
         background: var(--primary);
@@ -776,16 +758,12 @@ footer p {
         background-clip: initial;
         color: var(--primary);
     }
-
-    .card,
-    .back-to-top,
-    .more-btn,
-    .gold-btn {
+    
+    .card, .back-to-top, .more-btn, .gold-btn {
         transition: none;
     }
-
-    .modal-overlay,
-    .modal-container {
+    
+    .modal-overlay, .modal-container {
         transition: none;
     }
 }
@@ -808,15 +786,15 @@ button:focus,
         --bg: #ffffff;
         --text: #000000;
     }
-
+    
     .card {
         border: 2px solid var(--divider);
     }
-
+    
     .modal-overlay {
         background: rgba(0, 0, 0, 0.9);
     }
-
+    
     .hero {
         background: var(--white);
     }
@@ -824,28 +802,27 @@ button:focus,
 
 /* Print styles */
 @media print {
-
     .back-to-top,
     .more-btn,
     .nav-toggle,
     .sabbath-column {
         display: none !important;
     }
-
+    
     .grid-container {
         grid-template-columns: 1fr;
     }
-
+    
     .card {
         break-inside: avoid;
         box-shadow: none;
         border: 1px solid #000;
     }
-
+    
     .hero {
         background: none !important;
     }
-
+    
     .welcome {
         animation: none;
         background: var(--primary);
@@ -858,8 +835,7 @@ button:focus,
 /* Ensure content doesn't get too narrow on mobile */
 @media (max-width: 480px) {
     .sabbath-column {
-        min-width: 40px;
-        /* Prevents column from becoming unusably narrow */
+        min-width: 40px; /* Prevents column from becoming unusably narrow */
     }
 }
 
@@ -875,28 +851,16 @@ button:focus,
     .sabbath-column {
         padding-top: 2rem;
     }
-
+    
     .sabbath-logo {
         width: clamp(80px, 8vw, 140px);
     }
 }
 
 
-body {
-    overflow-x: hidden;
-    /* Ensure global overflow protection */
-}
-
-/* Force compression on dynamic content */
-img,
-iframe,
-video,
-table {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Dynamic Content Utility Classes */
+/* =========================================
+   DYNAMIC CONTENT UTILITIES (REQUIRED)
+   ========================================= */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -921,19 +885,11 @@ table {
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* Fix Schedule Table Overflow */
-.schedule-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
+/* Ensure dynamic content doesn't break layout */
+img, iframe, video {
+    max-width: 100%;
 }

@@ -12,22 +12,28 @@ export function renderSchedule(data) {
     scheduleCard.className = 'card';
 
     let html = '<h3>Weekly Service Schedule</h3>';
-    html += '<div class="schedule-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 1rem; margin-top: 1rem;">';
+    html += '<div class="table-wrapper">';
+    html += '<table class="service-table">';
+    html += '<thead><tr>';
+    html += '<th>Time</th>';
+    html += '<th>Program</th>';
+    html += '<th>Speaker/Leader</th>';
+    html += '</tr></thead>';
+    html += '<tbody>';
 
     data.forEach((item) => {
         const time = item.Time || item.time || '';
         const program = item.Program || item.program || item.Title || '';
         const speaker = item.Speaker || item.speaker || item.Leader || '';
 
-        html += `
-            <div class="card" style="margin-bottom: 0; padding: 1rem; border-left: 4px solid var(--accent);">
-                <div style="font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">${time}</div>
-                <div style="font-weight: 500; font-size: 1.1rem; margin-bottom: 0.5rem;">${program}</div>
-                <div style="font-size: 0.9rem; color: #666;">${speaker}</div>
-            </div>
-        `;
+        html += `<tr>`;
+        html += `<td style="font-weight: 600;">${time}</td>`;
+        html += `<td>${program}</td>`;
+        html += `<td style="color: var(--accent);">${speaker}</td>`;
+        html += '</tr>';
     });
 
+    html += '</tbody></table>';
     html += '</div>';
 
     scheduleCard.innerHTML = html;

@@ -6,6 +6,11 @@ All notable changes to the Tokyo International Church website project will be do
 
 ### Fixed
 - **Strict Mobile 6:1 Grid**: Enforced exact percentage-based columns (`85.7%` / `14.3%`) even on mobile devices, removing the minimum width constraint on the Sabbath column that was causing layout shifts on narrow screens.
+### Reverted
+- **Layout Architecture**: Completely reverted `styles.css` to the original `tic-website` archive version.
+- **Dynamic Components**: Reverted the schedule rendering to the original table-based layout.
+- **Navigation**: Restored original sticky positioning logic (relying on `position: sticky` inside the grid, without additional hacks).
+- **Note**: This version restores the exact "first version" layout which is consistent across devices, removing the experimental mobile optimizations.
 - **Original Grid & Sticky Nav**: Reverted to the exact `tic-website` CSS structure (`position: sticky` inside the grid) but removed the specific `overflow-x: hidden` from the content column that was breaking the stickiness.
 - **Content Compression**: Added global `max-width: 100%` rules for all media (images, iframes, tables, videos) and strict `min-width: 0` constraints to the grid column to prevent any content from pushing the 7th grid out of view.
 - **Layout Consistency**: Restored the 6:1 grid ratio by relying on the browser's native grid behavior with proper content constraints rather than fixed positioning hacks.
