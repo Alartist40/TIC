@@ -12,29 +12,22 @@ export function renderSchedule(data) {
     scheduleCard.className = 'card';
 
     let html = '<h3>Weekly Service Schedule</h3>';
-    html += '<div class="schedule-table">';
-    html += '<table style="width:100%; border-collapse: collapse;">';
-    html += '<thead><tr style="border-bottom: 2px solid var(--divider);">';
-    html += '<th style="padding: 0.75rem; text-align: left;">Time</th>';
-    html += '<th style="padding: 0.75rem; text-align: left;">Program</th>';
-    html += '<th style="padding: 0.75rem; text-align: left;">Speaker/Leader</th>';
-    html += '</tr></thead>';
-    html += '<tbody>';
+    html += '<div class="schedule-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 1rem; margin-top: 1rem;">';
 
-    data.forEach((item, index) => {
+    data.forEach((item) => {
         const time = item.Time || item.time || '';
         const program = item.Program || item.program || item.Title || '';
         const speaker = item.Speaker || item.speaker || item.Leader || '';
 
-        const rowStyle = index % 2 === 0 ? 'background: rgba(0,0,0,0.02);' : '';
-        html += `<tr style="${rowStyle}">`;
-        html += `<td style="padding: 0.75rem; font-weight: 600;">${time}</td>`;
-        html += `<td style="padding: 0.75rem;">${program}</td>`;
-        html += `<td style="padding: 0.75rem; color: var(--accent);">${speaker}</td>`;
-        html += '</tr>';
+        html += `
+            <div class="card" style="margin-bottom: 0; padding: 1rem; border-left: 4px solid var(--accent);">
+                <div style="font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">${time}</div>
+                <div style="font-weight: 500; font-size: 1.1rem; margin-bottom: 0.5rem;">${program}</div>
+                <div style="font-size: 0.9rem; color: #666;">${speaker}</div>
+            </div>
+        `;
     });
 
-    html += '</tbody></table>';
     html += '</div>';
 
     scheduleCard.innerHTML = html;

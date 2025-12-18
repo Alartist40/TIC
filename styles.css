@@ -36,9 +36,10 @@ body {
 /* 7-Column Grid System - Mobile First */
 .grid-container {
     display: grid;
-    grid-template-columns: 6fr 1fr;
-    /* 6 content + 1 Sabbath */
+    /* Use fixed percentages to enforce the 6:1 ratio regardless of content */
+    grid-template-columns: 85.7143% 14.2857%;
     min-height: 100vh;
+    width: 100%;
 }
 
 .content-sixth {
@@ -46,6 +47,10 @@ body {
     overflow-x: hidden;
     position: relative;
     /* For absolute positioning of back-to-top */
+    min-width: 0;
+    /* CRITICAL: Allows column to shrink despite content */
+    word-break: break-word;
+    /* Prevents long strings from pushing the grid */
 }
 
 /* Force compression of all content within 6/7 grid */
@@ -78,9 +83,8 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    /* Spans 6/7 of the grid container width on desktop, 100% on mobile relative to grid */
-    width: 85.714%;
-    /* 6/7 = ~85.714% */
+    /* Match the 6/7 column width exactly */
+    width: 85.7143%;
     background: var(--white);
     border-bottom: 1px solid var(--divider);
     padding: 0.75rem var(--space);
@@ -90,6 +94,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
     transition: all 0.3s ease;
+    box-shadow: var(--shadow);
 }
 
 /* Adjust grid content to not be hidden under fixed nav */
@@ -100,9 +105,14 @@ body {
 
 @media (max-width: 767px) {
     .main-nav {
-        /* On mobile, columns might stack or shrink, but navbar stays relative to content area */
-        width: calc(100% - 15%);
-        /* Approximate for 6:1 on small screens */
+        /* Keep the 6/7 ratio consistent even on narrow screens */
+        width: 85.7143%;
+    }
+
+    .grid-container {
+        /* Ensure specific ratio on mobile if desired, or override if tic-website stacked them */
+        /* tic-website maintained the sidebar logo as 1/7th on mobile */
+        grid-template-columns: 85.7143% 14.2857%;
     }
 }
 
