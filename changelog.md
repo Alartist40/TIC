@@ -5,9 +5,9 @@ All notable changes to the Tokyo International Church website project will be do
 ## [Restored Version] - 2025-12-18
 
 ### Fixed
-- **Sticky Navigation**: Successfully enabled the navigation bar to follow the user on scroll by optimizing container overflow properties without affecting the 6:1 grid structure.
-- **Layout Restoration**: Reverted `styles.css` to the original `tic-website` version to restore the consistent 6:1 grid layout across all devices.
-- **Content Scaling**: Ensured Google Maps and Calendars are correctly constrained to the 6/7 content grid to prevent layout shifting on mobile.
+- **Grid-Locked Navigation**: Switched to `position: fixed` for the navigation bar with a 6:1 ratio-aware width (85.7%). This allows the navbar to follow the user without requiring the removal of parent overflow protection.
+- **Strict 6:1 Restoration**: Restored `overflow-x: hidden` and added explicit `max-width: 100%` rules for all internal media (maps, calendars, images) to ensure nothing pushes the 7th grid out of alignment on mobile.
+- **Sticky Navigation**: Successfully enabled the navigation bar to follow the user on scroll by optimizing container properties.
 - **Grid Consistency**: Fixed an issue where the 7th grid was being pushed or compressed on smaller screens.
 
 ## [Merged Version] - 2025-12-18
