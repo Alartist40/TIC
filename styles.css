@@ -186,18 +186,11 @@ body {
     font-weight: 900;
     font-size: clamp(2.5rem, 10vw, 6rem);
     background: linear-gradient(110deg, var(--primary) 45%, var(--accent) 50%, var(--primary) 55%);
-    background-size: 200% 100%;
+    background-size: 100% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: shine 4s linear infinite;
     transition: opacity 0.5s ease;
-}
-
-@keyframes shine {
-    to {
-        background-position: 200% 0;
-    }
 }
 
 /* Content Sections - Compressed */
@@ -244,9 +237,8 @@ h2 {
 }
 
 @media (max-width: 768px) {
-    .card {
-        grid-column: span 6;
-        /* 1 card per row on mobile (full 6/7 width) */
+    .card-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -270,6 +262,56 @@ h2 {
 
 .card:hover::before {
     opacity: 1;
+}
+
+.ministry-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.ministry-card-image-container {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 6px 6px 0 0;
+}
+
+.ministry-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ministry-card-content {
+    padding: 1rem;
+}
+
+.ministry-card-time {
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.event-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-card-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 6px 6px 0 0;
+}
+
+.event-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-card-content {
+    padding: 1rem;
 }
 
 /* Pastor Styles */
@@ -333,6 +375,27 @@ h2 {
     color: var(--white);
 }
 
+.see-more-btn {
+    background: none;
+    border: 1px solid var(--divider);
+    border-radius: 4px;
+    color: var(--primary);
+    cursor: pointer;
+    display: block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.see-more-btn:hover {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.expandable-content {
+    transition: max-height 0.3s ease-out;
+}
+
 /* Scroll Effects */
 .back-to-top {
     position: fixed;
@@ -360,6 +423,13 @@ h2 {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 5fr 1fr;
+    }
+
+    .welcome {
+        font-size: clamp(2rem, 8vw, 4rem);
+    }
 
     .back-to-top {
         right: 60px;

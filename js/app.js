@@ -2,13 +2,15 @@ import { fetchGoogleSheetData } from './services/googleContent.js';
 import { renderGallery } from './components/renderGallery.js';
 import { renderPastor } from './components/renderPastor.js';
 import { renderSchedule } from './components/renderSchedule.js';
+import { renderEvents } from './components/renderEvents.js';
 
 const SHEET_URLS = {
     general: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTW2lUOC_ogYTvWIo_thDUo_NvQbJd-vBnnuXo0YQ36-QQPi22uvQjtqy9pAqtWlXom0HwVHSdBCMj7/pub?gid=2118403729&single=true&output=csv',
     about: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTW2lUOC_ogYTvWIo_thDUo_NvQbJd-vBnnuXo0YQ36-QQPi22uvQjtqy9pAqtWlXom0HwVHSdBCMj7/pub?gid=1587976413&single=true&output=csv',
     ministries: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTW2lUOC_ogYTvWIo_thDUo_NvQbJd-vBnnuXo0YQ36-QQPi22uvQjtqy9pAqtWlXom0HwVHSdBCMj7/pub?gid=0&single=true&output=csv',
     sermons: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTW2lUOC_ogYTvWIo_thDUo_NvQbJd-vBnnuXo0YQ36-QQPi22uvQjtqy9pAqtWlXom0HwVHSdBCMj7/pub?gid=708079300&single=true&output=csv',
-    schedule: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTW2lUOC_ogYTvWIo_thDUo_NvQbJd-vBnnuXo0YQ36-QQPi22uvQjtqy9pAqtWlXom0HwVHSdBCMj7/pub?gid=786496350&single=true&output=csv'
+    schedule: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTW2lUOC_ogYTvWIo_thDUo_NvQbJd-vBnnuXo0YQ36-QQPi22uvQjtqy9pAqtWlXom0HwVHSdBCMj7/pub?gid=786496350&single=true&output=csv',
+    events: ''
 };
 
 function getCachedUrl(url) {
@@ -94,6 +96,24 @@ function initUI() {
     }, 3000);
 
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // See More Button
+    const seeMoreBtns = document.querySelectorAll('.see-more-btn');
+    seeMoreBtns.forEach(btn => {
+        const content = btn.previousElementSibling;
+        content.style.maxHeight = '100px';
+        content.style.overflow = 'hidden';
+
+        btn.addEventListener('click', () => {
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                btn.textContent = 'See Less';
+            } else {
+                content.style.maxHeight = '100px';
+                btn.textContent = 'See More';
+            }
+        });
+    });
 }
 
 async function loadContent() {
@@ -135,6 +155,14 @@ async function loadContent() {
         const scheduleData = await fetchGoogleSheetData(getCachedUrl(SHEET_URLS.schedule));
         if (scheduleData) {
             renderSchedule(scheduleData, document.getElementById('schedule-container'));
+        }
+
+        // Fetch Events
+        if (SHEET_URLS.events) {
+            const eventsData = await fetchGoogleSheetData(getCachedUrl(SHEET_URLS.events));
+            if (eventsData) {
+                renderEvents(eventsData, document.getElementById('events-grid'));
+            }
         }
 
         // Fetch Sermons/General

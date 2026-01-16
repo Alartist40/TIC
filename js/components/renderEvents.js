@@ -1,4 +1,4 @@
-export function renderGallery(data, container) {
+export function renderEvents(data, container) {
     if (!container || !data) return;
 
     container.innerHTML = '';
@@ -6,14 +6,13 @@ export function renderGallery(data, container) {
     data.forEach(item => {
         if (item.Title) {
             const card = document.createElement('div');
-            card.className = 'card ministry-card';
+            card.className = 'card event-card';
             card.innerHTML = `
-                <div class="ministry-card-image-container">
-                    <img src="${item.Image || 'images/ministry_placeholder.webp'}" alt="${item.Title}" class="ministry-card-image">
+                <div class="event-card-image-container">
+                    <img src="${item.Image || 'images/event_placeholder.webp'}" alt="${item.Title}" class="event-card-image">
                 </div>
-                <div class="ministry-card-content">
+                <div class="event-card-content">
                     <h3>${item.Title}</h3>
-                    <p class="ministry-card-time">${item.Time || ''}</p>
                     <p>${item.Description || ''}</p>
                 </div>
             `;
