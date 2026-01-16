@@ -2,6 +2,18 @@
 
 All notable changes to the Tokyo International Seventh-day Adventist Church website will be documented in this file.
 
+## [1.1.0] - 2026-01-16
+
+### Added
+- **Event Card System**: Implemented a new card system to display upcoming events, dynamically loaded from a dedicated Google Sheet.
+- **"See More" Functionality**: Added a "See More" button to sections with long descriptions to improve readability and reduce scrolling on mobile devices.
+- **Architecture Document**: Created a comprehensive `architecture.md` file detailing the project structure, content management workflow, and key features.
+
+### Improved
+- **Mobile Responsive Layout**: Fixed the primary mobile layout issue by ensuring card grids stack into a single, scrollable column on smaller screens, preventing content from collapsing.
+- **Ministry Cards**: Enhanced the existing ministry cards to include images and meeting times, providing more information at a glance.
+- **Hero Section Animation**: Removed the distracting flashing animation from the "WELCOME" text for a cleaner and more professional user experience.
+
 ## [1.0.0] - 2025-12-19
 
 ### Added
