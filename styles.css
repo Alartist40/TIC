@@ -358,6 +358,13 @@ h2 {
     background: var(--accent);
 }
 
+/* Accessibility Focus States */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
 
