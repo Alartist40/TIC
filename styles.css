@@ -348,6 +348,14 @@ h2 {
     z-index: 100;
     opacity: 0;
     transition: opacity 0.3s, background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-to-top img {
+    width: 24px;
+    height: 24px;
 }
 
 .back-to-top.visible {
