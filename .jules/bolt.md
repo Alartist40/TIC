@@ -1,0 +1,3 @@
+## 2024-06-18 - Keep Commits Clean
+**Learning:** I included a `server.log` file in my commit, which was flagged during code review. This is a common anti-pattern. Commits should only contain intentional, relevant changes to the source code, not transient artifacts from local development.
+**Action:** Always double-check the file list before committing. Use `.gitignore` to prevent common log and build files from ever being staged. Never commit server logs, build artifacts, or other machine-generated files.

@@ -98,8 +98,17 @@ function initUI() {
 
 async function loadContent() {
     try {
-        // Fetch About Data
-        const aboutData = await fetchGoogleSheetData(getCachedUrl(SHEET_URLS.about));
+        // ⚡ Bolt: Parallelize network requests to speed up content loading.
+        // All content is fetched simultaneously, reducing load time from a sequential waterfall
+        // to the time of the single slowest request.
+        const [aboutData, ministriesData, scheduleData, generalData] = await Promise.all([
+            fetchGoogleSheetData(getCachedUrl(SHEET_URLS.about)),
+            fetchGoogleSheetData(getCachedUrl(SHEET_URLS.ministries)),
+            fetchGoogleSheetData(getCachedUrl(SHEET_URLS.schedule)),
+            fetchGoogleSheetData(getCachedUrl(SHEET_URLS.general))
+        ]);
+
+        // Process About Data
         if (aboutData) {
             const config = {};
             aboutData.forEach(item => { if (item.Key) config[item.Key] = item.Value; });
@@ -125,20 +134,17 @@ async function loadContent() {
             }
         }
 
-        // Fetch Ministries
-        const ministriesData = await fetchGoogleSheetData(getCachedUrl(SHEET_URLS.ministries));
+        // Process Ministries
         if (ministriesData) {
             renderGallery(ministriesData, document.getElementById('ministries-grid'));
         }
 
-        // Fetch Schedule
-        const scheduleData = await fetchGoogleSheetData(getCachedUrl(SHEET_URLS.schedule));
+        // Process Schedule
         if (scheduleData) {
             renderSchedule(scheduleData, document.getElementById('schedule-container'));
         }
 
-        // Fetch Sermons/General
-        const generalData = await fetchGoogleSheetData(getCachedUrl(SHEET_URLS.general));
+        // Process Sermons/General
         if (generalData) {
             const config = {};
             generalData.forEach(item => { if (item.Key) config[item.Key] = item.Value; });
