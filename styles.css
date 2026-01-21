@@ -347,15 +347,22 @@ h2 {
     cursor: pointer;
     z-index: 100;
     opacity: 0;
-    transition: opacity 0.3s, background-color 0.3s;
+    transform: scale(0.8);
+    transition: opacity 0.3s, background-color 0.3s, transform 0.3s;
 }
 
 .back-to-top.visible {
     opacity: 1;
+    transform: scale(1);
 }
 
 .back-to-top:hover {
     background: var(--accent);
+}
+
+.back-to-top:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
 }
 
 /* Responsive */
