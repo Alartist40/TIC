@@ -80,7 +80,6 @@ function renderMinistries(data) {
     if (!data) return;
 
     const container = document.getElementById('ministries-grid');
-    // Definitive Fix: Use the correct capitalized properties from the Google Sheet
     container.innerHTML = data.map(ministry => `
         <div class="ministry-card">
             <div class="ministry-card-header">${ministry.Title}</div>
