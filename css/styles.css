@@ -165,3 +165,43 @@ h6 {
     color: #2C2C2C;
     transition: opacity 0.5s ease;
 }
+
+/* About Section */
+.about-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.about-section .card {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.pastor-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.pastor-profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.pastor-profile .bio {
+    text-align: center;
+}
