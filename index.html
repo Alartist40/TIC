@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tokyo International Seventh-day Adventist Church</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
@@ -14,126 +14,31 @@
 </head>
 
 <body>
-    <!-- 7-Column Grid Container -->
     <div class="grid-container">
-        <!-- Main Content (6/7) -->
-        <main class="content-sixth">
-            <!-- Sticky Navigation -->
-            <nav class="main-nav" id="main-nav">
-                <div class="titles">
-                    <h1>Tokyo International</h1>
-                    <h1>Seventh-day Adventist Church</h1>
-                </div>
-                <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
-                    <span class="hamburger"></span>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#ministries">Ministries</a></li>
-                    <li><a href="#sermons">Sermons</a></li>
-                    <li><a href="#events">Events</a></li>
-                    <li><a href="#visit">Visit Us</a></li>
-                </ul>
-            </nav>
-
-            <!-- Multilingual Hero Section -->
+        <main class="main-content">
+            <header>
+                <nav class="main-nav">
+                    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+                        <span class="hamburger"></span>
+                    </button>
+                    <ul class="nav-links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#ministries">Ministries</a></li>
+                        <li><a href="#sermons">Sermons</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#visit">Visit Us</a></li>
+                    </ul>
+                </nav>
+            </header>
             <section id="hero" class="hero">
                 <h2 class="welcome" id="welcome-text">WELCOME</h2>
             </section>
-
-            <!-- About Section -->
-            <section id="about" class="about">
-                <h2>About TIC</h2>
-                <div id="about-container">
-                    <div class="card">
-                        <p>Loading church mission and vision...</p>
-                    </div>
-                </div>
-
-                <div id="pastor-container">
-                    <!-- Dynamic Pastor Data -->
-                </div>
-            </section>
-
-            <!-- Ministries Section -->
-            <section id="ministries" class="ministries">
-                <h2>Ministries</h2>
-                <div id="ministries-grid" class="card-grid">
-                    <div class="card">
-                        <p>Loading ministries...</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sermons Section -->
-            <section id="sermons" class="sermons">
-                <h2>Sermons</h2>
-                <div id="sermons-container">
-                    <div class="card">
-                        <p>Join us for our weekly worship services.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Events Section -->
-            <section id="events" class="events">
-                <h2>Upcoming Events</h2>
-                <div class="card">
-                    <h3>Church Calendar</h3>
-                    <div class="calendar-container">
-                        <iframe
-                            src="https://calendar.google.com/calendar/embed?src=OGEwYzIyM2Y0MWI1Mzg1MGQ3NWYxMTMzNTYxNTcwNTI5ZDE4Y2EyYWJjZmMzMzExYzlkYzc5NThhMmQwYjE3ZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&ctz=Asia%2FTokyo"
-                            style="border:0" width="100%" height="400" frameborder="0" scrolling="no" loading="lazy">
-                        </iframe>
-                    </div>
-                </div>
-                <div id="events-grid" class="card-grid">
-                    <!-- Dynamic Event Posters -->
-                </div>
-            </section>
-
-            <!-- Visit Us Section -->
-            <section id="visit" class="visit">
-                <h2>Visit Us</h2>
-                <div id="schedule-container">
-                    <!-- Dynamic Service Times -->
-                </div>
-
-                <div class="card">
-                    <h3>Address & Contact</h3>
-                    <p>
-                        1-11-1 Jingumae, Shibuya, Tokyo, Japan 150-0001<br>
-                        Tel: +81 3-3402-1517<br>
-                        Email: <a href="mailto:info@tokyoadventist.org">info@tokyoadventist.org</a>
-                    </p>
-                    <div class="map-container" style="margin-top: 1rem;">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.689460241809!2d139.70263531525887!3d35.66947618019585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cb9f8a3c3b5%3A0x4a5e78be6c4e3d3d!2s1%20Chome-11-1%20Jingumae%2C%20Shibuya%20City%2C%20Tokyo%20150-0001!5e0!3m2!1sen!2sjp!4v1700000000000!5m2!1sen!2sjp"
-                            width="100%" height="300" style="border:0;" allowfullscreen loading="lazy">
-                        </iframe>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Footer -->
-            <footer>
-                <p>&copy; <span id="year"></span> Tokyo International Seventh-day Adventist Church.</p>
-                <p>Designed with the Creation Grid.</p>
-            </footer>
         </main>
-
-        <!-- Sabbath Column (1/7) - The 7th Grid -->
-        <aside class="sabbath-column" id="sabbath-column" aria-hidden="true">
+        <aside class="sabbath-column">
             <img src="images/logo/adventist-symbol--white.svg" alt="Seventh-day Adventist Symbol" class="sabbath-logo">
         </aside>
     </div>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-        ↑
-    </button>
-
     <script type="module" src="js/app.js"></script>
 </body>
 

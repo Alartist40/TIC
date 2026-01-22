@@ -1,0 +1,167 @@
+/* Basic CSS Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    min-height: 100vh;
+}
+
+.main-content {
+    grid-column: 1 / 7;
+    background-color: #fff; /* Temporary background for visibility */
+}
+
+.sabbath-column {
+    grid-column: 7 / 8;
+    background-color: #1a1a1a; /* Dark background for the Sabbath column */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% / 7);
+    height: 100vh;
+    padding: 1rem;
+}
+
+.sabbath-logo {
+    width: 50%;
+    max-width: 80px;
+    height: auto;
+}
+
+/* Navigation */
+.main-nav {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    padding: 1rem;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: flex-end; /* Align toggle to the right */
+    align-items: center;
+}
+
+.nav-toggle {
+    display: block;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    left: 0;
+    transition: transform 0.3s ease;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    bottom: -8px;
+}
+
+.nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    list-style: none;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-links.active {
+    display: block;
+}
+
+.nav-links li {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px); /* Adjust height based on nav bar */
+    padding: 2rem;
+    text-align: center;
+}
+
+.welcome {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #2C2C2C;
+    transition: opacity 0.5s ease;
+}
