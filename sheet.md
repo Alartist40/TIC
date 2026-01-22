@@ -28,6 +28,16 @@ First, you need a Google Sheet. You can either create a new one or use an existi
 | PastorBio   | Pastor John Doe has been leading our church since...  |
 | PastorImage | *URL to the pastor's image*                           |
 
+**Example for the "Ministries" tab:**
+
+The `ministries` tab is a list, where each row represents a single ministry. It requires three columns: `Title`, `Description`, and `ImageLink`.
+
+| Title             | Description                                      | ImageLink                   |
+|-------------------|--------------------------------------------------|-----------------------------|
+| Children's Ministry | A fun and safe place for kids to learn about God. | *URL to an image*           |
+| Youth Group       | Engaging activities for teens and young adults.  | *URL to another image*      |
+| Community Service | Making a difference in our local community.      | *URL to a different image*  |
+
 
 ---
 

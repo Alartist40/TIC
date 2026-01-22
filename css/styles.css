@@ -205,3 +205,53 @@ h6 {
 .pastor-profile .bio {
     text-align: center;
 }
+
+/* Ministries Section */
+.ministries-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.ministries-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.ministries-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.ministry-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ministry-card-header {
+    padding: 1.5rem;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.ministry-card-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    padding: 0 1.5rem;
+}
+
+.ministry-card.active .ministry-card-content {
+    max-height: 500px; /* Adjust as needed */
+    padding: 1.5rem;
+    transition: max-height 0.5s ease-in, padding 0.5s ease-in;
+}
+
+.ministry-card-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
