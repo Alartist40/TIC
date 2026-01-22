@@ -11,9 +11,8 @@ const SHEET_URLS = {
     schedule: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTW2lUOC_ogYTvWIo_thDUo_NvQbJd-vBnnuXo0YQ36-QQPi22uvQjtqy9pAqtWlXom0HwVHSdBCMj7/pub?gid=786496350&single=true&output=csv'
 };
 
-function getCachedUrl(url) {
-    return `${url}&_=${new Date().getTime()}`;
-}
+// ⚡ Bolt: Removed getCachedUrl function to allow browser caching of CSV data.
+// This improves performance on repeat visits.
 
 document.addEventListener('DOMContentLoaded', async () => {
     initUI();
@@ -98,8 +97,15 @@ function initUI() {
 
 async function loadContent() {
     try {
-        // Fetch About Data
-        const aboutData = await fetchGoogleSheetData(getCachedUrl(SHEET_URLS.about));
+        // ⚡ Bolt: Parallelize network requests to prevent a sequential waterfall.
+        const [aboutData, ministriesData, scheduleData, generalData] = await Promise.all([
+            fetchGoogleSheetData(SHEET_URLS.about),
+            fetchGoogleSheetData(SHEET_URLS.ministries),
+            fetchGoogleSheetData(SHEET_URLS.schedule),
+            fetchGoogleSheetData(SHEET_URLS.general)
+        ]);
+
+        // Process About Data
         if (aboutData) {
             const config = {};
             aboutData.forEach(item => { if (item.Key) config[item.Key] = item.Value; });
@@ -125,20 +131,17 @@ async function loadContent() {
             }
         }
 
-        // Fetch Ministries
-        const ministriesData = await fetchGoogleSheetData(getCachedUrl(SHEET_URLS.ministries));
+        // Process Ministries
         if (ministriesData) {
             renderGallery(ministriesData, document.getElementById('ministries-grid'));
         }
 
-        // Fetch Schedule
-        const scheduleData = await fetchGoogleSheetData(getCachedUrl(SHEET_URLS.schedule));
+        // Process Schedule
         if (scheduleData) {
             renderSchedule(scheduleData, document.getElementById('schedule-container'));
         }
 
-        // Fetch Sermons/General
-        const generalData = await fetchGoogleSheetData(getCachedUrl(SHEET_URLS.general));
+        // Process Sermons/General
         if (generalData) {
             const config = {};
             generalData.forEach(item => { if (item.Key) config[item.Key] = item.Value; });
