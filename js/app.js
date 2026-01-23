@@ -1,18 +1,4 @@
-import { fetchGoogleSheetData } from './services/googleContent.js';
-import { renderGallery } from './components/renderGallery.js';
-import { renderPastor } from './components/renderPastor.js';
-import { renderSchedule } from './components/renderSchedule.js';
-
-const SHEET_URLS = {
-    general: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTW2lUOC_ogYTvWIo_thDUo_NvQbJd-vBnnuXo0YQ36-QQPi22uvQjtqy9pAqtWlXom0HwVHSdBCMj7/pub?gid=2118403729&single=true&output=csv',
-    about: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTW2lUOC_ogYTvWIo_thDUo_NvQbJd-vBnnuXo0YQ36-QQPi22uvQjtqy9pAqtWlXom0HwVHSdBCMj7/pub?gid=1587976413&single=true&output=csv',
-    ministries: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTW2lUOC_ogYTvWIo_thDUo_NvQbJd-vBnnuXo0YQ36-QQPi22uvQjtqy9pAqtWlXom0HwVHSdBCMj7/pub?gid=0&single=true&output=csv',
-    sermons: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTW2lUOC_ogYTvWIo_thDUo_NvQbJd-vBnnuXo0YQ36-QQPi22uvQjtqy9pAqtWlXom0HwVHSdBCMj7/pub?gid=708079300&single=true&output=csv',
-    schedule: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTW2lUOC_ogYTvWIo_thDUo_NvQbJd-vBnnuXo0YQ36-QQPi22uvQjtqy9pAqtWlXom0HwVHSdBCMj7/pub?gid=786496350&single=true&output=csv'
-};
-
-// ⚡ Bolt: Removed getCachedUrl function to allow browser caching of CSV data.
-// This improves performance on repeat visits.
+import { SHEET_URLS, fetchGoogleSheetData } from './services/googleContent.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     initUI();
@@ -52,16 +38,12 @@ function initUI() {
         const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollRatio = totalHeight > 0 ? Math.min(scrollPosition / totalHeight, 1) : 0;
 
-        // Transition from #005eb8 to #ffffff
-        // We can use interpolate levels or just set opacity of a white layer
-        // But the user asked for the grid itself to transition.
         const r = Math.round(0 + (255 - 0) * scrollRatio);
         const g = Math.round(94 + (255 - 94) * scrollRatio);
         const b = Math.round(184 + (255 - 184) * scrollRatio);
 
         sabbathCol.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 
-        // Adjust logo brightness if needed
         const logo = sabbathCol.querySelector('.sabbath-logo');
         if (scrollRatio > 0.7) {
             logo.style.filter = 'invert(1) drop-shadow(0 0 2px rgba(0,0,0,0.2))';
@@ -72,89 +54,142 @@ function initUI() {
 
     // Multilingual Welcome Rotation
     const welcomeText = document.getElementById('welcome-text');
-    const languages = [
-        { text: 'WELCOME', lang: 'English' },
-        { text: 'ようこそ', lang: 'Japanese' },
-        { text: '欢迎', lang: 'Chinese' },
-        { text: '환영합니다', lang: 'Korean' },
-        { text: 'BIENVENIDO', lang: 'Spanish' },
-        { text: 'BEM-VINDO', lang: 'Portuguese' },
-        { text: 'BIENVENUE', lang: 'French' }
-    ];
-    let langIndex = 0;
+    if (welcomeText) {
+        const languages = [
+            { text: 'WELCOME', lang: 'English' },
+            { text: 'ようこそ', lang: 'Japanese' },
+            { text: '欢迎', lang: 'Chinese' },
+            { text: '환영합니다', lang: 'Korean' },
+            { text: 'BIENVENIDO', lang: 'Spanish' },
+            { text: 'BEM-VINDO', lang: 'Portuguese' },
+            { text: 'BIENVENUE', lang: 'French' }
+        ];
+        let langIndex = 0;
 
-    setInterval(() => {
-        langIndex = (langIndex + 1) % languages.length;
-        welcomeText.style.opacity = '0';
-        setTimeout(() => {
-            welcomeText.textContent = languages[langIndex].text;
-            welcomeText.style.opacity = '1';
-        }, 500);
-    }, 3000);
+        setInterval(() => {
+            langIndex = (langIndex + 1) % languages.length;
+            welcomeText.style.opacity = '0';
+            setTimeout(() => {
+                welcomeText.textContent = languages[langIndex].text;
+                welcomeText.style.opacity = '1';
+            }, 500);
+        }, 3000);
+    }
 
     document.getElementById('year').textContent = new Date().getFullYear();
 }
 
+function renderAbout(data) {
+    if (!data) return;
+
+    const config = {};
+    data.forEach(item => { if (item.Key) config[item.Key] = item.Value; });
+
+    const aboutContainer = document.getElementById('about-container');
+    aboutContainer.innerHTML = `
+        <div class="card">
+            <h3>Our Mission</h3>
+            <p>${config.Mission || ''}</p>
+        </div>
+        <div class="card">
+            <h3>Our Vision</h3>
+            <p>${config.Vision || ''}</p>
+        </div>
+    `;
+
+    const pastorContainer = document.getElementById('pastor-container');
+    if (config.PastorName) {
+        const pastorTitle = config.PastorName.toLowerCase().includes('pastor') ? '' : 'Pastor ';
+        pastorContainer.innerHTML = `
+            <div class="pastor-profile">
+                <img src="${config.PastorImage || 'images/pastor_profile_pic.webp'}" alt="Image of ${config.PastorName}">
+                <div class="bio">
+                    <h3>${pastorTitle}${config.PastorName}</h3>
+                    <p>${config.PastorBio || ''}</p>
+                </div>
+            </div>
+        `;
+    }
+}
+
+function renderMinistries(data) {
+    if (!data) return;
+
+    const container = document.getElementById('ministries-grid');
+    container.innerHTML = data.map(ministry => `
+        <div class="ministry-card">
+            <div class="ministry-card-header">${ministry.Title}</div>
+            <div class="ministry-card-content">
+                <img src="${ministry.ImageLink}" alt="${ministry.Title}">
+                <p>${ministry.Description}</p>
+            </div>
+        </div>
+    `).join('');
+
+    container.addEventListener('click', (event) => {
+        if (event.target.classList.contains('ministry-card-header')) {
+            const clickedCard = event.target.parentElement;
+
+            document.querySelectorAll('.ministry-card').forEach(card => {
+                if (card !== clickedCard) {
+                    card.classList.remove('active');
+                }
+            });
+            clickedCard.classList.toggle('active');
+        }
+    });
+}
+
+function renderVisit(data) {
+    const container = document.getElementById('visit-container');
+
+    const config = {};
+    if (data && data.length > 0) {
+        data.forEach(item => { if (item.Key) config[item.Key] = item.Value; });
+    } else {
+        container.innerHTML = '<div class="card"><p>Loading visitor information...</p></div>';
+        return;
+    }
+
+    const encodedAddress = encodeURIComponent(config.Address);
+    const mapUrl = `https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodedAddress}`;
+
+    container.innerHTML = `
+        <div class="card">
+            <div class="service-times">
+                <h3>Service Times</h3>
+                <ul>
+                    <li>Sabbath School<span class="time">${config.SabbathSchoolTime}</span></li>
+                    <li>Worship Service<span class="time">${config.WorshipServiceTime}</span></li>
+                </ul>
+            </div>
+            <div class="address-contact">
+                <h3>Address & Contact</h3>
+                <p>${config.Address}</p>
+                <p>Email: <a href="mailto:${config.ContactEmail}">${config.ContactEmail}</a></p>
+                <div class="map-container">
+                    <iframe
+                        src="${mapUrl}"
+                        loading="lazy"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
 async function loadContent() {
     try {
-        // ⚡ Bolt: Parallelize network requests to prevent a sequential waterfall.
-        const [aboutData, ministriesData, scheduleData, generalData] = await Promise.all([
+        const [aboutData, ministriesData, visitData] = await Promise.all([
             fetchGoogleSheetData(SHEET_URLS.about),
             fetchGoogleSheetData(SHEET_URLS.ministries),
-            fetchGoogleSheetData(SHEET_URLS.schedule),
-            fetchGoogleSheetData(SHEET_URLS.general)
+            fetchGoogleSheetData(SHEET_URLS.visit)
         ]);
 
-        // Process About Data
-        if (aboutData) {
-            const config = {};
-            aboutData.forEach(item => { if (item.Key) config[item.Key] = item.Value; });
-
-            const container = document.getElementById('about-container');
-            container.innerHTML = `
-                <div class="card">
-                    <h3>Our Mission and Vision</h3>
-                    <h4>Our Mission</h4>
-                    <p>${config.Mission || ''}</p>
-                    <h4>Our Vision</h4>
-                    <p>${config.Vision || ''}</p>
-                    ${config.Values ? `<h4>Our Values</h4><p>${config.Values}</p>` : ''}
-                </div>
-            `;
-
-            if (config.PastorName) {
-                renderPastor({
-                    name: config.PastorName,
-                    bio: config.PastorBio,
-                    image: config.PastorImage || 'images/pastor_profile_pic.webp'
-                }, document.getElementById('pastor-container'));
-            }
-        }
-
-        // Process Ministries
-        if (ministriesData) {
-            renderGallery(ministriesData, document.getElementById('ministries-grid'));
-        }
-
-        // Process Schedule
-        if (scheduleData) {
-            renderSchedule(scheduleData, document.getElementById('schedule-container'));
-        }
-
-        // Process Sermons/General
-        if (generalData) {
-            const config = {};
-            generalData.forEach(item => { if (item.Key) config[item.Key] = item.Value; });
-            if (config.YoutubeLive) {
-                document.getElementById('sermons-container').innerHTML = `
-                    <div class="card" style="text-align: center;">
-                        <h3>Join Us Live on YouTube</h3>
-                        <p>Watch our services live every Sabbath.</p>
-                        <a href="${config.YoutubeLive}" target="_blank" class="gold-btn" style="display:inline-block; margin-top:1rem; padding: 0.75rem 1.5rem; border: 2px solid var(--accent); color: var(--accent); text-decoration:none; border-radius:4px; font-weight:600;">Watch Now</a>
-                    </div>
-                `;
-            }
-        }
+        renderAbout(aboutData);
+        renderMinistries(ministriesData);
+        renderVisit(visitData);
 
     } catch (error) {
         console.error('Error loading content:', error);
