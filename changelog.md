@@ -1,21 +1,47 @@
 # Changelog
 
-All notable changes to the Tokyo International Seventh-day Adventist Church website will be documented in this file.
+All notable changes to this project will be documented in this file.
 
-## [1.0.0] - 2025-12-19
+## [Unreleased]
 
 ### Added
-- **New 6:1 Grid Architecture**: Implemented a strict grid system where the content spans 6/7ths of the width and a sidebar (Sabbath Column) spans 1/7th.
-- **Google Sheets Integration**: Integrated `PapaParse` to fetch and render content dynamically from a centralized Google Sheet.
-- **Multilingual Hero Section**: Added a rotating "WELCOME" text in multiple languages.
-- **Sticky Navigation**: Implemented a responsive navigation bar that stays fixed at the top.
-- **7th Grid Scroll Effect**: Added a JavaScript-driven color transition for the rightmost column (fades from blue to white on scroll).
-- **Modular JavaScript**: Separated fetching logic (`googleContent.js`) and rendering logic (`renderSchedule.js`, `renderGallery.js`, `renderPastor.js`).
-- **Back to Top Button**: Added a smooth-scroll button for better UX.
-- **Documentation**: Created `README.md` and this `changelog.md`.
+- **Project Documentation:**
+  - Created `README.md` with a project overview, architecture details, and local setup instructions.
+  - Created `changelog.md` to document the project's development history.
+  - Created `sheet.md` to explain the Google Sheets-based content management workflow.
 
-### Improved
-- **Visual Design**: Adopted the high-end aesthetic from `tic-website` with `tic-website`'s color palette and typography.
-- **Content Manageability**: Shifted hardcoded content to dynamic rendering, allowing non-technical users to update the site via Google Sheets.
-- **Mobile Experience**: Ensured the 6:1 grid remains functional on mobile devices with a 40px sidebar.
-- **SEO**: Added semantic HTML tags and descriptive meta-like structure.
+### Changed
+- **Codebase Cleanup:**
+  - Performed a full repository cleanup, removing all temporary files, test suites, and uncommitted changes from previous development cycles.
+
+## [2024-08-01] - Initial Rebuild & Core Features
+
+### Added
+- **Complete Website Rebuild:**
+  - Initiated a full rebuild of the website to be mobile-first and based on "The Creation Grid" 7-column design.
+  - Established the core HTML structure and a clean, modular JavaScript architecture.
+
+- **Core UI & Navigation:**
+  - Implemented the 7-column grid with a fixed "Sabbath Column."
+  - Built a functional hamburger navigation menu for mobile devices.
+
+- **"Welcome" Section:**
+  - Created the hero section with a multilingual "Welcome" message that rotates through English, Japanese, Chinese, Korean, Spanish, Portuguese, and French.
+
+- **"About Us" Section:**
+  - Developed the "About Us" section, featuring mission and vision statements.
+  - Implemented the pastor's profile component, including an image, name, and biography.
+  - All content is dynamically loaded from a Google Sheet.
+
+- **"Ministries" Section:**
+  - Implemented an expanding card UI for the "Ministries" section.
+  - Each card displays a title, description, and image, with content managed via a Google Sheet.
+
+### Removed
+- **"Sermons" Section (Attempted & Reverted):**
+  - An initial attempt to automatically fetch and embed the latest YouTube video was made.
+  - This feature was reverted due to insurmountable CORS and client-side parsing challenges that made it infeasible with the current static architecture.
+
+- **"Events" Section (Attempted & Reverted):**
+  - Development was started on an "Events" section that would include an embedded Google Calendar and expanding event cards.
+  - This feature was postponed and the code was reverted because the required Google Sheet URL was not available.

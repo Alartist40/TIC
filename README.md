@@ -1,46 +1,29 @@
 # Tokyo International Seventh-day Adventist Church Website
 
-A modern, responsive website for the Tokyo International Seventh-day Adventist Church (TIC), built with a unique 6:1 grid layout and integrated with Google Sheets for easy content management.
+## Overview
 
-## Features
+This repository contains the official website for the Tokyo International Seventh-day Adventist Church. It is a modern, mobile-first, single-page application designed to be both visually engaging and easy for church staff to update.
 
-- **6:1 Grid Layout**: A consistent design that allocates 6 parts of the viewport to main content and 1 part to a dedicated "Sabbath" column.
-- **Dynamic Content**: Most website details (Mission, Pastor Bio, Service Times, Ministries) are fetched directly from a Google Sheet.
-- **Multilingual Hero**: A welcoming section that rotates through multiple languages.
-- **Sticky Navigation**: Easy access to sections as you scroll.
-- **Sabbath Grid Transition**: The rightmost column transitions from the primary church blue to white as you scroll to the bottom.
-- **Mobile Responsive**: Optimized for all devices with a 6:1 ratio and a functional mobile menu.
+The project was rebuilt from the ground up to prioritize the mobile user experience and adhere to a specific design philosophy.
 
-## How to Use the Google Sheet
+## Core Architecture & Design
 
-The website is powered by a Google Sheet. Non-technical staff can update the website content by simply editing the sheet.
+The website is built with a minimalist "vanilla" technology stack for simplicity and performance, using only **HTML, CSS, and modular JavaScript**. It does not rely on any major frontend frameworks.
 
-### Setup Instructions
+The visual design is based on **"The Creation Grid,"** a 7-column layout system. A key feature of this design is the fixed rightmost "Sabbath Column," which remains anchored on the screen, providing a consistent visual identity.
 
-1.  **Sheet Structure**: Ensure your Google Sheet has tabs named `General`, `About`, `Ministries`, `Sermons`, and `Schedule`.
-2.  **Publish to the Web**:
-    - Open your Google Sheet.
-    - Go to `File` > `Share` > `Publish to web`.
-    - Select the entire document or specific tabs.
-    - Choose `CSV` as the output format.
-    - Click `Publish`.
-3.  **Update URLs**: Copy the generated CSV URLs for each tab and update them in `js/app.js` under the `SHEET_URLS` constant.
+## Content Management via Google Sheets
 
-### Tab Details
+One of the primary goals of this project is to empower non-developers to manage the website's content. To achieve this, all dynamic data—such as the "About Us" text, pastor's profile, and ministry descriptions—is fetched from a public Google Sheet.
 
-- **General**: Key-Value pairs for site-wide settings (e.g., `YoutubeLive`).
-- **About**: Contains `Mission`, `Vision`, `Values`, `PastorName`, `PastorBio`, and `PastorImage`.
-- **Ministries**: Columns for `Title` and `Description`.
-- **Schedule**: Columns for `Program`, `Time`, and `Location`.
-- **Sermons**: Placeholder for future sermon data.
+This approach effectively turns a Google Sheet into a simple, user-friendly Content Management System (CMS). For detailed instructions on how to set up and manage the content, please see the `sheet.md` file.
 
-## Technologies Used
+## Running Locally
 
-- **HTML5/CSS3**: Core structure and design.
-- **JavaScript (ES6+)**: Logic and dynamic rendering.
-- **PapaParse**: For parsing Google Sheets CSV data.
-- **Google Fonts**: Inter and Playfair Display.
+To preview changes locally, you can run a simple web server from the root of the project. If you have Python 3 installed, you can use the following command:
 
-## Development
+```bash
+python3 -m http.server 8000
+```
 
-To run the project locally, simply open `index.html` in a web browser. Note that Google Sheet data fetching requires an active internet connection.
+Then, open your web browser and navigate to `http://localhost:8000`.
