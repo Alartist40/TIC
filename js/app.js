@@ -83,76 +83,49 @@ function renderAboutSection(container) {
     const aboutSection = document.createElement('section');
     aboutSection.id = 'about';
     aboutSection.className = 'py-16 lg:py-24 bg-white';
-    container.appendChild(aboutSection);
 
-    fetchData(SHEET_URLS.about, (data) => {
-        const findValue = (key) => {
-            const item = data.find(row => row.Key === key);
-            return item ? item.Value : '';
-        };
+    const aboutHtml = `
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="max-w-6xl mx-auto space-y-16">
+          <div class="text-center space-y-6">
+            <h2 class="text-4xl lg:text-5xl font-bold text-gray-900">About Us</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Building a community of believers</p>
+          </div>
 
-        const findImage = (key) => {
-            const item = data.find(row => row.Key === key);
-            return item ? item.ImageURL : '';
-        };
-
-        const mainTitle = findValue('MainTitle') || 'About Our Church';
-        const subtitle = findValue('Subtitle') || 'Building a community of believers';
-        const storyTitle = findValue('StoryTitle') || 'Our Story';
-        const storyParagraphs = data.filter(row => row.Key && row.Key.startsWith('StoryParagraph')).map(row => `<p class="text-lg text-gray-700 leading-relaxed">${row.Value}</p>`).join('');
-        const mainImage = findImage('MainImage') || 'https://images.unsplash.com/photo-1608569569089-5d2e3e644ea6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjBidWlsZGluZyUyMGV4dGVyaW9yfGVufDF8fHx8MTc2ODk5NTk0Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral';
-
-        const missionTitle = findValue('MissionTitle') || 'Our Mission';
-        const missionDescription = findValue('MissionDescription');
-        const visionTitle = findValue('VisionTitle') || 'Our Vision';
-        const visionDescription = findValue('VisionDescription');
-
-        const pastorBioTitle = findValue('PastorBioTitle') || 'Meet Our Pastor';
-        const pastorBioText = findValue('PastorBioText');
-        const pastorImage = findImage('PastorImage') || 'https://via.placeholder.com/400';
-
-        const aboutHtml = `
-          <div class="container mx-auto px-4 lg:px-8">
-            <div class="max-w-6xl mx-auto space-y-16">
-              <div class="text-center space-y-6">
-                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900">${mainTitle}</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">${subtitle}</p>
-              </div>
-
-              <!-- Story Section -->
-              <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div><img src="${mainImage}" alt="Church Building" class="w-full h-96 object-cover rounded-lg shadow-xl"></div>
-                <div class="space-y-6">
-                  <h3 class="text-3xl font-bold text-gray-900">${storyTitle}</h3>
-                  ${storyParagraphs}
-                </div>
-              </div>
-
-              <!-- Mission & Vision Section -->
-              <div class="grid md:grid-cols-2 gap-12">
-                <div class="bg-blue-50 p-8 rounded-lg">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-4">${missionTitle}</h3>
-                    <p class="text-lg text-gray-700 leading-relaxed">${missionDescription}</p>
-                </div>
-                <div class="bg-blue-50 p-8 rounded-lg">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-4">${visionTitle}</h3>
-                    <p class="text-lg text-gray-700 leading-relaxed">${visionDescription}</p>
-                </div>
-              </div>
-
-              <!-- Pastor Bio Section -->
-              <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <h3 class="text-3xl font-bold text-gray-900">${pastorBioTitle}</h3>
-                    <p class="text-lg text-gray-700 leading-relaxed">${pastorBioText}</p>
-                </div>
-                <div><img src="${pastorImage}" alt="Pastor" class="w-full h-96 object-cover rounded-lg shadow-xl"></div>
-              </div>
-
+          <!-- Story Section -->
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div><img src="https://images.unsplash.com/photo-1608569569089-5d2e3e644ea6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaHVyY2glMjBidWlsZGluZyUyMGV4dGVyaW9yfGVufDF8fHx8MTc2ODk5NTk0Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Church Building" class="w-full h-96 object-cover rounded-lg shadow-xl"></div>
+            <div class="space-y-6">
+              <h3 class="text-3xl font-bold text-gray-900">Our Story</h3>
+              <p class="text-lg text-gray-700 leading-relaxed">Our church was founded in 1985 with a small group of believers who wanted to create a place of worship and community. Over the years, we have grown and evolved, but our commitment to faith, hope, and love has remained the same.</p>
             </div>
-          </div>`;
-        aboutSection.innerHTML = aboutHtml;
-    });
+          </div>
+
+          <!-- Mission & Vision Section -->
+          <div class="grid md:grid-cols-2 gap-12">
+            <div class="bg-blue-50 p-8 rounded-lg">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Our Mission</h3>
+                <p class="text-lg text-gray-700 leading-relaxed">To share the love of Christ with our community and the world, and to make disciples of all nations.</p>
+            </div>
+            <div class="bg-blue-50 p-8 rounded-lg">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Our Vision</h3>
+                <p class="text-lg text-gray-700 leading-relaxed">To be a beacon of hope and a place of refuge for all who are seeking God's love and grace.</p>
+            </div>
+          </div>
+
+          <!-- Pastor Bio Section -->
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h3 class="text-3xl font-bold text-gray-900">Meet Our Pastor</h3>
+                <p class="text-lg text-gray-700 leading-relaxed">Pastor John Doe has been leading our congregation for the past 10 years. He is a passionate speaker and a dedicated servant of God. He and his wife, Jane, have three children and have been married for 15 years.</p>
+            </div>
+            <div><img src="https://via.placeholder.com/400" alt="Pastor" class="w-full h-96 object-cover rounded-lg shadow-xl"></div>
+          </div>
+
+        </div>
+      </div>`;
+    aboutSection.innerHTML = aboutHtml;
+    container.appendChild(aboutSection);
 }
 
 function renderMinistrySection(container) {
