@@ -17,7 +17,7 @@
         <!-- Main Content (6/7) -->
         <main class="content-sixth">
             <!-- Enhanced Navigation -->
-            <nav class="main-nav" id="main-nav">
+            <nav class="main-nav">
                 <div class="titles">
                     <h1>Tokyo International</h1>
                     <h1>Seventh-day Adventist Church</h1>
@@ -35,10 +35,13 @@
                 </ul>
             </nav>
 
-            <!-- Enhanced Hero Section -->
+            <!-- Hero Section -->
             <section id="hero" class="hero">
-                <h2 class="welcome" id="welcome-text">WELCOME</h2>
-                <div class="language-subtitle" id="language-subtitle">English</div>
+                <h2 class="welcome">WELCOME</h2>
+                <div class="language-rotator">
+                    <span class="language-text"
+                        data-languages='["欢迎", "Bienvenido", "Bienvenue", "Willkommen", "ようこそ", "환영"]'>欢迎</span>
+                </div>
             </section>
 
             <!-- About Section -->
@@ -372,44 +375,36 @@
         </aside>
     </div>
 
-    <!-- Modal System for Google Sheets Content -->
-    <div id="modal-overlay" class="modal-overlay" style="display: none;">
-        <div class="modal-container">
+    <!-- Modal/Popup System -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
             <button class="modal-close" aria-label="Close modal">&times;</button>
-            <div class="modal-content" id="modal-content">
-                <!-- Dynamic content will be loaded here from Google Sheets -->
-                <div class="modal-loading">
-                    <p>Loading content from Google Sheets...</p>
-                </div>
+            <div class="modal-body">
+                <!-- Content will be loaded here dynamically -->
             </div>
         </div>
     </div>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top" style="display: none;">
-        ↑
-    </button>
+    <button class="back-to-top" aria-label="Back to top">↑</button>
 
     <script>
         // Enhanced navigation and scrolling functionality
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function()  {
             // Fixed navigation scrolling with header offset
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     const target = document.querySelector(targetId);
-
-                    if (target) {
+                     if (target) {
                         const headerHeight = document.querySelector('.main-nav').offsetHeight;
                         const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-
-                        window.scrollTo({
+                         window.scrollTo({
                             top: targetPosition,
                             behavior: 'smooth'
                         });
-
-                        // Close mobile menu if open
+                         // Close mobile menu if open
                         const links = document.querySelector('.nav-links');
                         const toggle = document.querySelector('.nav-toggle');
                         if (links.classList.contains('open')) {
@@ -423,8 +418,7 @@
             // Mobile navigation toggle
             const toggle = document.querySelector('.nav-toggle');
             const links = document.querySelector('.nav-links');
-
-            if (toggle) {
+             if (toggle) {
                 toggle.addEventListener('click', () => {
                     const expanded = toggle.getAttribute('aria-expanded') === 'true';
                     toggle.setAttribute('aria-expanded', !expanded);
@@ -432,122 +426,109 @@
                 });
             }
 
-            // Enhanced Back to Top functionality
-            const backToTopButton = document.getElementById('back-to-top');
-
-            backToTopButton.addEventListener('click', () => {
+            // Back to top button functionality
+            const backToTopButton = document.querySelector('.back-to-top');
+             backToTopButton.addEventListener('click', () => {
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
                 });
             });
 
-            // Show/hide back to top button with smooth transitions
+            // Show/hide back to top button
             window.addEventListener('scroll', () => {
                 if (window.pageYOffset > 300) {
-                    backToTopButton.style.display = 'block';
-                    setTimeout(() => {
-                        backToTopButton.style.opacity = '1';
-                    }, 10);
+                    backToTopButton.classList.add('visible');
                 } else {
-                    backToTopButton.style.opacity = '0';
-                    setTimeout(() => {
-                        backToTopButton.style.display = 'none';
-                    }, 300);
+                    backToTopButton.classList.remove('visible');
                 }
             });
 
-            // Enhanced Multilingual Welcome System
-            const welcomeSystem = {
-                welcomeText: document.getElementById('welcome-text'),
-                languageSubtitle: document.getElementById('language-subtitle'),
-                languages: [
-                    { text: 'WELCOME', language: 'English' },
-                    { text: 'ようこそ', language: 'Japanese' },
-                    { text: '欢迎', language: 'Chinese' },
-                    { text: '환영합니다', language: 'Korean' },
-                    { text: 'BIENVENIDO', language: 'Spanish' },
-                    { text: 'BEM-VINDO', language: 'Portuguese' },
-                    { text: 'BIENVENUE', language: 'French' }
-                ],
-                currentIndex: 0,
-
-                init() {
+            // Language rotation for welcome section
+            function rotateLanguages() {
+                const languageElement = document.querySelector('.language-text');
+                if (languageElement) {
+                    const languages = JSON.parse(languageElement.getAttribute('data-languages'));
+                    let currentIndex = 0;
+                    
                     setInterval(() => {
-                        this.rotateText();
+                        currentIndex = (currentIndex + 1) % languages.length;
+                        languageElement.style.opacity = '0';
+                        
+                        setTimeout(() => {
+                            languageElement.textContent = languages[currentIndex];
+                            languageElement.style.opacity = '1';
+                        }, 500);
                     }, 3000);
-                },
-
-                rotateText() {
-                    this.currentIndex = (this.currentIndex + 1) % this.languages.length;
-                    const current = this.languages[this.currentIndex];
-
-                    // Smooth fade transition
-                    this.welcomeText.style.opacity = '0';
-                    this.languageSubtitle.style.opacity = '0';
-
-                    setTimeout(() => {
-                        this.welcomeText.textContent = current.text;
-                        this.languageSubtitle.textContent = current.language;
-
-                        this.welcomeText.style.opacity = '1';
-                        this.languageSubtitle.style.opacity = '1';
-                    }, 500);
                 }
-            };
+            }
 
-            // Initialize multilingual system
-            welcomeSystem.init();
+            // Modal/popup system
+            const modal = document.getElementById('modal');
+            const modalBody = document.querySelector('.modal-body');
+t closeModal = document.querySelector('.modal-close');
 
-            // Enhanced Modal System for Google Sheets Integration
-            const modal = {
-                overlay: document.getElementById('modal-overlay'),
-                content: document.getElementById('modal-content'),
-                closeBtn: document.querySelector('.modal-close'),
+            // Close modal functions
+            function closeModalWindow() {
+                modal.c'active');
+                document.body.style.overflow = 'auto';
+            }
 
-                init() {
-                    if (!this.closeBtn) return;
-                    this.closeBtn.addEventListener('click', () => this.close());
-                    this.overlay.addEventListener('click', (e) => {
-                        if (e.target === this.overlay) this.close();
-                    });
-                    document.addEventListener('keydown', (e) => {
-                        if (e.key === 'Escape') this.close();
-                    });
-                },
-
-                open(content) {
-                    this.content.innerHTML = content;
-                    this.overlay.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-
-                    setTimeout(() => {
-                        this.overlay.style.opacity = '1';
-                    }, 10);
-                },
-
-                close() {
-                    this.overlay.style.opacity = '0';
-                    setTimeout(() => {
-                        this.overlay.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    }, 300);
+            closeModal.addEventListener('click', closeModalWindow);
+            
+            modal.addEventList {
+                if (e.target === modal) {
+                    closeModalWindow();
                 }
-            };
+            });
 
-            modal.init();
+            // Escape key to close modal
+       ntListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModalWindow();
+                }
+            });
 
+ n functionality
             document.querySelectorAll('.more-btn').forEach(button => {
-                button.addEventListener('click', function () {
+                button.addEventListener('click', function() {
                     const contentKey = this.getAttribute('data-content');
-                    // Use dynamic content if available, otherwise loading or fallback
-                    const dynamicHTML = window.getDynamicContent ? window.getDynamicContent(contentKey) : 'Loading...';
-                    modal.open(dynamicHTML);
+                    loadModalContent(contentKey);
                 });
             });
 
-            // Set current year
+            function loadModalContent(contentKey) {
+                // This would typically fetch content from Google Drive or a CMS
+                // For now, we'll use placeholder content
+                const contentMap = {
+                    'mission': ssion Information</h3><p>Full mission statement  and detailed explanation...</p>',
+                    'pastor': '<h3>Pastoral Family Details</h3><p>More information about the pastoral family...</p>',
+                    'media-ministry': '<h3>Media Ministry Schedule</h3><p>Detailed schedule and volunteer information...</p>',
+                    'youth-ministry': '<h3>Youth Ministry Calendar</h3><p>Upcoming events and activities...</p>',
+                    'music-ministry': '<h3>Muedule</h3><p>Rehearsal times and performance schedule...</p>',
+                    'health-ministry': '<h3>Health Programs</h3><p>Upcoming health seminars and activities...</p>',
+                    'bullelletin</h3><p>Download link and current announcements...</p>'
+                };
+
+                modalBody.innerHTML = contentMap[contentKey] ||t Available</h3><p>Please check back later.</p>';
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Set current year in footer
             document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Add loading states for iframes
+            document.querySelectorAll('iframe').forEach(iframe => {
+                iframe.addEventListener('load', func tion() {
+                    this.style.opacity = '1';
+                });
+                iframe.style.opacity = '0.7';
+                iframe.style.transition = 'opacity 0.3s ease';
+            });
+
+            // Initialize language rotation
+            rotateLanguages();
         });
     </script>
     <script src="js/script.js"></script>

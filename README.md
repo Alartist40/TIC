@@ -1,30 +1,22 @@
 # Tokyo International Seventh-day Adventist Church Website
 
-A modern, responsive website for the Tokyo International Seventh-day Adventist Church (TIC), rebuilt based on the **TIC 11 Design Language**.
+A modern, responsive website for the Tokyo International Seventh-day Adventist Church (TIC), rebuilt using the **TIC 10 Design Language** and powered by Google Sheets.
 
 ## Features
 
-- **Design Fidelity**: Matches the "TIC 11" reference design pixel-for-pixel.
-- **Strict 7th Grid**: Includes the signature "Sabbath Column" (1/7th width) on the right side, consistent across all devices.
-- **Dynamic Content**: Connected to Google Sheets to allow easy updates for:
-    - Mission, Vision, and Values
-    - Ministries
-    - Service Schedule
-    - Youtube Live Link
-- **No Dependencies**: Built with pure HTML, CSS, and Vanilla JavaScript. No build tools required.
+- **TIC 10 Design**: Features a clean, card-based layout with a strict 7th Grid (Sabbath Column).
+- **Dynamic Content**: Connected to Google Sheets.
+    - **Ministries**: Adding a row to the 'Ministries' sheet automatically creates a new card on the website.
+    - **Events**: Adding a row to the 'Events' sheet automatically creates a new event poster.
+    - **Schedule**: The service times table is auto-generated from the 'Schedule' sheet.
+- **Zero Dependencies**: Pure HTML, CSS, and Vanilla JavaScript.
 
-## Content Management
+## Setup & Content Management
 
-The website content is powered by a Google Sheet.
-- **Update Process**: Simply edit the Google Sheet cells. The website fetches the latest CSV data on page load.
-- **Modal System**: Clicking "Read More" buttons opens a dynamic modal populated with the latest data from the sheet.
+Please refer to [Sheet.md](Sheet.md) for detailed instructions on how to create, structure, and connect your Google Sheets.
 
-## Usage
+## Development
 
-1.  **Development**: Open `index.html` in a browser.
-2.  **Deployment**: Upload `index.html`, `styles.css`, `js/`, and `images/` to any static host.
-
-## Credits
-
-- Design Base: TIC 11 Reference
-- Architecture: Vanilla JS + CSS Grid
+1.  **Clone**: `git clone https://github.com/Alartist40/TIC.git`
+2.  **Run**: Open `index.html` in any browser.
+3.  **Deploy**: Upload the files to GitHub Pages, Netlify, or any static host.
