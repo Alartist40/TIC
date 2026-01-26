@@ -121,11 +121,19 @@ function renderServiceTimes() {
         store.visit.forEach(item => {
             if (!item.Program) return;
             const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${item.Program}</td>
-                <td>${item['Day & Time'] || ''}</td>
-                <td>${item.Location || ''}</td>
-            `;
+
+            const programCell = document.createElement('td');
+            programCell.textContent = item.Program;
+            row.appendChild(programCell);
+
+            const timeCell = document.createElement('td');
+            timeCell.textContent = item['Day & Time'] || '';
+            row.appendChild(timeCell);
+
+            const locationCell = document.createElement('td');
+            locationCell.textContent = item.Location || '';
+            row.appendChild(locationCell);
+
             serviceTableBody.appendChild(row);
         });
     }
@@ -212,6 +220,20 @@ function setupUI() {
                 toggle.setAttribute('aria-expanded', 'false');
             }
         });
+    }
+
+    // Sticky Nav on Scroll
+    const nav = document.querySelector('.main-nav');
+    if (nav) {
+        const handleScroll = () => {
+            if (window.pageYOffset > 10) {
+                nav.classList.add('sticky');
+            } else {
+                nav.classList.remove('sticky');
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
     }
 
     // Back to top button functionality

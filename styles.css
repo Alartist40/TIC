@@ -243,14 +243,6 @@ body {
         margin-bottom: 1rem;
     }
     
-    .language-text {
-        font-size: clamp(1.8rem, 5vw, 3rem);
-        padding: 0.75rem 1.5rem;
-    }
-    
-    .language-rotator {
-        min-height: 4rem;
-    }
 }
 
 /* Desktop enhancements for hero */
@@ -263,9 +255,6 @@ body {
         font-size: clamp(5rem, 15vw, 8rem);
     }
     
-    .language-text {
-        font-size: clamp(2rem, 5vw, 3.5rem);
-    }
 }
 
 /* ===== CONTENT SECTIONS ===== */
@@ -738,9 +727,6 @@ footer p {
         font-size: clamp(2rem, 10vw, 3rem);
     }
     
-    .language-text {
-        font-size: clamp(1.3rem, 4vw, 1.8rem);
-    }
 }
 
 @media (min-width: 768px) {
@@ -795,10 +781,6 @@ footer p {
         color: var(--primary);
     }
     
-    .language-text {
-        transition: none;
-        animation: none;
-    }
     
     .card, .back-to-top, .more-btn, .gold-btn {
         transition: none;
@@ -863,4 +845,14 @@ button:focus,
     .hero {
         background: none !important;
     }
+}
+/* Sticky Navigation */
+nav.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
