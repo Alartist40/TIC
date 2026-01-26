@@ -1,48 +1,33 @@
-# Google Sheets Guide for TIC Website
+# Managing Website Content with Google Sheets
 
-This guide explains how to set up and manage the content for your website using Google Sheets.
+This document provides instructions for managing dynamic content on the Tokyo International Seventh-day Adventist Church website using Google Sheets. This allows non-developers to easily update specific sections of the site.
 
-## 1. Create the Spreadsheet
-Create a new Google Sheet. You will need to create 4 tabs (sheets) at the bottom with the following EXACT names:
-1.  `General`
-2.  `About`
-3.  `Ministries`
-4.  `Schedule`
+## General Instructions
 
-## 2. Structure Your Tabs
+1.  **Open the Google Sheet**: Access the provided Google Sheet URL for the section you wish to update.
+2.  **Edit the Content**: Make changes to the text and links in the sheet. Make sure to follow the specific structure and column headers for each section.
+3.  **Publish the Sheet**: For the changes to appear on the website, the sheet must be published to the web. To do this, go to `File > Share > Publish to web`.
+4.  **Publish as CSV**: In the "Publish to the web" dialog, ensure that you select "Comma-separated values (.csv)" as the format.
+5.  **Copy the URL**: Copy the generated URL and provide it to the developer to update the website's configuration.
 
-### Tab 1: General
-Use this for site-wide settings.
-- **Row 1 Headers**: `Key`, `Value`
-- **Data Examples**:
-    - `YoutubeLive`: `https://youtube.com/...`
-    - `Announcement`: `Join us for special service!`
+---
 
-### Tab 2: About
-Use this for the About section content.
-- **Row 1 Headers**: `Key`, `Value`
-- **Keys**: `Mission`, `Vision`, `Values`, `PastorName`, `PastorBio`, `PastorImage` (URL).
+## "Visit Us" Service Times
 
-### Tab 3: Ministries
-This list generates the cards in the **Ministries** section.
-- **Row 1 Headers**: `Title`, `Description`
-- **Rows**: Add one row per ministry.
-    - If you add a row, a new card appears.
-    - If you delete a row, the card disappears.
+### Google Sheet Structure
 
-### Tab 4: Schedule
-This list generates the table in the **Service Times** section.
-- **Row 1 Headers**: `Program`, `Time`, `Location`
-- **Rows**: Add one row per program (e.g., "Sabbath School", "10:00 AM", "Main Hall").
+The "Visit Us" service times are managed by a Google Sheet with the following columns:
 
-## 3. Connect to Website (Publish as CSV)
-For the website to read the data, you must "Publish" each tab as a CSV file.
+| Program | Day & Time | Location |
+| :--- | :--- | :--- |
+| Sabbath School | Saturdays 9:00 – 10:30 | Assembly Hall (1F) |
+| Divine Service | Saturdays 10:30 – 12:00 | Assembly Hall (1F) |
+| Afternoon Program | Saturdays 14:00 – 16:00 | Assembly Hall (1F) |
 
-1.  Go to `File` > `Share` > `Publish to web`.
-2.  Under "Link", select a specific tab (e.g., "Ministries") instead of "Entire Document".
-3.  Change "Web page" to **"Comma-separated values (.csv)"**.
-4.  Click `Publish`.
-5.  Copy the generated link.
-6.  Repeat for all 4 tabs.
+*   `Program`: The name of the service or event.
+*   `Day & Time`: The day and time of the service.
+*   `Location`: The location of the service.
 
-**Note**: You will need to provide these 4 links to the developer to update the `script.js` file, or update them yourself in `js/script.js` under `SHEET_URLS`.
+### Updating the URL
+
+To update the URL for the "Visit Us" service times, please provide the new published Google Sheet URL to the developer. The developer will update the `SHEET_URLS.visit` variable in the `js/script.js` file.
