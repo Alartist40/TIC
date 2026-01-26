@@ -1,0 +1,102 @@
+/* mobile.css */
+/* Target ≤ 480px */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  background: #f8f9fa;
+  color: #2d3436;
+  font-size: 15px;
+  display: grid;
+  grid-template-columns: 1fr; /* Single column on mobile */
+}
+
+/* Hide the 7th column on mobile */
+.sabbath-stripe {
+  display: none;
+}
+
+/* Hamburger nav */
+.main-nav {
+  position: sticky;
+  top: 0;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0.75rem 1rem;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 24px;
+  position: relative;
+}
+
+.hamburger {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 3px;
+  background: #005eb8;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #005eb8;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+.nav-links {
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.nav-links.open {
+  display: flex;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #005eb8;
+  font-weight: 500;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Ensure the navbar doesn’t overlap content */
+.content-sixth {
+  max-width: 100%;
+  overflow-x: hidden;
+  margin-top: 4rem; /* Adjust based on navbar height */
+}
+
+/* Make iframe responsive */
+iframe {
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+}

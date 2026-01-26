@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tokyo International Seventh-day Adventist Church</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- ROOT TOKENS ---------- */
+    :root{
+      --sabbath: #e0f0ff;
+      --accent: #005eb8;
+      --gap: 1.5rem;
+      --nav-h: 56px;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #222;
+    }
+    h1,h2,h3{ font-family: 'Merriweather', serif; }
+
+    /* ---------- LAYOUT SHELL ---------- */
+    body{
+      display: grid;
+      grid-template-columns: 6fr 1fr; /* 6/7 content | 1/7 Sabbath */
+      min-height: 100vh;
+    }
+    main{ overflow-x: hidden; } /* scroll only content side */
+    .sabbath-stripe{
+      background: var(--sabbath) url('https://upload.wikimedia.org/wikipedia/commons/3/3d/Seventh-day_Adventist_symbol.svg') center/45% no-repeat;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+
+    /* ---------- NAV BAR ---------- */
+    nav{
+      position: sticky;
+      top: 0;
+      height: var(--nav-h);
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0 2rem;
+      z-index: 10;
+    }
+    nav a{
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: .5px;
+      transition: color .2s;
+    }
+    nav a:hover{ color: #004a90; }
+
+    /* ---------- SECTIONS ---------- */
+    section{ padding: 3rem 2rem; }
+    #hero{ padding: 4rem 2rem 6rem; }
+    #hero h1{ font-size: clamp(3rem, 8vw, 5rem); letter-spacing: 3px; }
+
+    /* ---------- MINI-CARDS ---------- */
+    .cards{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .card{
+      background: #f5f7fa;
+      border-radius: 6px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer{
+      padding: 2rem;
+      font-size: .85rem;
+      color: #666;
+      border-top: 1px solid #eee;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media(max-width: 900px){
+      body{ grid-template-columns: 1fr; }
+      .sabbath-stripe{ display: none; } /* simplify on small screens */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ================= NAVBAR ================= -->
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#ministries">Ministries</a>
+    <a href="#events">Events</a>
+    <a href="#visit">Visit</a>
+  </nav>
+
+  <!-- ================= CONTENT AREA (6/7) ================= -->
+  <main>
+    <!-- HERO -->
+    <section id="hero">
+      <h1>WELCOME</h1>
+      <p>A vibrant English-speaking Seventh-day Adventist community in the heart of Tokyo.</p>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About TIC</h2>
+      <p>Tokyo International Seventh-day Adventist Church grew from a tiny expat group 20 years ago into a multicultural family of 150+ members representing the Philippines, India, Brazil, USA, Ghana, Kenya, Japan and beyond.</p>
+      <p>We treasure the Sabbath as a sanctuary in time and seek to share Christ’s love with every English speaker who steps into Tokyo.</p>
+
+      <h3>Our Core Beliefs</h3>
+      <p>As Seventh-day Adventists we hold the Bible as our only creed. We embrace the <a href="https://www.adventist.org/beliefs/" target="_blank" rel="noopener">28 fundamental beliefs</a> organised into six categories: God, Humanity, Salvation, The Church, The Christian Life, and Last Day Events.</p>
+
+      <h3>Meet Our Pastor</h3>
+      <p><strong>Pastor Guenji Imayuki</strong> — a second-generation Japanese-Brazilian, former aeronautical engineer, now called to preach the Word. His favourite passage: Isaiah 55:10-11.</p>
+      <p><strong>Eliane Hosokawa Imayuki</strong> — author of nationwide Portuguese textbooks, now passionate about implementing the “centre of influence” model in Tokyo.</p>
+    </section>
+
+    <!-- MINISTRIES -->
+    <section id="ministries">
+      <h2>Ministries</h2>
+      <div class="cards">
+        <div class="card"><h4>Children</h4><p>Sabbath School & Pathfinders</p></div>
+        <div class="card"><h4>Youth</h4><p>AYP, small groups, mission trips</p></div>
+        <div class="card"><h4>Music</h4><p>Choir, praise team, instruments</p></div>
+        <div class="card"><h4>Community Service</h4><p>Food drives, health expos</p></div>
+        <div class="card"><h4>Bible Study</h4><p>Mid-week groups & seminars</p></div>
+        <div class="card"><h4>Prayer</h4><p>Daily intercession chain</p></div>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events">
+      <h2>Upcoming Events</h2>
+      <!-- Replace src with your public Google Calendar embed URL -->
+      <iframe src="https://calendar.google.com/calendar/embed?src=YOUR_PUBLIC_CAL_ID&ctz=Asia%2FTokyo" style="border:0" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
+    </section>
+
+    <!-- VISIT -->
+    <section id="visit">
+      <h2>Visit Us</h2>
+      <p><strong>Worship every Saturday</strong><br>
+      9:30  Bible Study classes<br>
+      11:00  Worship service<br>
+      13:00  Fellowship lunch (potluck)</p>
+
+      <p><strong>Location:</strong><br>
+      1-11-1 Jingumae, Shibuya-ku, Tokyo 150-0001<br>
+      5 min walk from JR Harajuku or Meiji-jingumae subway.</p>
+
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.2314526985564!2d139.703255!3d35.670126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQwJzEyLjUiTiAxMznCsDQyJzExLjciRQ!5e0!3e2!4v1" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <footer>
+      &copy; <span id="year"></span> Tokyo International Seventh-day Adventist Church.
+      <br>Designed with the Creation Grid. Adventist symbol &copy; General Conference of Seventh-day Adventists.
+    </footer>
+  </main>
+
+  <!-- ================= SABBATH STRIPE (1/7) ================= -->
+  <aside class="sabbath-stripe" aria-hidden="true"></aside>
+
+  <script>
+    // smooth-scroll for nav links
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth',
+          block:   'start'
+        });
+      });
+    });
+
+    // current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

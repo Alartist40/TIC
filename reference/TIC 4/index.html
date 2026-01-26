@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo International Seventh-day Adventist Church</title>
+    <style>
+        /* Base styling */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* The Creation Grid Container */
+        .creation-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            min-height: 100vh;
+        }
+
+        /* Style for the 6 Work Columns (as a group) */
+        .work-columns {
+            grid-column: 1 / 7;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            background-color: white;
+        }
+
+        /* Typography Styles for Content */
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #2a5a90;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: #2a5a90;
+            border-bottom: 2px solid #d4e6f1;
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Style for the Sabbath Column */
+        .sabbath-column {
+            grid-column: 7 / 8;
+            background-color: #d4e6f1;
+            background-image: url('path-to-your-sabbath-image.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50vh;
+        }
+        .sabbath-column__logo {
+            width: 70%;
+            max-width: 150px;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design: Stack on mobile devices */
+        @media (max-width: 768px) {
+            .creation-grid {
+                grid-template-columns: 1fr;
+            }
+            .work-columns {
+                grid-column: 1 / 2;
+                order: 1;
+                padding: 2rem 1.5rem;
+            }
+            .sabbath-column {
+                grid-column: 1 / 2;
+                order: 2;
+                min-height: 33vh;
+            }
+            .hero h1 {
+                font-size: 2rem; /* Slightly smaller hero text on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="creation-grid">
+        <!-- The first 6 columns for all our content -->
+        <div class="work-columns">
+            <!-- Welcome Hero Section -->
+            <section class="hero">
+                <h1>Welcome to Tokyo International Seventh-day Adventist Church</h1>
+                <p>A spirited community of believers from across the globe, worshiping in the heart of Tokyo.</p>
+            </section>
+
+            <!-- About Our Church Section -->
+            <section class="about">
+                <h2>About Our Church</h2>
+                <p>Tokyo International Seventh-day Adventist Church, more commonly known as TIC, grew out of the need for foreign nationals in Tokyo to meet and worship in English over 20 years ago. The church has grown to support a weekly attendance of 150 people coming from diverse countries around the globe, such as the Philippines, India, Brazil, USA, Ghana, Kenya, and many more. We also have many Japanese members who like to be a part of our strong fellowship.</p>
+                <p>We are a spirited church that seeks to worship the Lord in holiness and to reach out and share His word with other English speakers in Japan.</p>
+                <p>TIC has become known for being a sanctuary for Christ in the heart of a tourist and fashion district; a church on Church Ave juxtaposed next to modern shopping malls.</p>
+            </section>
+
+            <!-- Our Core Beliefs Section (Placeholder for next step) -->
+            <section class="beliefs">
+                <h2>Our Core Beliefs</h2>
+                <p>[Summary of beliefs will go here, with a link to Adventist.org]</p>
+            </section>
+
+            <!-- Our Church Pastor Section (Placeholder for next step) -->
+            <section class="pastor">
+                <h2>Our Church Pastor</h2>
+                <p>[Pastor Guenji and Eliane's bios will go here]</p>
+            </section>
+        </div>
+
+        <!-- The 7th, Sabbath Column -->
+        <div class="sabbath-column">
+            <img src="path-to-adventist-logo.png" alt="Seventh-day Adventist Church Logo" class="sabbath-column__logo">
+        </div>
+    </div>
+</body>
+</html>

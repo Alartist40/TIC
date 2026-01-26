@@ -1,0 +1,1700 @@
+html {
+    font-size: 16px;
+}
+
+/* Adjust root font-size for tablets */
+@media (max-width: 1200px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    
+    /* Headings */
+    .tokyo-international-seventh-day-adventist-church {
+        font-size: 1.75rem;  /* Approximately 28px when html font-size is 16px */
+    }
+    
+    /* Navigation & other text elements */
+    .home, .about, .ministries, .sermon, .events, .resources, .visit-us {
+        font-size: 1.125rem; /* Approximately 18px */
+    }
+}
+
+.tic-web-elements-board {
+  width: 1920px;
+  height: 4974px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: start;
+  column-gap: 8px;
+  gap: 8px;
+  position: relative; /* added to container so absolute children are relative to it */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  overflow-x: hidden;  /* Prevents accidental horizontal scroll */
+}
+
+.design-grid {
+  width: 1645px;
+  height: auto;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
+  row-gap: 8px;
+  column-gap: 8px;
+  align-self: center;
+  max-width: 1645px;
+  gap: 8px;
+}
+
+.nav-bar {
+  height: 165px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+  align-content: stretch;
+  flex-grow: 1;
+  align-self: center;
+  max-height: 165px;
+}
+
+/* Style for the website logo within the nav bar */
+.nav-bar .website-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+.website-logo {
+  width: 379px;
+  height: 165px;
+  align-self: auto;
+}
+
+.tic-title {
+  width: 414px;
+  height: 158px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: stretch;
+  row-gap: 20px;
+  column-gap: 20px;
+  padding-top: 40px;
+  padding-left: 40px;
+  gap: 20px;
+}
+
+/* Make the title smaller and force it to stay within bounds */
+.nav-bar .website-logo .tic-title {
+    font-size: 18px; /* Adjust as needed */
+    text-align: left;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tokyo-international-seventh-day-adventist-church {
+  height: 110px;
+  font-family: sourcesanspro;
+  font-size: 30px;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  direction: ltr;
+  color: #0d233b;
+  flex-grow: 1;
+  align-self: start;
+  font-size: 2rem;  /* Adjust value as needed */
+  max-width: 90%;   /* Limits the width of the title */
+  white-space: normal;  /* Allows text wrapping */
+  word-wrap: break-word;  /* Ensures long words break if needed */
+  margin: 0 auto;   /* Optional centering */
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+    .tokyo-international-seventh-day-adventist-church {
+        font-size: 1.5rem; /* Further reduce font for smaller screens */
+    }
+}
+
+.path {
+  width: 200px;
+  height: 0px;
+  border: 4px solid #072039;
+  align-self: auto;
+}
+
+.nav {
+  width: 1266px;
+  height: 165px;
+  align-self: auto;
+}
+
+.menu-grid {
+  width: 1139px;
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+  align-content: stretch;
+  row-gap: 40px;
+  column-gap: 40px;
+  gap: 40px;
+}
+
+.home-button {
+  width: auto;
+  height: auto;
+  border: 2px solid #000000;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: start;
+  align-content: stretch;
+  padding-top: 4px;
+  padding-right: 16px;
+  padding-bottom: 4px;
+  padding-left: 16px;
+  align-self: auto;
+}
+
+.home {
+  width: auto;
+  height: 36px;
+  font-family: sourcesanspro;
+  font-size: 30px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: capitalize;
+  direction: ltr;
+  white-space: nowrap;
+  color: #000000;
+  align-self: auto;
+}
+
+.about-button {
+  width: auto;
+  height: auto;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: start;
+  align-content: stretch;
+  padding-top: 4px;
+  padding-right: 16px;
+  padding-bottom: 4px;
+  padding-left: 16px;
+  align-self: auto;
+}
+
+.about {
+  width: auto;
+  height: 36px;
+  font-family: sourcesanspro;
+  font-size: 30px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: capitalize;
+  direction: ltr;
+  white-space: nowrap;
+  color: #000000;
+  align-self: auto;
+}
+
+.ministries-button {
+  width: auto;
+  height: auto;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: start;
+  align-content: stretch;
+  padding-top: 4px;
+  padding-right: 16px;
+  padding-bottom: 4px;
+  padding-left: 16px;
+  align-self: auto;
+}
+
+.ministries {
+  width: auto;
+  height: 36px;
+  font-family: sourcesanspro;
+  font-size: 30px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: capitalize;
+  direction: ltr;
+  white-space: nowrap;
+  color: #000000;
+  align-self: auto;
+}
+
+.sermon-button {
+  width: auto;
+  height: auto;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: start;
+  align-content: stretch;
+  padding-top: 4px;
+  padding-right: 16px;
+  padding-bottom: 4px;
+  padding-left: 16px;
+  align-self: auto;
+}
+
+.sermon {
+  width: auto;
+  height: 36px;
+  font-family: sourcesanspro;
+  font-size: 30px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: capitalize;
+  direction: ltr;
+  white-space: nowrap;
+  color: #000000;
+  align-self: auto;
+}
+
+.events-button {
+  width: auto;
+  height: auto;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: start;
+  align-content: stretch;
+  padding-top: 4px;
+  padding-right: 16px;
+  padding-bottom: 4px;
+  padding-left: 16px;
+  align-self: auto;
+}
+
+.events {
+  width: auto;
+  height: 36px;
+  font-family: sourcesanspro;
+  font-size: 30px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: capitalize;
+  direction: ltr;
+  white-space: nowrap;
+  color: #000000;
+  align-self: auto;
+}
+
+.resources-button {
+  width: auto;
+  height: auto;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: start;
+  align-content: stretch;
+  padding-top: 4px;
+  padding-right: 16px;
+  padding-bottom: 4px;
+  padding-left: 16px;
+  align-self: auto;
+}
+
+.resources {
+  width: auto;
+  height: 36px;
+  font-family: sourcesanspro;
+  font-size: 30px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: capitalize;
+  direction: ltr;
+  white-space: nowrap;
+  color: #000000;
+  align-self: auto;
+}
+
+.visit-button {
+  width: auto;
+  height: auto;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: start;
+  align-content: stretch;
+  padding-top: 4px;
+  padding-right: 16px;
+  padding-bottom: 4px;
+  padding-left: 16px;
+  align-self: auto;
+}
+
+.visit-us {
+  width: auto;
+  height: 36px;
+  font-family: sourcesanspro;
+  font-size: 30px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: capitalize;
+  direction: ltr;
+  white-space: nowrap;
+  color: #000000;
+  align-self: auto;
+}
+
+.home-content {
+  width: 1645px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: space-around;
+  row-gap: 100px;
+  column-gap: 100px;
+  padding-top: 100px;
+  padding-right: 130px;
+  padding-bottom: 8px;
+  padding-left: 130px;
+  align-self: auto;
+  gap: 100px;
+}
+
+.tic-title {
+  width: 908px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: stretch;
+  row-gap: 20px;
+  column-gap: 20px;
+  align-self: auto;
+  gap: 20px;
+}
+
+.tokyo-international-seventh-day-adventist-church {
+  width: 648px;
+  height: auto;
+  font-family: "Playfair Display", serif;
+  font-size: 50px;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-align: center;       /* Center the text */
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #0d233b;
+  margin: 0 auto;           /* Center the block in its container */
+}
+
+.path {
+  width: 414px;
+  height: 0px;
+  border: 4px solid #072039;
+  align-self: auto;
+}
+
+.welcome {
+  width: 100%;
+  position: relative;
+  left: 0;
+  top: 0;
+  text-align: center;
+  margin: 20px 0;
+  /* Adjust the font size for the overall welcome if desired */
+}
+
+.about-content {
+  width: 1645px;
+  height: 2219px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
+  row-gap: 20px;
+  column-gap: 20px;
+  padding-top: 130px;
+  padding-right: 130px;
+  padding-bottom: 8px;
+  padding-left: 130px;
+  align-self: auto;
+  gap: 20px;
+}
+
+.about-our-church {
+  width: 1385px;
+  height: auto;
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: space-between;
+  column-gap: 65px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  align-self: auto;
+  gap: 65px;
+}
+
+.about-church {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: flex-start;
+  align-content: stretch;
+  row-gap: 36px;
+  align-self: auto;
+  gap: 36px;
+}
+
+.about-our-church {
+  width: auto;
+  height: 36px;
+  font-family: Neuton;
+  font-size: 30px;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+  direction: ltr;
+  white-space: nowrap;
+  color: #000000;
+  align-self: auto;
+}
+
+.path {
+  width: 203px;
+  height: 0px;
+  border: 2px solid #000000;
+  align-self: auto;
+}
+
+.tokyo-international-seventh-day-adventist-church-more-commonly-known-as-tic-grew-out-of-the-need-for-foreign-nationals-in-tokyo-to-meet-and-worship-in-english-over-20-years-ago-the-church-has-grown-to-support-a-weekly-attendance-of-150-people-coming-from-diverse-countries-arou {
+  width: 612px;
+  height: auto;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+  direction: ltr;
+  overflow-wrap: break-word;
+  color: #000000;
+  align-self: auto;
+}
+
+.church-image {
+  width: 469px;
+  height: 460px;
+  background-color: #000000;
+  border-radius: 8px;
+  align-self: auto;
+}
+
+.core-belief-card {
+  width: 1385px;
+  height: auto;
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+  column-gap: 65px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  align-self: auto;
+  gap: 65px;
+}
+
+.core-photo {
+  width: 469px;
+  height: 460px;
+  background-color: #000000;
+  border-radius: 8px;
+  align-self: auto;
+}
+
+.core-belief-info {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: flex-start;
+  align-content: stretch;
+  row-gap: 36px;
+  align-self: auto;
+  gap: 36px;
+}
+
+.our-core-beliefs {
+  width: auto;
+  height: 36px;
+  font-family: Neuton;
+  font-size: 30px;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+  direction: ltr;
+  white-space: nowrap;
+  color: #000000;
+  align-self: auto;
+}
+
+.as-seventh-day-adventists-we-believe-in-the-bible-as-our-creed-and-hold-certain-fundamental-beliefs-to-be-the-teaching-of-the-holy-scriptures-these-beliefs-as-set-forth-here-constitute-the-churchs-understanding-and-expression-of-the-teaching-of-scripture-as-adventists-we-be {
+  width: 612px;
+  height: auto;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+  direction: ltr;
+  overflow-wrap: break-word;
+  color: #000000;
+  align-self: auto;
+}
+
+.our-pastor-card {
+  width: 1385px;
+  height: auto;
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: space-between;
+  column-gap: 65px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  align-self: auto;
+  gap: 65px;
+}
+
+.our-pastor-info {
+  width: auto;
+  height: 789px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: stretch;
+  row-gap: 40px;
+  column-gap: 40px;
+  align-self: auto;
+  gap: 40px;
+}
+
+.our-church-pastor {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+  align-content: stretch;
+  row-gap: 36px;
+  align-self: auto;
+  gap: 36px;
+}
+
+.our-church-pastor {
+  width: auto;
+  height: 36px;
+  font-family: Neuton;
+  font-size: 30px;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+  direction: ltr;
+  white-space: nowrap;
+  color: #000000;
+  align-self: auto;
+}
+
+.verse-info {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: start;
+  align-content: stretch;
+  column-gap: 18px;
+  align-self: auto;
+}
+
+.path {
+  width: 0px;
+  height: 228px;
+  border: 2px solid #000000;
+  align-self: auto;
+}
+
+.for-as-the-rain-comes-down-and-the-snow-from-heaven-and-do-not-return-there-but-water-the-earth-and-make-it-bring-forth-and-bud-that-it-may-give-seed-to-the-sower-and-bread-to-the-eater-so-shall-my-word-be-that-goes-forth-from-my-mouth-it-shall-not-return-to-me-void-but {
+  width: auto;
+  height: 240px;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+  direction: ltr;
+  white-space: nowrap;
+  color: #000000;
+  align-self: auto;
+}
+
+.verse {
+  height: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: start;
+  align-content: stretch;
+  flex-grow: 1;
+  align-self: center;
+}
+
+.isaiah-5510-11 {
+  width: auto;
+  height: 24px;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+  direction: ltr;
+  white-space: nowrap;
+  color: #000000;
+  align-self: auto;
+}
+
+.guenji {
+  height: 357px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: flex-start;
+  align-content: stretch;
+  row-gap: 20px;
+  column-gap: 20px;
+  flex-grow: 1;
+  align-self: auto;
+  gap: 20px;
+}
+
+.pastor-guenji-imayuki {
+  width: 262px;
+  height: auto;
+  font-family: Neuton;
+  font-size: 30px;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+  direction: ltr;
+  overflow-wrap: break-word;
+  color: #000000;
+  align-self: auto;
+}
+
+.pastor-guenji-imayuki-is-a-second-generation-japanese-born-in-brazil-he-graduated-with-a-degree-in-aeronautical-engineering-at-ita-air-force-institute-of-technology-and-worked-in-the-financial-area-for-a-few-years-despite-the-comfortable-lifestyle-he-reached-a-turning-point {
+  height: 301px;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+  direction: ltr;
+  color: #000000;
+  flex-grow: 1;
+  align-self: auto;
+}
+
+.pastor-pic-details {
+  width: auto;
+  height: 899px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+  align-content: stretch;
+  row-gap: 22px;
+  align-self: auto;
+  gap: 22px;
+}
+
+.pastor-image {
+  width: 469px;
+  height: 460px;
+  background-color: #000000;
+  border-radius: 8px;
+  align-self: auto;
+}
+
+.eliane-hosokawa-imayuki {
+  height: 36px;
+  font-family: Neuton;
+  font-size: 30px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: right;
+  text-decoration: none;
+  text-transform: none;
+  direction: ltr;
+  color: #000000;
+  flex-grow: 1;
+  align-self: end;
+}
+
+.eliane-hosokawa-imayuki-comes-from-a-pastoral-family-and-all-her-3-siblings-also-serve-the-church-she-graduated-college-of-letters-at-the-most-prestigious-university-in-brazil-usp-and-besides-teaching-career-at-all-levels-of-seventh-day-adventist-schools-she-authored-portugues {
+  height: auto;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: right;
+  text-decoration: none;
+  text-transform: none;
+  direction: ltr;
+  overflow-wrap: break-word;
+  color: #000000;
+  flex-grow: 1;
+  align-self: auto;
+}
+
+.ministry-content {
+  width: 1645px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: start;
+  align-content: stretch;
+  row-gap: 20px;
+  column-gap: 20px;
+  padding-top: 130px;
+  padding-right: 130px;
+  padding-bottom: 8px;
+  padding-left: 130px;
+  align-self: auto;
+}
+
+.board {
+  width: 1385px;
+  height: 662px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: start;
+  align-content: stretch;
+  row-gap: 80px;
+  column-gap: 80px;
+  padding-bottom: 70px;
+  align-self: auto;
+}
+
+.ministry-details {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: stretch;
+  row-gap: 40px;
+  column-gap: 40px;
+  align-self: auto;
+  gap: 80px;
+}
+
+.ministry-title {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: flex-start;
+  align-content: stretch;
+  row-gap: 19px;
+  align-self: auto;
+  gap: 19px;
+}
+
+.pathfinders {
+  width: auto;
+  height: 84px;
+  font-family: Neuton;
+  font-size: 70px;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  direction: ltr;
+  white-space: nowrap;
+  color: #000000;
+  align-self: auto;
+}
+
+.path {
+  width: 190px;
+  height: 0px;
+  border: 2px solid #000000;
+  align-self: auto;
+}
+
+.where-adventure-meets-discipleship-through-camping-honors-and-community-service-were-building-the-next-generation-of-christian-leaders-your-child-will-develop-character-skills-and-a-faith-that-stands-firm-in-any-storm {
+  width: 613px;
+  height: 103px;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: capitalize;
+  direction: ltr;
+  color: #000000;
+  align-self: auto;
+}
+
+.cards {
+  width: 680px;
+  height: 240px;
+  align-self: end;
+}
+
+.cards {
+  width: 680px;
+  height: 240px;
+  position: absolute;
+  left: 8563px;
+  top: 9673px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  align-items: flex-start;
+}
+
+.card-nav {
+  width: 680px;
+  height: 170px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+  align-content: stretch;
+  row-gap: 20px;
+  column-gap: 20px;
+  gap: 20px;
+}
+
+.media-card {
+  width: 170px;
+  height: 170px;
+  border: 3px solid #ffffff;
+  border-radius: 10px;
+  background-image: url(https://design.penpot.app/assets/by-file-media-id/bd830f34-5ac9-8161-8006-c559f2d3f0f5);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-self: auto;
+}
+
+.ministry-card {
+  width: 159px;
+  height: 40px;
+  position: absolute;
+  left: 8559px;
+  top: 9783px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: start;
+  align-content: start;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.media-ministry {
+  width: auto;
+  height: 20px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  direction: ltr;
+  white-space: nowrap;
+  color: #ffffff;
+  align-self: auto;
+}
+
+.youth-card {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  background-image: url(https://design.penpot.app/assets/by-file-media-id/bd830f34-5ac9-8161-8006-c55c052424d7);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-self: auto;
+}
+
+.youth-ministry {
+  width: 161px;
+  height: 40px;
+  position: absolute;
+  left: 8747px;
+  top: 9783px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: start;
+  align-content: start;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.youth-ministry {
+  width: auto;
+  height: 20px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  direction: ltr;
+  white-space: nowrap;
+  color: #ffffff;
+  align-self: auto;
+}
+
+.music-card {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  background-image: url(https://design.penpot.app/assets/by-file-media-id/e7c79b0d-7aa0-808c-8006-c55c4201e54f);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-self: auto;
+}
+
+.music-ministry {
+  width: 157px;
+  height: 40px;
+  position: absolute;
+  left: 8919px;
+  top: 9783px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: start;
+  align-content: start;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.music-ministry {
+  width: auto;
+  height: 20px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  direction: ltr;
+  white-space: nowrap;
+  color: #ffffff;
+  align-self: auto;
+}
+
+.health-card {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  background-image: url(https://design.penpot.app/assets/by-file-media-id/e7c79b0d-7aa0-808c-8006-c55cb48febe9);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-self: auto;
+}
+
+.health-ministry {
+  width: 169px;
+  height: 40px;
+  position: absolute;
+  left: 9083px;
+  top: 9783px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: start;
+  align-content: start;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.health-ministry {
+  width: auto;
+  height: 20px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  direction: ltr;
+  white-space: nowrap;
+  color: #ffffff;
+  align-self: auto;
+}
+
+.card-ui {
+  width: 524px;
+  height: 33px;
+  display: flex;
+  flex-direction: row;
+  gap: 17px;
+  align-items: center;
+}
+
+.01 {
+  width: 45px;
+  height: 33px;
+  font-family: Montserrat;
+  font-size: 25px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  direction: ltr;
+  color: #ffffff;
+}
+
+.direction {
+  width: 90px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
+}
+
+.left-arrow {
+  width: 33px;
+  height: 20px;
+  border: 1px solid #ffffff;
+  border-radius: 70px;
+}
+
+.path {
+  width: 3px;
+  height: 7px;
+  position: absolute;
+  left: 8578px;
+  top: 9892px;
+  border: 2px solid #ffffff;
+}
+
+.right-arrow {
+  width: 33px;
+  height: 20px;
+  transform: rotate(180deg) scaleX(-1) scaleY(-1);
+  border: 1px solid #ffffff;
+  border-radius: 70px;
+}
+
+.path {
+  width: 3px;
+  height: 6px;
+  position: absolute;
+  left: 8635px;
+  top: 9892px;
+  transform: rotate(180deg) scaleX(-1) scaleY(-1);
+  border: 2px solid #ffffff;
+}
+
+.path {
+  width: 355px;
+  height: 0px;
+  border: 2px solid #ffffff;
+}
+
+.event-content {
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: stretch;
+  row-gap: 70px;
+  column-gap: 70px;
+  padding-top: 100px;
+  padding-right: 130px;
+  padding-bottom: 8px;
+  padding-left: 130px;
+  flex-grow: 1;
+  align-self: auto;
+  gap: 70px;
+}
+
+.events-details {
+  height: 211px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+  align-content: stretch;
+  row-gap: 40px;
+  column-gap: 40px;
+  flex-grow: 1;
+  align-self: auto;
+  gap: 40px;
+}
+
+.events-info {
+  width: 1385px;
+  height: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+  align-content: stretch;
+  row-gap: 19px;
+  align-self: auto;
+}
+
+.upcoming-events {
+  width: auto;
+  height: 84px;
+  font-family: Neuton;
+  font-size: 70px;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  direction: ltr;
+  white-space: nowrap;
+  color: #000000;
+  align-self: auto;
+}
+
+.stay-updated-with-all-of-our-church-events-meetings-and-social-gatherings-everything-is-automatically-updated-from-our-google-calendar {
+  width: 1385px;
+  height: 53px;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: capitalize;
+  direction: ltr;
+  color: #000000;
+  align-self: auto;
+}
+
+.map-layout {
+  width: 763px;
+  height: 411px;
+  background-color: #000000;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  align-self: auto;
+}
+
+.footer {
+  width: 1645px;
+  height: 150px;
+  background-color: #FFFFFF;
+  align-self: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 226px;
+  justify-content: center;
+  align-items: center;
+}
+
+.socials {
+  width: 278px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  column-gap: 66px;
+  gap: 66px;
+}
+
+.stashsocial-facebook-solid {
+  width: 40px;
+  height: 40px;
+  align-self: auto;
+}
+
+.base-background {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 9133px;
+  top: 10852px;
+  display: none;
+  visibility: hidden;
+}
+
+.svg-path {
+  width: 33px;
+  height: 32px;
+  position: absolute;
+  left: 9137px;
+  top: 10856px;
+}
+
+.streamline-flexyoutube-solid {
+  width: 40px;
+  height: 40px;
+  align-self: auto;
+}
+
+.base-background {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 9239px;
+  top: 10852px;
+  display: none;
+  visibility: hidden;
+}
+
+.svg-path {
+  width: 37px;
+  height: 31px;
+  position: absolute;
+  left: 9240px;
+  top: 10856px;
+}
+
+.2025-tokyo-international-seventh-day-adventist-church {
+  width: auto;
+  height: 24px;
+  font-family: sourcesanspro;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  direction: ltr;
+  white-space: nowrap;
+  color: #000000;
+}
+
+.sabbath-grid {
+  width: auto;  /* allow content size only */
+  position: absolute;  /* remove from normal flow */
+  top: 20px;       /* adjust position as needed */
+  right: 20px;     /* adjust position as needed */
+}
+
+.adventist-symbol-white {
+  width: 210px;
+  height: 210px;
+  align-self: auto;
+}
+
+.base-background {
+  width: 210px;
+  height: 210px;
+  position: absolute;
+  left: 9422px;
+  top: 5983px;
+  display: none;
+  visibility: hidden;
+}
+
+.svg-path {
+  width: 148px;
+  height: 133px;
+  position: absolute;
+  left: 9452px;
+  top: 6030px;
+  background-color: #ffffff;
+}
+
+/* Nav bar basic styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff;
+}
+
+.nav-logo img {
+    max-height: 60px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;  /* Adjust font-size as needed */
+    font-family: sourcesanspro;
+}
+
+/* Hamburger styling (hidden on desktop) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    background: #000;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+}
+
+/* Common section header styling */
+.section-header {
+    font-family: "Playfair Display", serif;
+    text-align: center;
+    font-size: 50px;
+    margin: 20px auto;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-header {
+        font-size: 28px;
+    }
+}
+
+/* Responsive nav bar for mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 0;
+        display: none;  /* Hidden by default, toggle with JS or CSS target */
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    /* When the nav is active (this class can be toggled via JavaScript) */
+    .nav-active {
+        display: flex;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .tic-web-elements-board {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+  .design-grid {
+    width: 95%;
+  }
+  .menu-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .tokyo-international-seventh-day-adventist-church {
+    font-size: 24px;
+  }
+  .tic-title {
+    width: auto;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tic-web-elements-board {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+  .design-grid {
+    width: 100%;
+    padding: 10px;
+  }
+  .nav-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+  .menu-grid {
+    flex-direction: column;
+    row-gap: 10px;
+    column-gap: 0;
+  }
+  .home, .about, .ministries, .sermon, .events, .resources, .visit-us {
+    font-size: 18px;
+  }
+  .tokyo-international-seventh-day-adventist-church {
+    font-size: 28px;
+  }
+  .welcome {
+    font-size: 80px;
+    left: 0;
+    top: auto;
+    position: relative;
+    width: 100%;
+  }
+  .home-content,
+  .about-content,
+  .ministry-content,
+  .event-content {
+    padding: 20px;
+  }
+  /* Let the sabbath grid occupy its own space on mobile */
+  .sabbath-grid {
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+/* Ensure images or any wide elements don’t overflow their container */
+img, .church-image, .pastor-image, .map-layout {
+    max-width: 100%;
+    height: auto;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.nav-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Optionally, adjust placement on mobile */
+@media (max-width: 768px) {
+    .nav-icons {
+        margin-top: 10px;
+    }
+}

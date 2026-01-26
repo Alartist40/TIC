@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo International Seventh-day Adventist Church</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="sections/about.html">About</a></li>
+                <li><a href="sections/ministry.html">Ministries</a></li>
+                <li><a href="sections/events.html">Events</a></li>
+                <li><a href="sections/visit.html">Visit Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div style="text-align: center;">
+                <h2>WELCOME</h2>
+            </div>
+            <!-- Include the hero section -->
+            <?php include 'sections/hero.html'; ?>
+        </section>
+
+        <section id="about">
+            <!-- Include the about section -->
+            <?php include 'sections/about.html'; ?>
+        </section>
+
+        <section id="beliefs">
+            <!-- Include the beliefs section -->
+            <?php include 'sections/beliefs.html'; ?>
+        </section>
+
+        <section id="pastor">
+            <!-- Include the pastor section -->
+            <?php include 'sections/pastor.html'; ?>
+        </section>
+
+        <section id="ministry">
+            <!-- Include the ministry section -->
+            <?php include 'sections/ministry.html'; ?>
+        </section>
+
+        <section id="events">
+            <h2>Upcoming Events</h2>
+            <iframe src="https://calendar.google.com/calendar/embed?src=your_calendar_id&ctz=Asia/Tokyo" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Tokyo International Seventh-day Adventist Church. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

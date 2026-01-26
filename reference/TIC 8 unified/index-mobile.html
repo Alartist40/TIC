@@ -1,0 +1,48 @@
+<!-- index-mobile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tokyo International Seventh-day Adventist Church</title>
+  <link rel="stylesheet" href="mobile.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="content-sixth">
+    <!-- Hamburger Nav -->
+    <nav class="main-nav">
+      <div class="titles">
+        <h1>Tokyo International</h1>
+        <h1>Seventh-day Adventist Church</h1>
+      </div>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#ministries">Ministries</a></li>
+        <li><a href="#sermons">Sermons</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#visit">Visit Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- Rest of your mobile content -->
+  </main>
+
+  <script>
+    // Hamburger toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    toggle?.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !expanded);
+      links.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

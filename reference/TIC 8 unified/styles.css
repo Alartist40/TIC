@@ -1,0 +1,29 @@
+/* styles.css */
+/* Target ≥ 481px */
+body {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) 1fr; /* 6:1 ratio for the Creation Grid */
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.sabbath-stripe {
+  background: #005eb8;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.sabbath-logo {
+  width: clamp(80px, 10vw, 140px);
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
+}
+
+/* Hide mobile hamburger menu on desktop */
+.nav-toggle {
+  display: none;
+}
+
+/* Rest of your desktop styles */

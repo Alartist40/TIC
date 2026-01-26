@@ -1,0 +1,110 @@
+/* ---------- SIMPLE RESET ---------- */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+/* Insert or update this section in your CSS */
+.content-container {
+    width: calc(100% - 14.28%); /* Subtract the 7th grid width from the total width */
+    margin-right: 0; /* Ensure no margin pushes content into the 7th grid */
+    padding: 1rem 2rem;
+}
+
+/* ---------- 7-COLUMN FLEX GRID ---------- */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    display: flex;              /* 2 children: main-area + sabbath-column-right */
+    min-height: 100vh;
+}
+
+.main-area {
+    flex: 85.72%;               /* 6/7 width */
+    padding: 1rem 2rem;
+}
+
+.sabbath-column-right {
+    top: 0;
+    right: 0;
+    width: 14.28%;              /* 1/7 width */
+    height: 100vh;              /* full viewport height */
+    background: linear-gradient(to bottom, #1e3a8a, #60a5fa); /* red → white fade */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 2rem;
+    z-index: 100;
+}
+
+.sda-logo {
+    width: 70%;
+    max-width: 90px;
+    filter: brightness(0) invert(1); /* ensures white logo on any background */
+}
+
+/* ---------- BASIC LOOK ---------- */
+header {
+    background: #1e3a8a;
+    color: #ffffff;
+    padding: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+nav {
+    background: #e0e7ff;
+    padding: .5rem 1.5rem;
+}
+nav a {
+    margin-right: 1rem;
+    text-decoration: none;
+    color: #1e3a8a;
+    font-weight: 600;
+}
+section { margin: 2rem 0; }
+
+/*Ensuring the 7th Grid Touches the Bottom*/
+body {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-area {
+    flex: 1; /* Takes remaining space */
+    margin-right: 14.28%; /* Make space for the 7th grid */
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f3f4f6;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 768px) {
+    body { flex-direction: column; }
+    .sabbath-column-right {
+        width: 100%;
+        height: 70px;
+        border-top: 4px solid #f59e0b;   /* gold top border */
+        padding-top: 0;
+        align-items: center;
+    }
+    .sda-logo { max-width: 50px; }
+}
+
+
+/* ---------- PASTOR PROFILE ---------- */
+.pastor-profile {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.pastor-photo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo International Seventh-day Adventist Church</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="grid-container">
+        <!-- Main Content Area (6/7) -->
+        <main class="main-content">
+            <header class="site-header">
+                <div class="header-content">
+                    <div class="logo-text">
+                        <h1>Tokyo International</h1>
+                        <h2>Seventh-day Adventist Church</h2>
+                    </div>
+                    <nav id="main-nav">
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#ministries">Ministries</a></li>
+                            <li><a href="#sermons">Sermons</a></li>
+                            <li><a href="#visit">Visit</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+            <section id="hero" class="hero-section">
+                <div class="hero-content">
+                    <h1 id="multilingual-welcome" class="fade-in">WELCOME</h1>
+                    <p class="subtitle">To Grace Community Church</p>
+                    <p class="description">Join us as we gather together to worship, grow in faith, and serve our community.</p>
+                    <a href="#visit" class="cta-button">Plan Your Visit</a>
+                </div>
+            </section>
+
+            <section id="about" class="content-section">
+                <!-- Dynamically populated -->
+                <div class="loading">Loading About...</div>
+            </section>
+
+            <section id="ministries" class="content-section">
+                <h2>Ministries</h2>
+                <div id="ministries-grid" class="cards-grid">
+                     <div class="loading">Loading Ministries...</div>
+                </div>
+            </section>
+
+            <section id="sermons" class="content-section">
+                <h2>Watch & Listen</h2>
+                <div id="sermons-container"></div>
+            </section>
+
+            <section id="visit" class="content-section">
+                <h2>Visit Us</h2>
+                <div id="schedule-container">
+                     <div class="loading">Loading Schedule...</div>
+                </div>
+                <div class="calendar-embed">
+                    <!-- Placeholder for Map/Calendar -->
+                </div>
+            </section>
+
+            <footer>
+                <p>&copy; <span id="year"></span> Tokyo International Seventh-day Adventist Church.</p>
+            </footer>
+        </main>
+
+        <!-- Sabbath Column (1/7) -->
+        <aside class="sabbath-column">
+            <div class="sabbath-content">
+                <div class="sabbath-logo">
+                    <!-- SVG Logo Placeholder -->
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 10 L60 40 L90 50 L60 60 L50 90 L40 60 L10 50 L40 40 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
