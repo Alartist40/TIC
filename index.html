@@ -1,89 +1,556 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tokyo International Seventh-day Adventist Church</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
+    <!-- 7-Column Grid Container -->
     <div class="grid-container">
-        <!-- Main Content Area (6/7) -->
-        <main class="main-content">
-            <header class="site-header">
-                <div class="header-content">
-                    <div class="logo-text">
-                        <h1>Tokyo International</h1>
-                        <h2>Seventh-day Adventist Church</h2>
+        <!-- Main Content (6/7) -->
+        <main class="content-sixth">
+            <!-- Enhanced Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <div class="titles">
+                    <h1>Tokyo International</h1>
+                    <h1>Seventh-day Adventist Church</h1>
+                </div>
+                <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#ministries">Ministries</a></li>
+                    <li><a href="#sermons">Sermons</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#visit">Visit Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Enhanced Hero Section -->
+            <section id="hero" class="hero">
+                <h2 class="welcome" id="welcome-text">WELCOME</h2>
+                <div class="language-subtitle" id="language-subtitle">English</div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="about">
+                <h2>About TIC</h2>
+
+                <!-- Mission/Vision/Values Card -->
+                <div class="card">
+                    <h3>Our Mission and Vision</h3>
+                    <h4>Our Mission</h4>
+                    <p>To create a vibrant, multicultural community of believers who worship God in spirit and truth,
+                        grow together in faith, and share the gospel message with the international community in Tokyo.
+                    </p>
+                    <h4>Our Vision</h4>
+                    <p>To be a beacon of hope and love in Tokyo, where people from all nations come together to
+                        experience God's transforming power, find belonging in Christ-centered community, and are
+                        equipped to serve as disciples in their home countries and beyond.</p>
+                    <h4>Our Values</h4>
+                    <ul>
+                        <li><strong>Biblical Truth:</strong> Grounding everything we do in God's Word</li>
+                        <li><strong>Multicultural Unity:</strong> Celebrating diversity while united in Christ</li>
+                        <li><strong>Authentic Worship:</strong> Genuine praise and heartfelt devotion</li>
+                        <li><strong>Community Building:</strong> Creating meaningful relationships across cultures</li>
+                        <li><strong>Global Mission:</strong> Supporting worldwide gospel outreach</li>
+                        <li><strong>Compassionate Service:</strong> Meeting practical needs with Christ's love</li>
+                    </ul>
+                    <button class="more-btn" data-content="mission">Read More</button>
+                </div>
+
+                <!-- Pastor Card -->
+                <div class="card about-card">
+                    <h3>Our Church Pastor</h3>
+
+                    <div class="pastor-verse-row">
+                        <div class="pastor-square">
+                            <img src="images/pastor_profile_pic.webp" alt="Pastor Guenji Imayuki">
+                        </div>
+
+                        <div class="verse-box">
+                            <p class="verse">
+                                "For as the rain comes down, and the snow from heaven,<br>
+                                And do not return there,<br>
+                                But water the earth,<br>
+                                And make it bring forth and bud,<br>
+                                That it may give seed to the sower<br>
+                                And bread to the eater,<br>
+                                So shall My word be that goes forth from My mouth;<br>
+                                It shall not return to Me void,<br>
+                                But it shall accomplish what I please,<br>
+                                And it shall prosper in the thing for which I sent it."
+                            </p>
+                            <span class="ref">— Isaiah 55:10-11</span>
+                        </div>
                     </div>
-                    <nav id="main-nav">
-                        <ul>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#ministries">Ministries</a></li>
-                            <li><a href="#sermons">Sermons</a></li>
-                            <li><a href="#visit">Visit</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
 
-            <section id="hero" class="hero-section">
-                <div class="hero-content">
-                    <h1 id="multilingual-welcome" class="fade-in">WELCOME</h1>
-                    <p class="subtitle">To Grace Community Church</p>
-                    <p class="description">Join us as we gather together to worship, grow in faith, and serve our community.</p>
-                    <a href="#visit" class="cta-button">Plan Your Visit</a>
+                    <div class="pastor-info">
+                        <h4>Pastor Guenji Imayuki</h4>
+                        <p>Pastor Guenji Imayuki is a second-generation Japanese born in Brazil. He graduated with a
+                            degree in aeronautical engineering at ITA (Air Force Institute of Technology) and worked in
+                            the financial area for a few years. Despite the comfortable lifestyle, he reached a turning
+                            point in his career and understood that it was a call to ministry.</p>
+                        <p>He served as district pastor for 7 years in Brazil, the last one as the inter-conference
+                            district of Japanese churches. Then, he accepted a call to be director of Resident
+                            Foreigners Evangelism at JUC and Latino churches district, including Tokai Christian Center,
+                            Isesaki, Chiba Latino, and church planting project at Suwa.</p>
+                        <p>He enjoys digging deeper into the Word of God believing in its power to touch our hearts, as
+                            stated in his favorite Bible passage.</p>
+                    </div>
+
+                    <div class="pastor-info">
+                        <h4>Eliane Hosokawa Imayuki</h4>
+                        <p>Eliane Hosokawa Imayuki comes from a pastoral family and all her 3 siblings also serve the
+                            church. She graduated college of Letters at the most prestigious university in Brazil, USP,
+                            and besides teaching career at all levels of Seventh-day Adventist schools she authored
+                            Portuguese textbooks adopted nationwide by our denominational school network.</p>
+                        <p>She is still updating the textbooks remotely, but her current passion is to implement the
+                            center of influence model in our churches and is happy to have all four children living
+                            close now in Tokyo.</p>
+                    </div>
+                    <button class="more-btn" data-content="pastor">Read More About Pastoral Family</button>
                 </div>
             </section>
 
-            <section id="about" class="content-section">
-                <!-- Dynamically populated -->
-                <div class="loading">Loading About...</div>
-            </section>
-
-            <section id="ministries" class="content-section">
+            <!-- Ministries Section -->
+            <section id="ministries" class="ministries">
                 <h2>Ministries</h2>
-                <div id="ministries-grid" class="cards-grid">
-                     <div class="loading">Loading Ministries...</div>
+
+                <div class="card">
+                    <h3>Media Ministry</h3>
+                    <p>Transforming pixels into pulpits. Our media team brings the gospel into the digital age,
+                        live-streaming services to reach global audiences and creating content that inspires faith
+                        beyond our walls. Join us in harnessing technology for God's glory.</p>
+                    <button class="more-btn" data-content="media-ministry">Media Ministry Details</button>
+                </div>
+
+                <div class="card">
+                    <h3>Youth Ministry</h3>
+                    <p>More than a program—a revolution. We're empowering teens to own their faith through dynamic
+                        worship, authentic community, and mission experiences that turn belief into action. This is
+                        where faith gets real.</p>
+                    <div class="sub-cards">
+                        <div class="card">
+                            <h4>Pathfinders</h4>
+                            <p>Where adventure meets discipleship! Through camping, honors, and community service, we're
+                                building the next generation of Christian leaders.</p>
+                        </div>
+                        <div class="card">
+                            <h4>Adventurers</h4>
+                            <p>Fun, faith, and friendship for young children through engaging activities and Bible
+                                learning.</p>
+                        </div>
+                        <div class="card">
+                            <h4>Children's Ministry</h4>
+                            <p>Safe, creative, Bible-centered classes where children learn about Jesus in
+                                age-appropriate ways.</p>
+                        </div>
+                    </div>
+                    <button class="more-btn" data-content="youth-ministry">Youth Ministry Calendar</button>
+                </div>
+
+                <div class="card">
+                    <h3>Music Ministry</h3>
+                    <p>Your instrument, God's voice. Whether you sing or play, join a community where melodies become
+                        worship and talents become offerings. Help us create moments where heaven feels just a little
+                        closer.</p>
+                    <button class="more-btn" data-content="music-ministry">Music Schedule</button>
+                </div>
+
+                <div class="card">
+                    <h3>Health Ministry</h3>
+                    <p>Honoring God's temple—your body. We believe whole-person health is worship. Through cooking
+                        classes, fitness groups, and wellness seminars, we're building a healthier congregation from the
+                        inside out.</p>
+                    <button class="more-btn" data-content="health-ministry">Health Programs</button>
                 </div>
             </section>
 
-            <section id="sermons" class="content-section">
-                <h2>Watch & Listen</h2>
-                <div id="sermons-container"></div>
+            <!-- Sermons Section -->
+            <section id="sermons" class="sermons">
+                <h2>Sermons</h2>
+
+                <div class="card btn-frame">
+                    <h3>Join Us Live on YouTube</h3>
+                    <p>Every Sabbath we stream our worship service—click below to watch our live streams and past
+                        sermons.</p>
+                    <a class="gold-btn" href="https://www.youtube.com/@liftupyourvoicemediaminist7959/streams"
+                        target="_blank" rel="noopener">Watch on YouTube</a>
+                </div>
+
+                <div class="card">
+                    <h3>Join Us for Worship</h3>
+                    <p>You can join our services both in person and online. We stream every Sabbath morning and you're
+                        always welcome to worship with our multicultural community.</p>
+                    <button class="more-btn" data-content="bulletin">This Week's Bulletin</button>
+                </div>
             </section>
 
-            <section id="visit" class="content-section">
+            <!-- Events Section -->
+            <section id="events" class="events">
+                <h2>Upcoming Events</h2>
+
+                <!-- Google Calendar Integration -->
+                <div class="card">
+                    <h3>Church Calendar</h3>
+                    <p>Stay updated with all our church activities and events through our Google Calendar.</p>
+                    <div class="calendar-container">
+                        <iframe
+                            src="https://calendar.google.com/calendar/embed?src=OGEwYzIyM2Y0MWI1Mzg1MGQ3NWYxMTMzNTYxNTcwNTI5ZDE4Y2EyYWJjZmMzMzExYzlkYzc5NThhMmQwYjE3ZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&ctz=Asia%2FTokyo"
+                            style="border:0" width="100%" height="400" frameborder="0" scrolling="no">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Event Posters from Google Drive -->
+                <div class="card">
+                    <h3>Event Posters</h3>
+                    <p>Check out our upcoming events with these visual posters. Click on any poster to see more details.
+                    </p>
+                    <div class="event-posters">
+                        <!-- Example event poster - you can add more as needed -->
+                        <div class="poster-card">
+                            <img src="https://drive.google.com/thumbnail?id=YOUR_GOOGLE_DRIVE_FILE_ID&sz=w1000"
+                                alt="Upcoming Church Event" class="poster-image">
+                            <div class="poster-info">
+                                <h4>Event Title</h4>
+                                <p class="event-date">Date: Coming Soon</p>
+                                <p class="event-description">Description of the event will appear here.</p>
+                            </div>
+                        </div>
+                        <!-- Add more poster-card elements for each event -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Visit Us Section -->
+            <section id="visit" class="visit">
                 <h2>Visit Us</h2>
-                <div id="schedule-container">
-                     <div class="loading">Loading Schedule...</div>
+
+                <div class="card">
+                    <h3>Thank You for Wanting to Visit Us!</h3>
+                    <p>We are located on the ground floor of Tokyo Central Seventh-day Adventist Church in Harajuku,
+                        behind the Laforet shopping mall.</p>
                 </div>
-                <div class="calendar-embed">
-                    <!-- Placeholder for Map/Calendar -->
+
+                <div class="card">
+                    <h3>Service Times</h3>
+                    <div class="table-wrapper">
+                        <table class="service-table">
+                            <thead>
+                                <tr>
+                                    <th>Program</th>
+                                    <th>Day & Time</th>
+                                    <th>Location</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Sabbath School</td>
+                                    <td>Saturdays 9:00 – 10:30</td>
+                                    <td>Assembly Hall (1F)</td>
+                                </tr>
+                                <tr>
+                                    <td>Divine Service</td>
+                                    <td>Saturdays 10:30 – 12:00</td>
+                                    <td>Assembly Hall (1F)</td>
+                                </tr>
+                                <tr>
+                                    <td>Afternoon Program</td>
+                                    <td>Saturdays 14:00 – 16:00</td>
+                                    <td>Assembly Hall (1F)</td>
+                                </tr>
+                                <tr>
+                                    <td>Children's Afternoon Program</td>
+                                    <td>Saturdays 14:00 – 16:00</td>
+                                    <td>Class Room (B1)</td>
+                                </tr>
+                                <tr>
+                                    <td>Bible Studies (Children/Teens)</td>
+                                    <td>Saturdays 15:00 – 16:00</td>
+                                    <td>Class Room (B1)</td>
+                                </tr>
+                                <tr>
+                                    <td>Midweek Connection</td>
+                                    <td>Wednesdays 19:30 – 20:30</td>
+                                    <td>Zoom 808-212-7314</td>
+                                </tr>
+                                <tr>
+                                    <td>Tagalog Bible Studies</td>
+                                    <td>Tuesdays/Thursdays 21:00 – 22:00</td>
+                                    <td>Zoom 381-269-2541</td>
+                                </tr>
+                                <tr>
+                                    <td>Vespers</td>
+                                    <td>Fridays 19:30 – 20:30</td>
+                                    <td>Zoom 808-212-7314</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="more-btn" data-content="bulletin">Download Weekly Bulletin</button>
+                </div>
+
+                <div class="card">
+                    <h3>How to Find Us</h3>
+                    <h4>Train Travel</h4>
+                    <p>Train travel is convenient and you can go anywhere but for first-time visitors it can be
+                        overwhelming. Please take the time to study the route between your accommodation and Harajuku to
+                        not be late and miss the service.</p>
+
+                    <h4>From Harajuku JR Train Station</h4>
+                    <ol>
+                        <li>Take the Omotesando exit (stairs going up) to leave the station.</li>
+                        <li>Cross the road in front of the cosmetics store and turn right.</li>
+                        <li>Follow the footpath to the left.</li>
+                        <li>Walk down the footpath for about 50 meters. You will pass Nike on the left.</li>
+                        <li>Take the small street (Church Avenue) to the left immediately after Softbank.</li>
+                        <li>Over the rise you will see the church building on the right. The first entrance is the
+                            Japanese-language worship.</li>
+                        <li>Continue around the bend to the side entrance. The entrance has a coloured stained-glass
+                            window.</li>
+                        <li>The Tokyo International Seventh-day Adventist Church (TIC) is on the 1st floor.</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3>Address & Contact</h3>
+                    <p>
+                        1-11-1 Jingumae, Shibuya, Tokyo, Japan 150-0001<br>
+                        Tel: +81 3-3402-1517<br>
+                        Fax: +81 3-3404-2461<br>
+                        Email: <a href="mailto:info@tokyoadventist.org">info@tokyoadventist.org</a>
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Connect With Us</h3>
+                    <p>
+                        YouTube: <a href="https://www.youtube.com/@liftupyourvoicemediaminist7959/streams"
+                            target="_blank" rel="noopener">Tokyo Adventist Church</a><br>
+                        Instagram: <a href="https://instagram.com/tokyosdac" target="_blank"
+                            rel="noopener">@tokyosdac</a>
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Location Map</h3>
+                    <p><a href="https://maps.app.goo.gl/j6Au8jCJPws2x1HD9" target="_blank" rel="noopener"
+                            class="gold-btn" style="display: inline-block; margin-bottom: 1rem;">Open in Google Maps
+                            App</a></p>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.689460241809!2d139.70263531525887!3d35.66947618019585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cb9f8a3c3b5%3A0x4a5e78be6c4e3d3d!2s1%20Chome-11-1%20Jingumae%2C%20Shibuya%20City%2C%20Tokyo%20150-0001!5e0!3m2!1sen!2sjp!4v1700000000000!5m2!1sen!2sjp"
+                            width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
                 </div>
             </section>
 
+            <!-- Footer -->
             <footer>
                 <p>&copy; <span id="year"></span> Tokyo International Seventh-day Adventist Church.</p>
+                <p>Designed with the Creation Grid. Adventist symbol &copy; General Conference of Seventh-day
+                    Adventists.</p>
             </footer>
         </main>
 
         <!-- Sabbath Column (1/7) -->
-        <aside class="sabbath-column">
-            <div class="sabbath-content">
-                <div class="sabbath-logo">
-                    <!-- SVG Logo Placeholder -->
-                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M50 10 L60 40 L90 50 L60 60 L50 90 L40 60 L10 50 L40 40 Z" fill="currentColor"/>
-                    </svg>
-                </div>
-            </div>
+        <aside class="sabbath-column" aria-hidden="true">
+            <img src="images/logo/adventist-symbol--white.svg" alt="Seventh-day Adventist Symbol" class="sabbath-logo">
         </aside>
     </div>
 
+    <!-- Modal System for Google Sheets Content -->
+    <div id="modal-overlay" class="modal-overlay" style="display: none;">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-content" id="modal-content">
+                <!-- Dynamic content will be loaded here from Google Sheets -->
+                <div class="modal-loading">
+                    <p>Loading content from Google Sheets...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top" style="display: none;">
+        ↑
+    </button>
+
+    <script>
+        // Enhanced navigation and scrolling functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fixed navigation scrolling with header offset
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+
+                    if (target) {
+                        const headerHeight = document.querySelector('.main-nav').offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+
+                        // Close mobile menu if open
+                        const links = document.querySelector('.nav-links');
+                        const toggle = document.querySelector('.nav-toggle');
+                        if (links.classList.contains('open')) {
+                            links.classList.remove('open');
+                            toggle.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            });
+
+            // Mobile navigation toggle
+            const toggle = document.querySelector('.nav-toggle');
+            const links = document.querySelector('.nav-links');
+
+            if (toggle) {
+                toggle.addEventListener('click', () => {
+                    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+                    toggle.setAttribute('aria-expanded', !expanded);
+                    links.classList.toggle('open');
+                });
+            }
+
+            // Enhanced Back to Top functionality
+            const backToTopButton = document.getElementById('back-to-top');
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Show/hide back to top button with smooth transitions
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'block';
+                    setTimeout(() => {
+                        backToTopButton.style.opacity = '1';
+                    }, 10);
+                } else {
+                    backToTopButton.style.opacity = '0';
+                    setTimeout(() => {
+                        backToTopButton.style.display = 'none';
+                    }, 300);
+                }
+            });
+
+            // Enhanced Multilingual Welcome System
+            const welcomeSystem = {
+                welcomeText: document.getElementById('welcome-text'),
+                languageSubtitle: document.getElementById('language-subtitle'),
+                languages: [
+                    { text: 'WELCOME', language: 'English' },
+                    { text: 'ようこそ', language: 'Japanese' },
+                    { text: '欢迎', language: 'Chinese' },
+                    { text: '환영합니다', language: 'Korean' },
+                    { text: 'BIENVENIDO', language: 'Spanish' },
+                    { text: 'BEM-VINDO', language: 'Portuguese' },
+                    { text: 'BIENVENUE', language: 'French' }
+                ],
+                currentIndex: 0,
+
+                init() {
+                    setInterval(() => {
+                        this.rotateText();
+                    }, 3000);
+                },
+
+                rotateText() {
+                    this.currentIndex = (this.currentIndex + 1) % this.languages.length;
+                    const current = this.languages[this.currentIndex];
+
+                    // Smooth fade transition
+                    this.welcomeText.style.opacity = '0';
+                    this.languageSubtitle.style.opacity = '0';
+
+                    setTimeout(() => {
+                        this.welcomeText.textContent = current.text;
+                        this.languageSubtitle.textContent = current.language;
+
+                        this.welcomeText.style.opacity = '1';
+                        this.languageSubtitle.style.opacity = '1';
+                    }, 500);
+                }
+            };
+
+            // Initialize multilingual system
+            welcomeSystem.init();
+
+            // Enhanced Modal System for Google Sheets Integration
+            const modal = {
+                overlay: document.getElementById('modal-overlay'),
+                content: document.getElementById('modal-content'),
+                closeBtn: document.querySelector('.modal-close'),
+
+                init() {
+                    if (!this.closeBtn) return;
+                    this.closeBtn.addEventListener('click', () => this.close());
+                    this.overlay.addEventListener('click', (e) => {
+                        if (e.target === this.overlay) this.close();
+                    });
+                    document.addEventListener('keydown', (e) => {
+                        if (e.key === 'Escape') this.close();
+                    });
+                },
+
+                open(content) {
+                    this.content.innerHTML = content;
+                    this.overlay.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+
+                    setTimeout(() => {
+                        this.overlay.style.opacity = '1';
+                    }, 10);
+                },
+
+                close() {
+                    this.overlay.style.opacity = '0';
+                    setTimeout(() => {
+                        this.overlay.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                }
+            };
+
+            modal.init();
+
+            document.querySelectorAll('.more-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const contentKey = this.getAttribute('data-content');
+                    // Use dynamic content if available, otherwise loading or fallback
+                    const dynamicHTML = window.getDynamicContent ? window.getDynamicContent(contentKey) : 'Loading...';
+                    modal.open(dynamicHTML);
+                });
+            });
+
+            // Set current year
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
     <script src="js/script.js"></script>
 </body>
+
 </html>
