@@ -57,8 +57,7 @@ exports.handler = async (event) => {
             statusCode: 200,
             headers: {
                 'Content-Type': 'text/csv; charset=utf-8',
-                'Cache-Control': 'max-age=3600, public', // Cache for 1 hour
-                'Access-Control-Allow-Origin': '*'
+                'Cache-Control': 'public, max-age=300, stale-while-revalidate=600'
             },
             body: csv
         };

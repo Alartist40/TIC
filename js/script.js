@@ -284,12 +284,16 @@ function renderSchedule() {
     store.schedule.forEach(item => {
         if (!item.Program) return;
 
+        // Combine location and notes for cleaner design and matching columns
+        const locationHTML = item.Notes
+            ? `${sanitizeHTML(item.Location || '')}<br><small>${sanitizeHTML(item.Notes)}</small>`
+            : sanitizeHTML(item.Location || '');
+
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${sanitizeHTML(item.Program)}</td>
             <td>${sanitizeHTML(item.Time)}</td>
-            <td>${sanitizeHTML(item.Location || '')}</td>
-            ${item.Notes ? `<td>${sanitizeHTML(item.Notes)}</td>` : ''}
+            <td>${locationHTML}</td>
         `;
         container.appendChild(row);
     });
@@ -308,10 +312,22 @@ function renderEvents() {
         return;
     }
 
-    // Sort events by date (newest first)
-    const sortedEvents = [...store.events].sort((a, b) => {
-        return new Date(b.Date) - new Date(a.Date);
-    });
+    // Get today at start of day
+    const startOfToday = new Date();
+    startOfToday.setHours(0, 0, 0, 0);
+
+    // Filter to future/today events and sort soonest-first
+    const sortedEvents = store.events
+        .filter(e => {
+            const eventDate = new Date(e.Date);
+            return !isNaN(eventDate) && eventDate >= startOfToday;
+        })
+        .sort((a, b) => new Date(a.Date) - new Date(b.Date));
+
+    if (sortedEvents.length === 0) {
+        container.innerHTML = '<p class="no-events">No upcoming events. Check back soon!</p>';
+        return;
+    }
 
     sortedEvents.forEach(event => {
         if (!event.Title || !event.Date) return;
@@ -323,14 +339,14 @@ function renderEvents() {
 
         card.innerHTML = `
             <div class="poster-image">
-                ${hasImage ? `<img src="${event.ImageURL}" alt="${event.Title}" loading="lazy">` : '<div class="placeholder-image">📅</div>'}
+                ${hasImage ? `<img src="${escapeAttr(event.ImageURL)}" alt="${escapeAttr(event.Title)}" loading="lazy">` : '<div class="placeholder-image">📅</div>'}
             </div>
             <div class="poster-content">
                 <h3>${sanitizeHTML(event.Title)}</h3>
                 <p class="event-date">📅 ${formatDate(event.Date)}</p>
                 <p class="event-time">🕐 ${sanitizeHTML(event.Time)}</p>
                 <p class="event-description">${sanitizeHTML(event.Description || '')}</p>
-                ${event.RegistrationLink ? `<a href="${event.RegistrationLink}" class="register-btn" target="_blank">Register</a>` : ''}
+                ${isSafeUrl(event.RegistrationLink) ? `<a href="${escapeAttr(event.RegistrationLink)}" class="register-btn" target="_blank" rel="noopener noreferrer">Register</a>` : ''}
             </div>
         `;
         container.appendChild(card);
@@ -623,6 +639,28 @@ function sanitizeHTML(str) {
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
+}
+
+// Escape for HTML attributes (prevents breaking quotes)
+function escapeAttr(str) {
+    if (!str) return '';
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+// Validate URLs (allows http/https/mailto only)
+function isSafeUrl(url) {
+    if (!url) return false;
+    try {
+        const parsed = new URL(url, window.location.href);
+        return ['https:', 'http:', 'mailto:'].includes(parsed.protocol);
+    } catch {
+        return false;
+    }
 }
 
 function extractYoutubeID(url) {

@@ -12,9 +12,9 @@
   "author": "Al & Jules",
   "license": "MIT",
   "devDependencies": {
-    "netlify-cli": "^latest"
+    "netlify-cli": "^17.0.0"
   },
   "engines": {
-    "node": "18.x"
+    "node": "22.x"
   }
 }
