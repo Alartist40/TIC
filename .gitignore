@@ -1,0 +1,21 @@
+# Environment
+node_modules/
+.env
+.env.local
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build artifacts
+dist/
+build/
+.cache/
+
+# Netlify
+.netlify/
+netlify.toml.bak

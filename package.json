@@ -1,0 +1,20 @@
+{
+  "name": "tic-church-website",
+  "version": "1.0.0",
+  "description": "Tokyo International Seventh-day Adventist Church Website - Secure, Staff-Managed CMS",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'No build step needed for static site'",
+    "deploy": "netlify deploy --prod",
+    "test": "echo 'Run browser tests manually'"
+  },
+  "keywords": ["church", "website", "netlify", "google-sheets", "cms"],
+  "author": "Al & Jules",
+  "license": "MIT",
+  "devDependencies": {
+    "netlify-cli": "^latest"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
