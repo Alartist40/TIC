@@ -5,15 +5,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tokyo International Seventh-day Adventist Church</title>
-    <meta name="description" content="Tokyo International Seventh-day Adventist Church - Welcoming all to worship God in spirit and truth">
+    <meta name="description" content="A multicultural community of believers united in Christ. Join us for worship every Saturday at 10:00 AM.">
     <meta name="theme-color" content="#1976d2">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/logo/favicon.svg">
+    <link rel="apple-touch-icon" href="images/logo/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tokyoadventist.org/">
+    <meta property="og:title" content="Tokyo International Seventh-day Adventist Church">
+    <meta property="og:description" content="A multicultural community of believers united in Christ. Join us for worship every Saturday at 10:00 AM.">
+    <meta property="og:image" content="https://tokyoadventist.org/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://tokyoadventist.org/">
+    <meta property="twitter:title" content="Tokyo International SDA Church">
+    <meta property="twitter:description" content="A multicultural community of believers united in Christ.">
+    <meta property="twitter:image" content="https://tokyoadventist.org/images/twitter-image.jpg">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Church",
+      "name": "Tokyo International Seventh-day Adventist Church",
+      "alternateName": "TIC Tokyo",
+      "url": "https://tokyoadventist.org",
+      "logo": "https://tokyoadventist.org/images/logo/tic-logo.png",
+      "image": "https://tokyoadventist.org/images/og-image.jpg",
+      "description": "A multicultural community of believers who worship God in spirit and truth",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1-11-1 Jingumae",
+        "addressLocality": "Shibuya",
+        "addressRegion": "Tokyo",
+        "postalCode": "150-0001",
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 35.669476,
+        "longitude": 139.702635
+      },
+      "telephone": "+81-3-3402-1517",
+      "email": "info@tokyoadventist.org",
+      "sameAs": [
+        "https://www.facebook.com/TICSDAChurch",
+        "https://www.youtube.com/@TokyoInternationalSDAChurch",
+        "https://www.instagram.com/ticsda"
+      ]
+    }
+    </script>
 </head>
 
 <body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h2>Loading TIC Website...</h2>
+        </div>
+    </div>
+
     <!-- 7-Column Grid Container -->
     <div class="grid-container">
         <!-- Main Content (6/7) -->
@@ -51,63 +113,21 @@
                 <h2>About TIC</h2>
 
                 <!-- Mission/Vision/Values Card -->
-                <div class="card">
+                <div class="card mission-card">
                     <h3>Our Mission and Vision</h3>
-                    <h4>Our Mission</h4>
-                    <p>To create a vibrant, multicultural community of believers who worship God in spirit and truth,
-                        grow together in faith, and share the gospel message with the international community in Tokyo.
-                    </p>
-                    <h4>Our Vision</h4>
-                    <p>To be a beacon of hope and love in Tokyo, where people from all nations come together to
-                        experience God's transforming power, find belonging in Christ-centered community, and are
-                        equipped to serve as disciples in their home countries and beyond.</p>
-                    <h4>Our Values</h4>
-                    <ul>
-                        <li><strong>Biblical Truth:</strong> Grounding everything we do in God's Word</li>
-                        <li><strong>Multicultural Unity:</strong> Celebrating diversity while united in Christ</li>
-                        <li><strong>Authentic Worship:</strong> Genuine praise and heartfelt devotion</li>
-                        <li><strong>Community Building:</strong> Creating meaningful relationships across cultures</li>
-                        <li><strong>Global Mission:</strong> Supporting worldwide gospel outreach</li>
-                        <li><strong>Compassionate Service:</strong> Meeting practical needs with Christ's love</li>
-                    </ul>
-                    <button class="more-btn" data-content="mission">Read More</button>
+                    <div class="mission-content">
+                        <!-- Populated by JavaScript from Google Sheets -->
+                        <div class="loading-spinner">Loading...</div>
+                    </div>
                 </div>
 
                 <!-- Pastor Card -->
                 <div class="card about-card">
                     <h3>Our Church Pastor</h3>
-
-                    <div class="pastor-verse-row">
-                        <div class="pastor-square">
-                            <img src="images/pastor_profile_pic.webp" alt="Pastor">
-                        </div>
-
-                        <div class="verse-box">
-                            <p class="verse">
-                                "For as the rain comes down, and the snow from heaven,<br>
-                                And do not return there,<br>
-                                But water the earth,<br>
-                                And make it bring forth and bud,<br>
-                                That it may give seed to the sower<br>
-                                And bread to the eater,<br>
-                                So shall My word be that goes forth from My mouth;<br>
-                                It shall not return to Me void,<br>
-                                But it shall accomplish what I please,<br>
-                                And it shall prosper in the thing for which I sent it."
-                            </p>
-                            <span class="ref">— Isaiah 55:10-11</span>
-                        </div>
+                    <div class="pastor-content">
+                        <!-- Populated by JavaScript from Google Sheets -->
+                        <div class="loading-spinner">Loading...</div>
                     </div>
-
-                    <div class="pastor-info">
-                        <h4 class="pastor-name">Pastor Guenji Imayuki</h4>
-                        <p class="pastor-bio">Pastor Guenji Imayuki is a second-generation Japanese born in Brazil. He graduated with a
-                            degree in aeronautical engineering at ITA (Air Force Institute of Technology) and worked in
-                            the financial area for a few years. Despite the comfortable lifestyle, he reached a turning
-                            point in his career and understood that it was a call to ministry.</p>
-                    </div>
-
-                    <button class="more-btn" data-content="pastor">Read More About Pastoral Family</button>
                 </div>
             </section>
 
@@ -196,9 +216,14 @@
             </footer>
         </main>
 
-        <!-- Sabbath Column (1/7) -->
+        <!-- Sabbath Column (1/7) - FIXED VERSION -->
         <aside class="sabbath-column" aria-hidden="true">
-            <img src="images/logo/adventist-symbol--white.svg" alt="Seventh-day Adventist Symbol" class="sabbath-logo">
+            <div class="sabbath-logo-container">
+                <img src="images/logo/adventist-symbol--white.svg" 
+                     alt="Seventh-day Adventist Symbol" 
+                     class="sabbath-logo"
+                     onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg viewBox=%220 0 100 100%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22none%22 stroke=%22white%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2220%22%3ESDA%3C/text%3E%3C/svg%3E'">
+            </div>
         </aside>
     </div>
 
@@ -221,6 +246,7 @@
     <!-- Back to Top Button -->
     <button class="back-to-top" aria-label="Back to top">↑</button>
 
+    <script src="js/calendar.js"></script>
     <script src="js/script.js"></script>
 </body>
 

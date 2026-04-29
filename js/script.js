@@ -117,41 +117,77 @@ async function fetchSheetData(url) {
 
 async function initializeApp() {
     console.log('Initializing TIC website...');
-
-    // Fetch all data in parallel
-    const [general, about, ministries, schedule, events, sermons] = await Promise.all([
-        fetchSheetData(API.sheets.general),
-        fetchSheetData(API.sheets.about),
-        fetchSheetData(API.sheets.ministries),
-        fetchSheetData(API.sheets.schedule),
-        fetchSheetData(API.sheets.events),
-        fetchSheetData(API.sheets.sermons)
-    ]);
-
-    // Populate store
-    general.forEach(item => {
-        if (item.Key) store.general[item.Key] = item.Value;
-    });
-
-    about.forEach(item => {
-        if (item.Key) store.about[item.Key] = item.Value;
-    });
-
-    store.ministries = ministries;
-    store.schedule = schedule;
-    store.events = events;
-    store.sermons = sermons;
-
-    console.log('Data loaded:', store);
-
-    // Render all content
-    renderAllContent();
-
-    // Initialize interactive features
-    initLanguageRotator();
-    initNavigation();
-    initModals();
-    initStaffMode();
+    
+    const loadingOverlay = document.getElementById('loading-overlay');
+    
+    try {
+        // Fetch all data in parallel
+        const [general, about, ministries, schedule, events, sermons] = await Promise.all([
+            fetchSheetData(API.sheets.general),
+            fetchSheetData(API.sheets.about),
+            fetchSheetData(API.sheets.ministries),
+            fetchSheetData(API.sheets.schedule),
+            fetchSheetData(API.sheets.events),
+            fetchSheetData(API.sheets.sermons)
+        ]);
+        
+        // Populate store
+        general.forEach(item => {
+            if (item.Key) store.general[item.Key] = item.Value;
+        });
+        
+        about.forEach(item => {
+            if (item.Key) store.about[item.Key] = item.Value;
+        });
+        
+        store.ministries = ministries;
+        store.schedule = schedule;
+        
+        // Merge with Google Calendar
+        const calendarEvents = await fetchGoogleCalendarEvents().catch(() => []);
+        store.events = [...events, ...calendarEvents]
+            .filter((event, index, self) =>
+                index === self.findIndex(e => 
+                    e.Title === event.Title && e.Date === event.Date
+                )
+            )
+            .sort((a, b) => new Date(a.Date) - new Date(b.Date));
+        
+        store.sermons = sermons;
+        
+        console.log('Data loaded:', store);
+        
+        // Render all content
+        renderAllContent();
+        
+        // Initialize interactive features
+        initLanguageRotator();
+        initNavigation();
+        initModals();
+        initStaffMode();
+        
+        // Hide loading overlay
+        if (loadingOverlay) {
+            loadingOverlay.classList.add('hidden');
+            setTimeout(() => loadingOverlay.style.display = 'none', 300);
+        }
+        
+    } catch (error) {
+        console.error('Failed to initialize app:', error);
+        
+        // Show error message
+        if (loadingOverlay) {
+            loadingOverlay.innerHTML = `
+                <div class="loading-content">
+                    <div class="error-message">
+                        <h4>Failed to Load Website</h4>
+                        <p>We're having trouble loading the church website. Please refresh the page or try again later.</p>
+                        <button onclick="location.reload()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #1976d2; color: white; border: none; border-radius: 4px; cursor: pointer;">Reload Page</button>
+                    </div>
+                </div>
+            `;
+        }
+    }
 }
 
 // ============================================
@@ -240,6 +276,11 @@ function renderAllContent() {
     renderSermons();
     renderAboutSection();
     renderYouTubeLive();
+
+    // Add animations
+    requestAnimationFrame(() => {
+        addFadeInAnimations();
+    });
 
     // Set current year in footer
     const yearSpan = document.getElementById('year');
@@ -502,20 +543,45 @@ function renderSermons() {
 // --- About Section ---
 
 function renderAboutSection() {
-    const pastorImage = document.querySelector('.pastor-square img');
-    const pastorName = document.querySelector('.pastor-name');
-    const pastorBio = document.querySelector('.pastor-bio');
-
-    if (store.about.PastorImage && pastorImage) {
-        pastorImage.src = store.about.PastorImage;
+    // Render Mission/Vision/Values
+    const missionCard = document.querySelector('.mission-content');
+    if (missionCard && store.about.Mission) {
+        missionCard.innerHTML = `
+            <div class="mission-section">
+                <h4>Our Mission</h4>
+                <p>${sanitizeHTML(store.about.Mission)}</p>
+            </div>
+            <div class="mission-section">
+                <h4>Our Vision</h4>
+                <p>${sanitizeHTML(store.about.Vision)}</p>
+            </div>
+            <div class="mission-section">
+                <h4>Our Values</h4>
+                <p>${sanitizeHTML(store.about.Values)}</p>
+            </div>
+        `;
     }
-
-    if (store.about.PastorName && pastorName) {
-        pastorName.textContent = store.about.PastorName;
-    }
-
-    if (store.about.PastorBio && pastorBio) {
-        pastorBio.textContent = store.about.PastorBio;
+    
+    // Render Pastor Info
+    const pastorCard = document.querySelector('.pastor-content');
+    if (pastorCard && store.about.PastorName) {
+        pastorCard.innerHTML = `
+            <div class="pastor-verse-row">
+                <div class="pastor-square">
+                    <img src="${store.about.PastorImage || 'images/pastor/pastor_profile_pic.webp'}" 
+                         alt="${sanitizeHTML(store.about.PastorName)}"
+                         onerror="this.src='images/pastor/pastor_profile_pic.webp'">
+                </div>
+                <div class="verse-box">
+                    <p class="verse">${sanitizeHTML(store.about.PastorVerseText || 'For as the rain comes down...')}</p>
+                    <span class="ref">— ${sanitizeHTML(store.about.PastorVerseRef || 'Isaiah 55:10-11')}</span>
+                </div>
+            </div>
+            <div class="pastor-info">
+                <h4 class="pastor-name">${sanitizeHTML(store.about.PastorName)}</h4>
+                <p class="pastor-bio">${sanitizeHTML(store.about.PastorBio)}</p>
+            </div>
+        `;
     }
 }
 
@@ -706,3 +772,11 @@ setInterval(() => {
     console.log('Refreshing data from Google Sheets...');
     initializeApp();
 }, 5 * 60 * 1000);
+
+function addFadeInAnimations() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, index) => {
+        card.classList.add('fade-in');
+        card.style.animationDelay = `${index * 0.1}s`;
+    });
+}

@@ -19,3 +19,4 @@ build/
 # Netlify
 .netlify/
 netlify.toml.bak
+scratch/
