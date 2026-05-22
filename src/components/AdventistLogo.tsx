@@ -1,7 +1,7 @@
 export function AdventistLogo() {
   return (
     <img
-      src="/adventist-symbol--white.png"
+      src={`${import.meta.env.BASE_URL}adventist-symbol--white.png`}
       alt="Seventh-day Adventist Church Symbol"
       className="w-full h-auto"
       style={{

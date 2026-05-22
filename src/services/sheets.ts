@@ -246,7 +246,7 @@ export const DEMO_ABOUT: AboutData = {
   Values: 'Bible-based teaching • Prayerful worship • Loving fellowship • Inclusive community • Mission-minded service • Healthful living',
   PastorName: 'Pastor Jonathan Kim',
   PastorBio: 'Pastor Jonathan has served the Tokyo International Church community since 2018. With a heart for multicultural ministry and a passion for sharing the gospel, he leads our congregation in English-speaking worship services every Sabbath. He holds a Master of Divinity from Andrews University and speaks English, Japanese, and Korean.',
-  PastorImage: '/pastor.png',
+  PastorImage: 'pastor.png',
   PastorVerseText: 'For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.',
   PastorVerseRef: 'Jeremiah 29:11',
 };

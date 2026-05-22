@@ -119,7 +119,7 @@ export function About({ about }: AboutProps) {
             <div className="pastor-square">
               {about?.PastorImage ? (
                 <img
-                  src={about.PastorImage}
+                  src={about.PastorImage.startsWith('http') ? about.PastorImage : `${import.meta.env.BASE_URL}${about.PastorImage}`}
                   alt={about.PastorName || 'Pastor'}
                   loading="lazy"
                   onError={(e) => {
